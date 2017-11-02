@@ -1,9 +1,8 @@
 package com.fyp.layim.domain.base;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import com.fyp.layim.common.util.IdUtil;
+
+import javax.persistence.*;
 
 /**
  * @author fyp
@@ -14,6 +13,7 @@ import javax.persistence.MappedSuperclass;
 public class DomainBase {
 
     public DomainBase(){
+        id = IdUtil.nextUserId();
         createAt =  System.currentTimeMillis();
     }
 
@@ -34,7 +34,6 @@ public class DomainBase {
     }
 
     @Id
-    @GeneratedValue
     private Long id;
     @Column(name = "create_at")
 

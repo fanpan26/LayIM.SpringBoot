@@ -13,6 +13,22 @@ import javax.persistence.Entity;
  */
 @Entity
 public class FriendGroup extends DomainBase {
+    public Long getUid() {
+        return uid;
+    }
+
+    public void setUid(Long uid) {
+        this.uid = uid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private Long uid;
 
     @Column(length = 20)

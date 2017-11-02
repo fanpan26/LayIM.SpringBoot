@@ -40,26 +40,9 @@
 
             //初始化接口
             init: {
-                url: 'json/getList.json'
+                url: '/layim/base/10000'
                 ,data: {}
             }
-
-            //或采用以下方式初始化接口
-            /*
-            ,init: {
-              mine: {
-                "username": "LayIM体验者" //我的昵称
-                ,"id": "100000123" //我的ID
-                ,"status": "online" //在线状态 online：在线、hide：隐身
-                ,"remark": "在深邃的编码世界，做一枚轻盈的纸飞机" //我的签名
-                ,"avatar": "a.jpg" //我的头像
-              }
-              ,friend: []
-              ,group: []
-            }
-            */
-
-
             //查看群员接口
             ,members: {
                 url: 'json/getMembers.json'
@@ -152,41 +135,41 @@
             layim.msgbox(5); //模拟消息盒子有新消息，实际使用时，一般是动态获得
 
             //添加好友（如果检测到该socket）
-            layim.addList({
-                type: 'group'
-                ,avatar: "http://tva3.sinaimg.cn/crop.64.106.361.361.50/7181dbb3jw8evfbtem8edj20ci0dpq3a.jpg"
-                ,groupname: 'Angular开发'
-                ,id: "12333333"
-                ,members: 0
-            });
-            layim.addList({
-                type: 'friend'
-                ,avatar: "http://tp2.sinaimg.cn/2386568184/180/40050524279/0"
-                ,username: '冲田杏梨'
-                ,groupid: 2
-                ,id: "1233333312121212"
-                ,remark: "本人冲田杏梨将结束AV女优的工作"
-            });
-
-            setTimeout(function(){
-                //接受消息（如果检测到该socket）
-                layim.getMessage({
-                    username: "Hi"
-                    ,avatar: "http://qzapp.qlogo.cn/qzapp/100280987/56ADC83E78CEC046F8DF2C5D0DD63CDE/100"
-                    ,id: "10000111"
-                    ,type: "friend"
-                    ,content: "临时："+ new Date().getTime()
-                });
-
-                /*layim.getMessage({
-                  username: "贤心"
-                  ,avatar: "http://tp1.sinaimg.cn/1571889140/180/40030060651/1"
-                  ,id: "100001"
-                  ,type: "friend"
-                  ,content: "嗨，你好！欢迎体验LayIM。演示标记："+ new Date().getTime()
-                });*/
-
-            }, 3000);
+//            layim.addList({
+//                type: 'group'
+//                ,avatar: "http://tva3.sinaimg.cn/crop.64.106.361.361.50/7181dbb3jw8evfbtem8edj20ci0dpq3a.jpg"
+//                ,groupname: 'Angular开发'
+//                ,id: "12333333"
+//                ,members: 0
+//            });
+//            layim.addList({
+//                type: 'friend'
+//                ,avatar: "http://tp2.sinaimg.cn/2386568184/180/40050524279/0"
+//                ,username: '冲田杏梨'
+//                ,groupid: 2
+//                ,id: "1233333312121212"
+//                ,remark: "本人冲田杏梨将结束AV女优的工作"
+//            });
+//
+//            setTimeout(function(){
+//                //接受消息（如果检测到该socket）
+//                layim.getMessage({
+//                    username: "Hi"
+//                    ,avatar: "http://qzapp.qlogo.cn/qzapp/100280987/56ADC83E78CEC046F8DF2C5D0DD63CDE/100"
+//                    ,id: "10000111"
+//                    ,type: "friend"
+//                    ,content: "临时："+ new Date().getTime()
+//                });
+//
+//                /*layim.getMessage({
+//                  username: "贤心"
+//                  ,avatar: "http://tp1.sinaimg.cn/1571889140/180/40030060651/1"
+//                  ,id: "100001"
+//                  ,type: "friend"
+//                  ,content: "嗨，你好！欢迎体验LayIM。演示标记："+ new Date().getTime()
+//                });*/
+//
+//            }, 3000);
         });
 
         //监听发送消息
@@ -230,7 +213,7 @@
 
         //监听聊天窗口的切换
         layim.on('chatChange', function(res){
-            var type = res.data.type;
+            /*var type = res.data.type;
             console.log(res.data.id)
             if(type === 'friend'){
                 //模拟标注好友状态
@@ -243,11 +226,8 @@
                     ,type: "group"
                     ,content: '模拟群员'+(Math.random()*100|0) + '加入群聊'
                 });
-            }
+            }*/
         });
-
-
-
     });
 </script>
 </body>

@@ -1,6 +1,7 @@
 package com.fyp.layim.common.util;
 
 import com.fyp.layim.domain.result.JsonResult;
+import com.fyp.layim.domain.result.LAYIM_ENUM;
 
 /**
  * @author fyp
@@ -17,4 +18,9 @@ public class ResultUtil {
     public static JsonResult fail(String msg){
         return new JsonResult(msg);
     }
+
+    public static JsonResult fail(LAYIM_ENUM layimEnum){
+        return new JsonResult(layimEnum.getCode(),layimEnum.getMsg(),null);
+    }
+
 }

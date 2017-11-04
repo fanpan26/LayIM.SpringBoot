@@ -10,7 +10,7 @@ import javax.persistence.*;
  * @project SpringBootLayIM
  */
 @MappedSuperclass
-public class DomainBase {
+public abstract class DomainBase {
 
     public DomainBase(){
         id = IdUtil.nextUserId();
@@ -34,6 +34,7 @@ public class DomainBase {
     }
 
     @Id
+    @Column(nullable = false)
     private Long id;
     @Column(name = "create_at")
 

@@ -4,6 +4,8 @@ import com.fyp.layim.domain.base.DomainBase;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * @author fyp
@@ -13,14 +15,6 @@ import javax.persistence.Entity;
  */
 @Entity
 public class FriendGroup extends DomainBase {
-    public Long getUid() {
-        return uid;
-    }
-
-    public void setUid(Long uid) {
-        this.uid = uid;
-    }
-
     public String getName() {
         return name;
     }
@@ -29,8 +23,18 @@ public class FriendGroup extends DomainBase {
         this.name = name;
     }
 
-    private Long uid;
-
     @Column(length = 20)
     private String name;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "uid",nullable = false)
+    private User user;
 }

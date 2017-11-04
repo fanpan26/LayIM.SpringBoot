@@ -8,4 +8,5 @@ spring:
     hibernate:
       ddl-auto: update
       show-sql: true
+    open-in-view: true
 debug: true

@@ -24,7 +24,6 @@ public class GroupServiceTest {
     @Test
     public void testAddFriendGroup(){
         FriendGroup friendGroup = new FriendGroup();
-        friendGroup.setUid(100000L);
         friendGroup.setName("我的好友");
         JsonResult result = groupService.addFriendGroup(friendGroup);
         Assert.assertEquals(Integer.valueOf(0),result.getCode());

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.xml.transform.Result;
+
 /**
  * @author fyp
  * @crate 2017/11/2 22:50
@@ -24,11 +26,7 @@ public class UserController {
 
     @GetMapping(value = "/base/{uid}")
     public JsonResult getBaseData(@PathVariable("uid") Long userId){
-       return userService.getBaseList(userId);
+        return userService.getBaseList(userId);
     }
 
-    @GetMapping("/test")
-    public JsonResult testData(){
-        return ResultUtil.success("hello spring boot");
-    }
 }

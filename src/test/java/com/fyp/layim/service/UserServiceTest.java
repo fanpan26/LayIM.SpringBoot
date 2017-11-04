@@ -3,6 +3,7 @@ package com.fyp.layim.service;
 import com.fyp.layim.domain.FriendGroup;
 import com.fyp.layim.domain.User;
 import com.fyp.layim.domain.result.JsonResult;
+import com.fyp.layim.domain.test.TestUser;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

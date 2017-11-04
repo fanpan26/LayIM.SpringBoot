@@ -4,6 +4,8 @@ import com.fyp.layim.domain.base.DomainBase;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * @author fyp
@@ -18,7 +20,6 @@ public class BigGroup extends DomainBase {
     @Column(length = 120)
     private String avatar;
 
-    private Long createUid;
     @Column(length = 100)
     private String description;
 
@@ -38,19 +39,24 @@ public class BigGroup extends DomainBase {
         this.avatar = avatar;
     }
 
-    public Long getCreateUid() {
-        return createUid;
-    }
-
-    public void setCreateUid(Long createUid) {
-        this.createUid = createUid;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    //@Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "create_uid",nullable = false)
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

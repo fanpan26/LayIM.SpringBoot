@@ -10,4 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @project SpringBootLayIM
  */
 public interface UserRepository extends JpaRepository<User,Long> {
+
 }

@@ -1,7 +1,7 @@
 package com.fyp.layim.service;
 
 import com.fyp.layim.common.util.ResultUtil;
-import com.fyp.layim.domain.User;
+import com.fyp.layim.domain.*;
 import com.fyp.layim.domain.mapper.LayimMapper;
 import com.fyp.layim.domain.result.JsonResult;
 import com.fyp.layim.domain.result.LAYIM_ENUM;
@@ -16,6 +16,7 @@ import com.fyp.layim.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.relation.Relation;
 import java.util.*;
 
 /**
@@ -46,7 +47,7 @@ public class UserService {
     }
 
     /**
-    * 方法说明
+    * 笨方法
     *@param userId 当前用户ID
     *@return 返回layim基础数据
     */
@@ -61,13 +62,43 @@ public class UserService {
         UserViewModel mine = LayimMapper.INSTANCE.mapUser(user);
         baseData.setMine(mine);
         //好友列表信息
-        List<FriendGroupViewModel> friendGroups = LayimMapper.INSTANCE.mapFriendGroup(user.getFriendGroups());
-        baseData.setFriend(friendGroups);
+        List<FriendGroup> friendGroups = user.getFriendGroups();
+        //先转换好友分组
+        List<FriendGroupViewModel> friends = LayimMapper.INSTANCE.mapFriendGroup(friendGroups);
+        //在转换每个分组中的用户
+       for(FriendGroup friendGroup : friendGroups) {
+           List<RelationShip> relationShips = friendGroup.getRelationShips();
+           List<UserViewModel> userViewModels = new ArrayList<UserViewModel>();
+           //遍历 relationShips 获取userViewModels的集合
+         for(RelationShip relationShip : relationShips){
+               UserViewModel userViewModel = LayimMapper.INSTANCE.mapUser(relationShip.getFriend());
+               userViewModels.add(userViewModel);
+           }
+           //获取主键
+           Long friendGroupId = friendGroup.getId();
+           for (FriendGroupViewModel viewModel : friends) {
+               if (viewModel.getId().equals(friendGroupId)) {
+                   viewModel.setList(userViewModels);
+               }
+           }
+       }
+        baseData.setFriend(friends);
         //分组信息
-        List<BigGroupViewModel> groups = LayimMapper.INSTANCE.mapBigGroup(user.getBigGroups());
-        baseData.setGroup(groups);
+        List<BigGroup> bigGroups  = new ArrayList<BigGroup>();
+        //构造详情分组信息
+        List<GroupMember> groupMembers = user.getBigGroups();
+        for (GroupMember member : groupMembers){
+            bigGroups.add(member.getGroup());
+        }
+
+        List<BigGroupViewModel> bigGroupViewModels = LayimMapper.INSTANCE.mapBigGroup(bigGroups);
+        baseData.setGroup(bigGroupViewModels);
 
         return ResultUtil.success(baseData);
+    }
+
+    public User getUser(Long userId){
+        return userRepository.findOne(userId);
     }
 
 }

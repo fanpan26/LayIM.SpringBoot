@@ -2,10 +2,7 @@ package com.fyp.layim.domain;
 
 import com.fyp.layim.domain.base.DomainBase;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * @author fyp
@@ -48,7 +45,7 @@ public class BigGroup extends DomainBase {
     }
 
     //@Column(nullable = false)
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "create_uid",nullable = false)
     private User user;
 

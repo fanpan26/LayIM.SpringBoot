@@ -2,9 +2,7 @@ package com.fyp.layim.domain;
 
 import com.fyp.layim.domain.base.DomainBase;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -49,23 +47,24 @@ public class User extends DomainBase{
         this.friendGroups = friendGroups;
     }
 
-    public List<BigGroup> getBigGroups() {
+    public List<GroupMember> getBigGroups() {
         return bigGroups;
     }
 
-    public void setBigGroups(List<BigGroup> bigGroups) {
+    public void setBigGroups(List<GroupMember> bigGroups) {
         this.bigGroups = bigGroups;
     }
 
     @Column(name = "user_name")
     private String userName;
     private String sign;
+
     //一对多，一个用户有多个好友分组
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<FriendGroup> friendGroups;
 
     @OneToMany(mappedBy = "user")
-    private List<BigGroup> bigGroups;
+    private List<GroupMember> bigGroups;
 }
 
 

@@ -2,10 +2,9 @@ package com.fyp.layim.domain;
 
 import com.fyp.layim.domain.base.DomainBase;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.management.relation.Relation;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author fyp
@@ -37,4 +36,15 @@ public class FriendGroup extends DomainBase {
     @ManyToOne
     @JoinColumn(name = "uid",nullable = false)
     private User user;
+
+    public List<RelationShip> getRelationShips() {
+        return relationShips;
+    }
+
+    public void setRelationShips(List<RelationShip> relationShips) {
+        this.relationShips = relationShips;
+    }
+
+    @OneToMany(mappedBy = "friendGroup")
+    private List<RelationShip> relationShips;
 }

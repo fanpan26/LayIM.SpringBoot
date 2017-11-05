@@ -34,4 +34,10 @@ public class UserServiceTest {
             Assert.assertEquals(Integer.valueOf(0), res.getCode());
         }
     }
+
+    @Test
+    public void testGetUserFriendGroups() {
+        User user = userService.getUser(100000L);
+        System.out.println("用户好友分组的个数为："+user.getFriendGroups().size());
+    }
 }

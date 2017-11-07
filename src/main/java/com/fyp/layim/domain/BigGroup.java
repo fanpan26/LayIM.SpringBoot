@@ -3,6 +3,7 @@ package com.fyp.layim.domain;
 import com.fyp.layim.domain.base.DomainBase;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author fyp
@@ -44,16 +45,27 @@ public class BigGroup extends DomainBase {
         this.description = description;
     }
 
-    //@Column(nullable = false)
-    @OneToOne
-    @JoinColumn(name = "create_uid",nullable = false)
-    private User user;
-
-    public User getUser() {
-        return user;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
+
+    @ManyToMany(mappedBy = "bigGroupsIn")
+    private List<User> users;
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "uid")
+    private User owner;
+
 }

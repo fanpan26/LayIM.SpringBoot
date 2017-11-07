@@ -25,26 +25,26 @@ public class FriendGroup extends DomainBase {
     @Column(length = 20)
     private String name;
 
-    public User getUser() {
-        return user;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    @ManyToMany(mappedBy = "friendGroupsIn")
+    private List<User> users;
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     @ManyToOne
-    @JoinColumn(name = "uid",nullable = false)
-    private User user;
-
-    public List<RelationShip> getRelationShips() {
-        return relationShips;
-    }
-
-    public void setRelationShips(List<RelationShip> relationShips) {
-        this.relationShips = relationShips;
-    }
-
-    @OneToMany(mappedBy = "friendGroup")
-    private List<RelationShip> relationShips;
+    @JoinColumn(name = "uid")
+    private User owner;
 }

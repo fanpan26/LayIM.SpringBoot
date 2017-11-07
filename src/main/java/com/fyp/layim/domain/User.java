@@ -13,7 +13,6 @@ import java.util.List;
  */
 @Entity
 public class User extends DomainBase{
-    private String avatar;
 
     public String getAvatar() {
         return avatar;
@@ -40,31 +39,50 @@ public class User extends DomainBase{
     }
 
     public List<FriendGroup> getFriendGroups() {
-        return friendGroups;
+        return friendGroupsOwner;
     }
 
     public void setFriendGroups(List<FriendGroup> friendGroups) {
-        this.friendGroups = friendGroups;
+        this.friendGroupsOwner = friendGroups;
     }
 
-    public List<GroupMember> getBigGroups() {
-        return bigGroups;
+    public List<BigGroup> getBigGroups() {
+        return bigGroupsIn;
     }
 
-    public void setBigGroups(List<GroupMember> bigGroups) {
-        this.bigGroups = bigGroups;
+    public void setBigGroups(List<BigGroup> bigGroups) {
+        this.bigGroupsIn = bigGroups;
     }
 
-    @Column(name = "user_name")
+    public List<FriendGroup> getFriendGroupsIn() {
+        return friendGroupsIn;
+    }
+
+    public void setFriendGroupsIn(List<FriendGroup> friendGroupsIn) {
+        this.friendGroupsIn = friendGroupsIn;
+    }
+
+    private String avatar;
     private String userName;
     private String sign;
 
-    //一对多，一个用户有多个好友分组
-    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
-    private List<FriendGroup> friendGroups;
+    //一对多，一个用户可以创建多个好友分组
+    @OneToMany(mappedBy = "owner")
+    private List<FriendGroup> friendGroupsOwner;
 
-    @OneToMany(mappedBy = "user")
-    private List<GroupMember> bigGroups;
+
+    //多对多，因为一个分组可以有多个用户（好友）
+    @ManyToMany
+    @JoinTable(name = "user_friend_group",joinColumns = {@JoinColumn(name = "uid")},inverseJoinColumns = {@JoinColumn(name = "group_id")})
+    private List<FriendGroup> friendGroupsIn;
+
+
+    @OneToMany(mappedBy = "owner")
+    private List<BigGroup> bigGroupsOwner;
+
+    @ManyToMany
+    @JoinTable(name = "user_big_group",joinColumns = {@JoinColumn(name = "uid")},inverseJoinColumns = {@JoinColumn(name = "group_id")})
+    private List<BigGroup> bigGroupsIn;
 }
 
 

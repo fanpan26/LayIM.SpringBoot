@@ -1,23 +1,22 @@
 package com.fyp.layim.service;
 
 import com.fyp.layim.common.util.ResultUtil;
-import com.fyp.layim.domain.*;
+import com.fyp.layim.domain.BigGroup;
+import com.fyp.layim.domain.FriendGroup;
+import com.fyp.layim.domain.User;
 import com.fyp.layim.domain.mapper.LayimMapper;
 import com.fyp.layim.domain.result.JsonResult;
-import com.fyp.layim.domain.result.LAYIM_ENUM;
-import com.fyp.layim.domain.viewmodels.BigGroupViewModel;
-import com.fyp.layim.domain.viewmodels.FriendGroupViewModel;
-import com.fyp.layim.domain.viewmodels.LayimBaseViewModel;
-import com.fyp.layim.domain.viewmodels.UserViewModel;
 
-import com.fyp.layim.repository.BigGroupRepository;
-import com.fyp.layim.repository.FriendGroupRepository;
+import com.fyp.layim.domain.result.LAYIM_ENUM;
+import com.fyp.layim.domain.viewmodels.FriendGroupViewModel;
+import com.fyp.layim.domain.viewmodels.LayimInitDataViewModel;
+import com.fyp.layim.domain.viewmodels.UserViewModel;
 import com.fyp.layim.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.management.relation.Relation;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author fyp
@@ -29,76 +28,43 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private FriendGroupRepository friendGroupRepository;
-
-    @Autowired
-    private BigGroupRepository bigGroupRepository;
-
     /**
-     * 添加一个用户
-     * */
-    public JsonResult addUser(User user){
-        User userRes = userRepository.save(user);
-        if(userRes.getId()>0){
-            return ResultUtil.success();
-        }
-        return ResultUtil.fail("添加失败");
-    }
-
-    /**
-    * 笨方法
-    *@param userId 当前用户ID
-    *@return 返回layim基础数据
+    * 获取init接口所需要的数据结果
+    *@param userId 用户ID
+    *@return 返回 JsonResult(LayimInitDataViewModel)
     */
-    public JsonResult getBaseList(Long userId) {
-        LayimBaseViewModel baseData = new LayimBaseViewModel();
+    public JsonResult getBaseList(long userId){
+        LayimInitDataViewModel resultViewModel = new LayimInitDataViewModel();
 
+        //开始构造
+        //获取用户基本信息
         User user = userRepository.findOne(userId);
-        if (user == null) {
+        if(user == null){
             return ResultUtil.fail(LAYIM_ENUM.NO_USER);
         }
-        //自己的信息
+        //映射用户信息
         UserViewModel mine = LayimMapper.INSTANCE.mapUser(user);
-        baseData.setMine(mine);
-        //好友列表信息
+        resultViewModel.setMine(mine);
+        //获取好友分组信息
         List<FriendGroup> friendGroups = user.getFriendGroups();
-        //先转换好友分组
-        List<FriendGroupViewModel> friends = LayimMapper.INSTANCE.mapFriendGroup(friendGroups);
-        //在转换每个分组中的用户
-       for(FriendGroup friendGroup : friendGroups) {
-           List<RelationShip> relationShips = friendGroup.getRelationShips();
-           List<UserViewModel> userViewModels = new ArrayList<UserViewModel>();
-           //遍历 relationShips 获取userViewModels的集合
-         for(RelationShip relationShip : relationShips){
-               UserViewModel userViewModel = LayimMapper.INSTANCE.mapUser(relationShip.getFriend());
-               userViewModels.add(userViewModel);
-           }
-           //获取主键
-           Long friendGroupId = friendGroup.getId();
-           for (FriendGroupViewModel viewModel : friends) {
-               if (viewModel.getId().equals(friendGroupId)) {
-                   viewModel.setList(userViewModels);
-               }
-           }
-       }
-        baseData.setFriend(friends);
-        //分组信息
-        List<BigGroup> bigGroups  = new ArrayList<BigGroup>();
-        //构造详情分组信息
-        List<GroupMember> groupMembers = user.getBigGroups();
-        for (GroupMember member : groupMembers){
-            bigGroups.add(member.getGroup());
+        List<FriendGroupViewModel> friendGroupViewModels = new ArrayList<FriendGroupViewModel>(friendGroups.size());
+        //遍历好友分组
+        for (FriendGroup friendGroup : friendGroups){
+            List<User> usersInGroup = friendGroup.getUsers();
+            //先映射群组信息
+            FriendGroupViewModel friendGroupViewModel = LayimMapper.INSTANCE.mapFriendGroup(friendGroup);
+            //将每个组的人放到好友分组里面
+            friendGroupViewModel.setList(LayimMapper.INSTANCE.mapUser(usersInGroup));
+            friendGroupViewModels.add(friendGroupViewModel);
         }
+        resultViewModel.setFriend(friendGroupViewModels);
+        //获取群组信息
+        List<BigGroup> bigGroups = user.getBigGroups();
+        resultViewModel.setGroup(LayimMapper.INSTANCE.mapBigGroup(bigGroups));
 
-        List<BigGroupViewModel> bigGroupViewModels = LayimMapper.INSTANCE.mapBigGroup(bigGroups);
-        baseData.setGroup(bigGroupViewModels);
-
-        return ResultUtil.success(baseData);
+        return ResultUtil.success(resultViewModel);
     }
 
-    public User getUser(Long userId){
-        return userRepository.findOne(userId);
-    }
+
 
 }

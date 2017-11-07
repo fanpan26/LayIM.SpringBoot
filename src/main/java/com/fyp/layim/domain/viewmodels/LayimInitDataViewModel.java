@@ -9,7 +9,7 @@ import java.util.List;
  * @crate 2017/11/2 21:49
  * @project SpringBootLayIM
  */
-public class LayimBaseViewModel {
+public class LayimInitDataViewModel {
 
     private UserViewModel mine;
 

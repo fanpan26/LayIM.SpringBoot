@@ -1,12 +1,19 @@
 package com.fyp.layim.service;
 
 import com.fyp.layim.common.util.ResultUtil;
+import com.fyp.layim.domain.BigGroup;
 import com.fyp.layim.domain.FriendGroup;
+import com.fyp.layim.domain.mapper.LayimMapper;
 import com.fyp.layim.domain.result.JsonResult;
+import com.fyp.layim.domain.result.LAYIM_ENUM;
+import com.fyp.layim.domain.viewmodels.LayimGroupMembersViewModel;
+import com.fyp.layim.domain.viewmodels.UserViewModel;
 import com.fyp.layim.repository.BigGroupRepository;
 import com.fyp.layim.repository.FriendGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author fyp
@@ -16,22 +23,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class GroupService {
     @Autowired
-    private FriendGroupRepository friendGroupRepository;
-
-    @Autowired
     private BigGroupRepository bigGroupRepository;
 
     /**
-    * 添加一个好友分组
-    *@param
-    *@param
-    *@return
+    * 根据群组ID获取群内所有用户列表
+    *@param groupId
+    *@return JsonResult
     */
-    public JsonResult addFriendGroup(FriendGroup friendGroup){
-       friendGroup = friendGroupRepository.save(friendGroup);
-       if(friendGroup.getId()>0){
-           return ResultUtil.success(friendGroup.getId());
-       }
-       return ResultUtil.fail("添加失败");
+    public JsonResult getGroupMembers(long groupId){
+        LayimGroupMembersViewModel membersViewModel = new LayimGroupMembersViewModel();
+
+        BigGroup group = bigGroupRepository.findOne(groupId);
+        if(group == null){
+            return ResultUtil.fail(LAYIM_ENUM.GROUP_NOT_EXIST);
+        }
+        UserViewModel owner = LayimMapper.INSTANCE.mapUser(group.getOwner());
+        membersViewModel.setOwner(owner);
+
+        List<UserViewModel> memberList =LayimMapper.INSTANCE.mapUser(group.getUsers());
+        membersViewModel.setList(memberList);
+
+        return ResultUtil.success(membersViewModel);
     }
 }

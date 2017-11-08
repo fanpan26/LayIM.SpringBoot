@@ -21,11 +21,4 @@ public class GroupServiceTest {
     @Autowired
     private GroupService groupService;
 
-    @Test
-    public void testAddFriendGroup(){
-        FriendGroup friendGroup = new FriendGroup();
-        friendGroup.setName("我的好友");
-        JsonResult result = groupService.addFriendGroup(friendGroup);
-        Assert.assertEquals(Integer.valueOf(0),result.getCode());
-    }
 }

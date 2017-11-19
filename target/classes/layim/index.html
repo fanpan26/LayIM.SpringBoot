@@ -15,6 +15,33 @@
 
 <script src="/layui.js"></script>
 <script>
+    var ws;
+    function initWs(uid) {
+        ws = new WebSocket("ws://localhost:8081/"+uid);
+        ws.onmessage = function (event) {
+          console.log(event.data);
+        };
+        ws.onclose = function (event) {
+            console.log(event);
+        };
+        ws.onopen = function (event) {
+            console.log("connected...`");
+
+        };
+        ws.onerror = function (event) {
+            console.log("请求异常，请确认是否登陆");
+        };
+    }
+    function send() {
+        ws.send(JSON.stringify({
+            type:1,
+            content:"今天你好吗？",
+            toid:"123456"
+        }));
+    }
+    //initWs();
+</script>
+<script>
 
     if(!/^http(s*):\/\//.test(location.href)){
         alert('请部署到localhost上查看该演示');
@@ -175,7 +202,7 @@
         //监听发送消息
         layim.on('sendMessage', function(data){
             var To = data.to;
-            //console.log(data);
+            console.log(data);
 
             if(To.type === 'friend'){
                 layim.setChatStatus('<span style="color:#FF5722;">对方正在输入。。。</span>');
@@ -194,14 +221,16 @@
                     }
                 } else {
                     obj = {
-                        username: To.name
+                        username: "小盘子"
                         ,avatar: To.avatar
                         ,id: To.id
-                        ,type: To.type
-                        ,content: autoReplay[Math.random()*9|0]
+                        ,type: "friend"
+                        ,timestamp:1511095592241
+                        ,content: "接收到消息后转化为这个即可"
                     }
                     layim.setChatStatus('<span style="color:#FF5722;">在线</span>');
                 }
+                console.log(obj);
                 layim.getMessage(obj);
             }, 1000);
         });
@@ -229,6 +258,11 @@
             }*/
         });
     });
+
 </script>
+
+<input type="text" id="userid"/>
+<input type="button" value="连接" onclick="javascript:initWs(document.getElementById('userid').value)"/>
+<input type="button" value="发送" onclick="send()">
 </body>
 </html>

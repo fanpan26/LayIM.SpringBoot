@@ -4,6 +4,8 @@ import com.fyp.layim.im.server.LayimMsgHandler;
 import com.fyp.layim.im.server.LayimServerStarter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.tio.server.ServerGroupContext;
 
 import java.io.IOException;
@@ -19,8 +21,8 @@ public class LayimWebsocketStarter {
     private LayimServerStarter layimServerStarter;
     private ServerGroupContext serverGroupContext;
 
-    public LayimWebsocketStarter(int port, LayimMsgHandler wsMsgHandler) throws IOException {
-        layimServerStarter = new LayimServerStarter(port, wsMsgHandler);
+    public LayimWebsocketStarter(int port) throws IOException {
+        layimServerStarter = new LayimServerStarter(8081, new LayimMsgHandler());
         serverGroupContext = layimServerStarter.getServerGroupContext();
     }
 

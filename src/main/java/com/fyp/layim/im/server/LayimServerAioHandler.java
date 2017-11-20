@@ -2,11 +2,12 @@ package com.fyp.layim.im.server;
 
 import java.nio.ByteBuffer;
 
-import com.fyp.layim.im.common.LayimConst;
 import com.fyp.layim.im.common.Protocol;
-import com.fyp.layim.im.common.processor.ClientToClientMsgProcessor;
+import com.fyp.layim.im.common.intf.LayimAbsMsgProcessor;
+import com.fyp.layim.im.common.processor.LayimMsgProcessorManager;
+import com.fyp.layim.im.common.util.ByteUtil;
 import com.fyp.layim.im.packet.LayimMsgProperty;
-import com.fyp.layim.im.packet.LayimPacket;
+import com.fyp.layim.im.packet.UnknownReponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.core.Aio;
@@ -128,29 +129,29 @@ public class LayimServerAioHandler implements ServerAioHandler{
     }
 
     private WsResponse handleDetail(WsRequest websocketPacket, byte[] bytes, Opcode opcode, ChannelContext channelContext) throws Exception {
-        WsResponse wsResponse = null;
+        WsResponse wsResponse;
         if (opcode == Opcode.TEXT) {
             if (bytes == null || bytes.length == 0) {
                 Aio.remove(channelContext, "错误的websocket包，body为空");
                 return null;
             }
             //接收过来的json数据
-            String text = new String(bytes, layimServerConfig.getCharset());
+            String text = ByteUtil.toText(bytes);
             LayimMsgProperty property = Json.toBean(text,LayimMsgProperty.class);
             //获取到消息类型
             byte type = property.getType();
 
-            LayimPacket layimPacket = new LayimPacket();
-            layimPacket.setType(type);
-            layimPacket.setBody(text.getBytes(LayimConst.CHAR_SET));
-            layimPacket.setWsBodyText(text);
-            log.info("当前的消息类型为：{}",type);
-
-            ClientToClientMsgProcessor processor = new ClientToClientMsgProcessor();
-            processor.process(layimPacket,channelContext);
+            LayimAbsMsgProcessor processor = LayimMsgProcessorManager.getProcessor(type);
+            boolean unknown = processor == null;
+            if(!unknown) {
+                processor.process(websocketPacket, channelContext);
+            }
 
             Object retObj = wsMsgHandler.onText(websocketPacket, text, channelContext);
             String methodName = "onText";
+            if(unknown){
+                retObj = new UnknownReponseBody(type).getMsg();
+            }
             wsResponse = processRetObj(retObj, methodName, channelContext);
             return wsResponse;
         } else if (opcode == Opcode.BINARY) {

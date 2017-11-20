@@ -23,7 +23,6 @@ public class LayimServerAioListener implements ServerAioListener {
     public void onAfterConnected(ChannelContext channelContext, boolean isConnected, boolean isReconnect) throws Exception {
         WsSessionContext wsSessionContext = new WsSessionContext();
         channelContext.setAttribute(wsSessionContext);
-        logger.info("当前用户ID：{}",channelContext.getUserid());
     }
 
     @Override

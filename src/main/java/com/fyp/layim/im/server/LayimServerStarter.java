@@ -3,6 +3,7 @@ package com.fyp.layim.im.server;
 import java.io.IOException;
 import java.util.concurrent.ThreadPoolExecutor;
 
+import com.fyp.layim.im.common.processor.LayimMsgProcessorManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.core.intf.TioUuid;
@@ -96,15 +97,18 @@ public class LayimServerStarter {
     public LayimServerStarter(LayimServerConfig wsServerConfig, IWsMsgHandler wsMsgHandler, TioUuid tioUuid, SynThreadPoolExecutor tioExecutor, ThreadPoolExecutor groupExecutor) throws IOException {
         this.layimServerConfig = wsServerConfig;
         this.wsMsgHandler = wsMsgHandler;
+
         layimServerAioHandler = new LayimServerAioHandler(wsServerConfig, wsMsgHandler);
         layimServerAioListener = new LayimServerAioListener();
+
         serverGroupContext = new ServerGroupContext(layimServerAioHandler, layimServerAioListener, tioExecutor, groupExecutor);
         serverGroupContext.setHeartbeatTimeout(0);
         serverGroupContext.setName("Tio Websocket Server for LayIM");
 
         aioServer = new AioServer(serverGroupContext);
-
         serverGroupContext.setTioUuid(tioUuid);
+        //初始化消息处理器
+        LayimMsgProcessorManager.init();
     }
 
     public void start() throws IOException {

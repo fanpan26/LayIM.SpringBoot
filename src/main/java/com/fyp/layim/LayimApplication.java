@@ -16,7 +16,7 @@ public class LayimApplication {
     public static void main(String[] args){
         SpringApplication.run(LayimApplication.class,args);
        try {
-            new LayimWebsocketStarter(8081, new LayimMsgHandler()).start();
+            new LayimWebsocketStarter(8081).start();
         }
         catch (IOException e){
             System.out.println(e);

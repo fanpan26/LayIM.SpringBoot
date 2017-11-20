@@ -4,7 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.util.List;
 
-import com.fyp.layim.im.packet.LayimPacket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.core.Aio;
@@ -12,6 +11,7 @@ import org.tio.core.ChannelContext;
 import org.tio.core.exception.AioDecodeException;
 import org.tio.core.utils.ByteBufferUtils;
 import org.tio.websocket.common.Opcode;
+import org.tio.websocket.common.WsRequest;
 import org.tio.websocket.common.WsSessionContext;
 
 /**
@@ -23,7 +23,7 @@ import org.tio.websocket.common.WsSessionContext;
 public class LayimServerDecoder {
     private static Logger log = LoggerFactory.getLogger(LayimServerDecoder.class);
 
-    public static LayimPacket decode(ByteBuffer buf, ChannelContext channelContext) throws AioDecodeException {
+    public static WsRequest decode(ByteBuffer buf, ChannelContext channelContext) throws AioDecodeException {
         WsSessionContext imSessionContext = (WsSessionContext) channelContext.getAttribute();
         List<byte[]> lastParts = imSessionContext.getLastParts();
 
@@ -31,7 +31,7 @@ public class LayimServerDecoder {
         int initPosition = buf.position();
         int readableLength = buf.limit() - initPosition;
 
-        int headLength = LayimPacket.MINIMUM_HEADER_LENGTH;
+        int headLength = WsRequest.MINIMUM_HEADER_LENGTH;
 
         if (readableLength < headLength) {
             return null;
@@ -97,7 +97,7 @@ public class LayimServerDecoder {
             log.info("{} payloadLengthFlag: 127，payloadLength {}", channelContext, payloadLength);
         }
 
-        if (payloadLength < 0 || payloadLength > LayimPacket.MAX_BODY_LENGTH) {
+        if (payloadLength < 0 || payloadLength > WsRequest.MAX_BODY_LENGTH) {
             throw new AioDecodeException("body length(" + payloadLength + ") is not right");
         }
 
@@ -110,7 +110,7 @@ public class LayimServerDecoder {
         }
 
         //第二阶段解析
-        LayimPacket layimPacket = new LayimPacket();
+        WsRequest layimPacket = new WsRequest();
         layimPacket.setWsEof(fin);
         layimPacket.setWsHasMask(hasMask);
         layimPacket.setWsMask(mask);
@@ -153,7 +153,7 @@ public class LayimServerDecoder {
 
             } else {
                 try {
-                    String text = new String(array, LayimPacket.CHARSET_NAME);
+                    String text = new String(array, WsRequest.CHARSET_NAME);
                     layimPacket.setWsBodyText(text);
                 } catch (UnsupportedEncodingException e) {
                     log.error(e.toString(), e);

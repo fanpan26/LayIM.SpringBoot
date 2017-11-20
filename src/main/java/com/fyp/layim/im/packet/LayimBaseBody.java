@@ -18,4 +18,16 @@ public class LayimBaseBody {
     }
 
     private long timestamp;
+
+
+    public byte getMsgType() {
+        return msgType;
+    }
+
+    public void setMsgType(byte msgType) {
+        this.msgType = msgType;
+    }
+
+    private byte msgType;
+
 }

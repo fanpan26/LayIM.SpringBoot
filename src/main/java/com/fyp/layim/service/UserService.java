@@ -65,6 +65,8 @@ public class UserService {
         return ResultUtil.success(resultViewModel);
     }
 
-
+    public User getUserById(long userId){
+        return userRepository.findOne(userId);
+    }
 
 }

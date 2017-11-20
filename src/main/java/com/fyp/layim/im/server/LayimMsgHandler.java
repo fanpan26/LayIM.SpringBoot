@@ -1,7 +1,13 @@
 package com.fyp.layim.im.server;
 
+import com.fyp.layim.domain.User;
+import com.fyp.layim.im.packet.ContextUser;
+import com.fyp.layim.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.tio.core.Aio;
 import org.tio.core.ChannelContext;
 import org.tio.http.common.HttpRequest;
@@ -31,16 +37,27 @@ public class LayimMsgHandler implements IWsMsgHandler {
 
     @Override
     public HttpResponse handshake(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext) throws Exception {
+        //这里需要重构
         //增加token验证方法
-       String path = httpRequest.getRequestLine().getPath();
-       Integer tokenLength = 5;
-       if(path.length()< tokenLength){
-           httpResponse.setStatus(HttpResponseStatus.C403);
-       }else{
-           String token = path.substring(1);
-           Aio.bindUser(channelContext,token);
-       }
-        logger.info("我手之后");
+        String path = httpRequest.getRequestLine().getPath();
+
+        String token = path.substring(1);
+        User user = new User();
+        user.setUserName("小盘子");
+        user.setId(Long.parseLong(token));
+        user.setAvatar("http://avatar");
+        if (user != null) {
+
+            ContextUser contextUser = new ContextUser();
+            contextUser.setUserid(token);
+            contextUser.setUsername(user.getUserName());
+            contextUser.setAvatar(user.getAvatar());
+
+            channelContext.setAttribute(contextUser.getUserid(), contextUser);
+            Aio.bindUser(channelContext, token);
+        } else {
+            httpResponse.setStatus(HttpResponseStatus.C404);
+        }
         return httpResponse;
     }
 

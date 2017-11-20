@@ -1,10 +1,8 @@
 package com.fyp.layim.im.common.intf;
 
-import com.fyp.layim.im.packet.LayimPacket;
 import org.tio.core.ChannelContext;
+import org.tio.websocket.common.WsRequest;
 import org.tio.websocket.common.WsResponse;
-
-import java.io.IOException;
 
 /**
  * @author fyp
@@ -12,5 +10,5 @@ import java.io.IOException;
  * @project SpringBootLayIM
  */
 public interface LayimMsgProcessor {
-    WsResponse process(LayimPacket layimPacket, ChannelContext channelContext) throws Exception;
+    WsResponse process(WsRequest layimPacket, ChannelContext channelContext) throws Exception;
 }

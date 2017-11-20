@@ -9,4 +9,4 @@ spring:
       ddl-auto: update
       show-sql: true
     open-in-view: true
-debug: true
+debug: false

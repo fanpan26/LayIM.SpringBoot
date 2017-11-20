@@ -1,6 +1,7 @@
 package com.fyp.layim.im;
 
 import com.fyp.layim.im.server.LayimMsgHandler;
+import com.fyp.layim.im.server.LayimServerConfig;
 import com.fyp.layim.im.server.LayimServerStarter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +22,8 @@ public class LayimWebsocketStarter {
     private LayimServerStarter layimServerStarter;
     private ServerGroupContext serverGroupContext;
 
-    public LayimWebsocketStarter(int port) throws IOException {
-        layimServerStarter = new LayimServerStarter(8081, new LayimMsgHandler());
+    public LayimWebsocketStarter(LayimServerConfig layimServerConfig) throws IOException {
+        layimServerStarter = new LayimServerStarter(layimServerConfig, new LayimMsgHandler());
         serverGroupContext = layimServerStarter.getServerGroupContext();
     }
 

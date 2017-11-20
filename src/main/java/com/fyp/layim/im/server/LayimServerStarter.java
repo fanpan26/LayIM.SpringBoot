@@ -102,7 +102,8 @@ public class LayimServerStarter {
         layimServerAioListener = new LayimServerAioListener();
 
         serverGroupContext = new ServerGroupContext(layimServerAioHandler, layimServerAioListener, tioExecutor, groupExecutor);
-        serverGroupContext.setHeartbeatTimeout(0);
+        //心跳时间，暂时设置为0
+        serverGroupContext.setHeartbeatTimeout(wsServerConfig.getHeartBeatTimeout());
         serverGroupContext.setName("Tio Websocket Server for LayIM");
 
         aioServer = new AioServer(serverGroupContext);

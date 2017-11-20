@@ -53,9 +53,8 @@ public class LayimServerAioHandler implements ServerAioHandler{
     */
     @Override
     public WsRequest decode(ByteBuffer buffer, ChannelContext channelContext) throws AioDecodeException {
-        log.info("decode");
         WsSessionContext wsSessionContext = (WsSessionContext) channelContext.getAttribute();
-
+        log.info("LayimServerAioHandler.decode");
         if (!wsSessionContext.isHandshaked()) {
             HttpRequest request = HttpRequestDecoder.decode(buffer, channelContext);
             if (request == null) {
@@ -72,17 +71,16 @@ public class LayimServerAioHandler implements ServerAioHandler{
 
             WsRequest wsRequestPacket = new WsRequest();
             wsRequestPacket.setHandShake(true);
-
+            log.info("握手成功");
             return wsRequestPacket;
         }
-        log.info("decode消息");
         return WsServerDecoder.decode(buffer, channelContext);
     }
 
     @Override
     public ByteBuffer encode(Packet packet, GroupContext groupContext, ChannelContext channelContext) {
         WsResponse wsResponse = (WsResponse) packet;
-
+        log.info("LayimServerAioHandler.encode");
         if (wsResponse.isHandShake()) {
             WsSessionContext imSessionContext = (WsSessionContext) channelContext.getAttribute();
             HttpResponse handshakeResponsePacket = imSessionContext.getHandshakeResponsePacket();
@@ -100,7 +98,7 @@ public class LayimServerAioHandler implements ServerAioHandler{
 
     @Override
     public void handler(Packet packet, ChannelContext channelContext) throws Exception {
-        log.info("decode完成之后执行handler");
+        log.info("LayimServerAioHandler.handler");
         WsRequest wsRequestPacket = (WsRequest) packet;
 
         if (wsRequestPacket.isHandShake()) {
@@ -120,7 +118,7 @@ public class LayimServerAioHandler implements ServerAioHandler{
             wsSessionContext.setHandshaked(true);
             return;
         }
-
+        log.info("处理消息");
         WsResponse wsResponse = handleDetail(wsRequestPacket, wsRequestPacket.getBody(), wsRequestPacket.getWsOpcode(), channelContext);
 
         if (wsResponse != null) {
@@ -129,6 +127,7 @@ public class LayimServerAioHandler implements ServerAioHandler{
     }
 
     private WsResponse handleDetail(WsRequest websocketPacket, byte[] bytes, Opcode opcode, ChannelContext channelContext) throws Exception {
+        log.info("LayimServerAioHandler.handleDetail");
         WsResponse wsResponse;
         if (opcode == Opcode.TEXT) {
             if (bytes == null || bytes.length == 0) {
@@ -140,7 +139,6 @@ public class LayimServerAioHandler implements ServerAioHandler{
             LayimMsgProperty property = Json.toBean(text,LayimMsgProperty.class);
             //获取到消息类型
             byte type = property.getType();
-
             LayimAbsMsgProcessor processor = LayimMsgProcessorManager.getProcessor(type);
             boolean unknown = processor == null;
             if(!unknown) {

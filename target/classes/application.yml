@@ -10,3 +10,9 @@ spring:
       show-sql: true
     open-in-view: true
 debug: false
+
+layim.websocket:
+    ip: 127.0.0.1
+    port: 8888
+    heartBeatTimeout: 0
+

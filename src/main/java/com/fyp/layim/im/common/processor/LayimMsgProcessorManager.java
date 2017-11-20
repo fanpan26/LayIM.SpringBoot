@@ -2,6 +2,8 @@ package com.fyp.layim.im.common.processor;
 
 import com.fyp.layim.im.common.LayimMsgType;
 import com.fyp.layim.im.common.intf.LayimAbsMsgProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +16,7 @@ import java.util.Map;
 public class LayimMsgProcessorManager {
     private static boolean isInit = false;
     private static Map<String,LayimAbsMsgProcessor<?>> processorMap = new HashMap<String, LayimAbsMsgProcessor<?>>();
+    private static Logger logger = LoggerFactory.getLogger(LayimMsgProcessorManager.class);
 
     public static void init(){
         if(isInit){ return; }
@@ -25,6 +28,7 @@ public class LayimMsgProcessorManager {
     }
 
     public static LayimAbsMsgProcessor getProcessor(byte type){
+        logger.info("LayimMsgProcessorManager.getProcessor");
         String key = getKey(type);
         if(key == null){
             return null;

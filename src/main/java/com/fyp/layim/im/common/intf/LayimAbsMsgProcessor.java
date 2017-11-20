@@ -2,6 +2,8 @@ package com.fyp.layim.im.common.intf;
 
 import com.fyp.layim.im.common.util.ByteUtil;
 import com.fyp.layim.im.packet.LayimBaseBody;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tio.core.ChannelContext;
 import org.tio.utils.json.Json;
 import org.tio.websocket.common.WsRequest;
@@ -13,6 +15,7 @@ import org.tio.websocket.common.WsResponse;
  * @project SpringBootLayIM
  */
 public abstract class LayimAbsMsgProcessor<T extends LayimBaseBody> implements LayimMsgProcessor{
+    private static Logger logger = LoggerFactory.getLogger(LayimAbsMsgProcessor.class);
 
     public abstract Class<T> getBodyClass();
 
@@ -21,6 +24,7 @@ public abstract class LayimAbsMsgProcessor<T extends LayimBaseBody> implements L
      * */
     @Override
     public WsResponse process(WsRequest layimPacket, ChannelContext channelContext) throws Exception {
+        logger.info("LayimAbsMsgProcessor.process");
         Class<T> clazz = getBodyClass();
         T body = null;
         if (layimPacket.getBody() != null) {

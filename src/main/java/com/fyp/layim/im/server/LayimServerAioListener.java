@@ -16,22 +16,24 @@ public class LayimServerAioListener implements ServerAioListener {
     private static Logger logger = LoggerFactory.getLogger(LayimServerAioListener.class);
     @Override
     public void onBeforeClose(ChannelContext channelContext, Throwable throwable, String remark, boolean isRemove) {
-
+            logger.info("ServerAioListener:onBeforeClose");
     }
 
     @Override
     public void onAfterConnected(ChannelContext channelContext, boolean isConnected, boolean isReconnect) throws Exception {
         WsSessionContext wsSessionContext = new WsSessionContext();
         channelContext.setAttribute(wsSessionContext);
+        logger.info("ServerAioListener:onAfterConnected");
     }
 
     @Override
     public void onAfterClose(ChannelContext channelContext, Throwable throwable, String remark, boolean isRemove) throws Exception {
-
+        logger.info("ServerAioListener:onAfterClose");
     }
 
     @Override
     public void onAfterSent(ChannelContext channelContext, Packet packet, boolean isSentSuccess) throws Exception {
+
     }
 
     @Override

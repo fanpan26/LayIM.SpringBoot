@@ -17,7 +17,7 @@
 <script>
     var ws;
     function initWs(uid) {
-        ws = new WebSocket("ws://localhost:8081/"+uid);
+        ws = new WebSocket("ws://localhost:8888/"+uid);
         ws.onmessage = function (event) {
           console.log(event.data);
         };

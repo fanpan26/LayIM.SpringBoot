@@ -11,6 +11,20 @@ public class LayimServerConfig {
 
     private Integer bindPort = 9322;
 
+    public void setBindPort(Integer bindPort) {
+        this.bindPort = bindPort;
+    }
+
+    public Integer getHeartBeatTimeout() {
+        return heartBeatTimeout;
+    }
+
+    public void setHeartBeatTimeout(Integer heartBeatTimeout) {
+        this.heartBeatTimeout = heartBeatTimeout;
+    }
+
+    private Integer heartBeatTimeout = 0;
+
     private String charset = "utf-8";
 
     /**

@@ -23,6 +23,8 @@ public class ClientToClientMsgProcessor extends LayimAbsMsgProcessor<ChatRequest
     @Override
     public WsResponse process(WsRequest layimPacket, ChatRequestBody body, ChannelContext channelContext) throws Exception {
 
+        logger.info("ClientToClientMsgProcessor.process");
+
         ClientToClientMsgBody msgBody = BodyConvert.getInstance().convertToMsgBody(body,channelContext);
         WsResponse response = BodyConvert.getInstance().convertToTextResponse(msgBody);
 

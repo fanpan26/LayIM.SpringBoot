@@ -1,6 +1,6 @@
 package com.fyp.layim.im.common.processor;
 
-import com.fyp.layim.im.common.LayimMsgType;
+import com.fyp.layim.im.common.intf.LayimMsgType;
 import com.fyp.layim.im.common.intf.LayimAbsMsgProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,8 +22,7 @@ public class LayimMsgProcessorManager {
         if(isInit){ return; }
 
         processorMap.put("CLIENT_TO_CLIENT",new ClientToClientMsgProcessor());
-        //processorMap.put("CLIENT_TO_GROUP",new )
-
+        processorMap.put("CLIENT_TO_GROUP",new ClientToGroupMsgProcessor());
         isInit = true;
     }
 

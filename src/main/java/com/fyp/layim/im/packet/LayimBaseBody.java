@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @crate 2017/11/19 20:56
  * @project SpringBootLayIM
  */
-public class LayimBaseBody implements Serializable{
+public class LayimBaseBody extends LayimMsgProperty implements Serializable{
     private static final Long serialVersionUID = 1L;
     public long getTimestamp() {
         if (timestamp == 0){
@@ -21,16 +21,4 @@ public class LayimBaseBody implements Serializable{
     }
 
     private long timestamp;
-
-
-    public byte getMsgType() {
-        return msgType;
-    }
-
-    public void setMsgType(byte msgType) {
-        this.msgType = msgType;
-    }
-
-    private byte msgType;
-
 }

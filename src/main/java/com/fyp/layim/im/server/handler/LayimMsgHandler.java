@@ -1,13 +1,9 @@
-package com.fyp.layim.im.server;
+package com.fyp.layim.im.server.handler;
 
 import com.fyp.layim.domain.User;
 import com.fyp.layim.im.packet.ContextUser;
-import com.fyp.layim.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.tio.core.Aio;
 import org.tio.core.ChannelContext;
 import org.tio.http.common.HttpRequest;
@@ -47,7 +43,7 @@ public class LayimMsgHandler implements IWsMsgHandler {
         user.setId(Long.parseLong(token));
         user.setAvatar("/photo.jpg");
         if (user != null) {
-
+            logger.info("LayimMsgHandler.handshake:绑定用户信息");
             ContextUser contextUser = new ContextUser();
             contextUser.setUserid(token);
             contextUser.setUsername(user.getUserName());
@@ -55,6 +51,8 @@ public class LayimMsgHandler implements IWsMsgHandler {
 
             channelContext.setAttribute(contextUser.getUserid(), contextUser);
             Aio.bindUser(channelContext, token);
+            //测试
+            Aio.bindGroup(channelContext,"1");
         } else {
             httpResponse.setStatus(HttpResponseStatus.C404);
         }

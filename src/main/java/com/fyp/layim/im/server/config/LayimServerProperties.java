@@ -1,4 +1,4 @@
-package com.fyp.layim.im.server;
+package com.fyp.layim.im.server.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

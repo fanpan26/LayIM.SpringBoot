@@ -1,12 +1,10 @@
 package com.fyp.layim.im;
 
-import com.fyp.layim.im.server.LayimMsgHandler;
-import com.fyp.layim.im.server.LayimServerConfig;
+import com.fyp.layim.im.server.handler.LayimMsgHandler;
+import com.fyp.layim.im.server.config.LayimServerConfig;
 import com.fyp.layim.im.server.LayimServerStarter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.tio.server.ServerGroupContext;
 
 import java.io.IOException;

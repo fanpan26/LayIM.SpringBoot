@@ -6,13 +6,13 @@ package com.fyp.layim.im.packet;
  * @project SpringBootLayIM
  */
 public class LayimMsgProperty {
-    public byte getType() {
-        return type;
+    public byte getMtype() {
+        return mtype;
     }
 
-    public void setType(byte type) {
-        this.type = type;
+    public void setMtype(byte mtype) {
+        this.mtype = mtype;
     }
 
-    private byte type;
+    private byte mtype;
 }

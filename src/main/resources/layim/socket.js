@@ -10,7 +10,8 @@ layui.define(['jquery','layer'],function (exports) {
     var reconnectInterval = null;
     var defaultOptions = {
         log:true,
-        server:'http://127.0.0.1:8888'
+        server:'ws://127.0.0.1:8888',
+        reconn:false
     };
     var tool={
         ws:null,
@@ -39,16 +40,13 @@ layui.define(['jquery','layer'],function (exports) {
         regWsEvent:function () {
             if(this.ws){
                 this.ws.onmessage = function (event) {
-                   tool.log(event);
                     call.msg&&call.msg(event);
                 };
                 this.ws.onclose = function (event) {
-                    tool.log(event);
                     call.close&&call.close(event);
                     tool.reconnect();
                 };
                 this.ws.onopen = function (event) {
-                    tool.log(event);
                     call.open&&call.open(event);
                     if(reconnectInterval){
                         clearInterval(reconnectInterval);
@@ -56,21 +54,26 @@ layui.define(['jquery','layer'],function (exports) {
                     }
                 };
                 this.ws.onerror = function (event) {
-                    tool.log(event);
                     call.error&&call.error(event);
                 };
             }
         },
         reconnect:function () {
             console.log(reconnectInterval);
-            if(reconnectInterval==null) {
-                reconnectInterval = setInterval(function () {
-                    tool.log("正在尝试重连...");
-                    tool.connect();
-                }, 2000);
+            if(tool.options.reconn) {
+                if (reconnectInterval == null) {
+
+                    reconnectInterval = setInterval(function () {
+                        tool.log("正在尝试重连...");
+                        tool.connect();
+                    }, 2000);
+                }
             }
         },
         send:function (data){
+            if(!data||!data['mtype']){
+                return layer.msg('消息格式不正确');
+            }
             this.ws.send(JSON.stringify(data));
         }
     };
@@ -95,6 +98,6 @@ layui.define(['jquery','layer'],function (exports) {
     socket.prototype.send=function(data){
         tool.send(data);
     }
-
     exports('socket',new socket());
 })
+

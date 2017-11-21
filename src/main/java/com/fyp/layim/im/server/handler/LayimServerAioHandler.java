@@ -1,4 +1,4 @@
-package com.fyp.layim.im.server;
+package com.fyp.layim.im.server.handler;
 
 import java.nio.ByteBuffer;
 
@@ -8,6 +8,7 @@ import com.fyp.layim.im.common.processor.LayimMsgProcessorManager;
 import com.fyp.layim.im.common.util.ByteUtil;
 import com.fyp.layim.im.packet.LayimMsgProperty;
 import com.fyp.layim.im.packet.UnknownReponseBody;
+import com.fyp.layim.im.server.config.LayimServerConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.core.Aio;
@@ -136,14 +137,21 @@ public class LayimServerAioHandler implements ServerAioHandler{
             }
             //接收过来的json数据
             String text = ByteUtil.toText(bytes);
+            //解析数据消息
+            log.info("LayimServerAioHandler:解析消息类型");
             LayimMsgProperty property = Json.toBean(text,LayimMsgProperty.class);
             //获取到消息类型
-            byte type = property.getType();
+            byte type = property.getMtype();
+            log.info("LayimServerAioHandler:或得到的消息类型为：{}",type);
+            //获取消息处理器
             LayimAbsMsgProcessor processor = LayimMsgProcessorManager.getProcessor(type);
+            log.info("LayimServerAioHandler:或得到的消息处理器为：{}",processor.getClass().getName());
             boolean unknown = processor == null;
             if(!unknown) {
+
                 processor.process(websocketPacket, channelContext);
             }
+            //这里应该增加未知消息处理
 
             Object retObj = wsMsgHandler.onText(websocketPacket, text, channelContext);
             String methodName = "onText";

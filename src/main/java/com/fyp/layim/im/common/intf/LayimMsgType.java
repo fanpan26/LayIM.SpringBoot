@@ -1,4 +1,4 @@
-package com.fyp.layim.im.common;
+package com.fyp.layim.im.common.intf;
 
 /**
  * @author fyp

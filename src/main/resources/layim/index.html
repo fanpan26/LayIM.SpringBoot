@@ -22,6 +22,7 @@
 
     layui.use(['layim','socket'], function(layim,socket){
 
+        var selfFlag = false;
         //演示自动回复
         var autoReplay = [
             '您好，我现在有事不在，一会再和您联系。',
@@ -95,6 +96,7 @@
             log:true,
             server:'ws://127.0.0.1:8888/2'
         });
+
         socket.on('open',function (e) {
             console.log("监听到事件：open");
         });
@@ -108,7 +110,14 @@
             console.log("监听到事件：msg");
             if(e.data!='消息发送成功'){
                 var msg = JSON.parse(e.data);
-                console.log(msg);
+                if(msg.from=='2') {
+                    if(selfFlag) {
+                        selfFlag = false;
+                        return;
+                    }else{
+                        msg['mine']=true;
+                    }
+                }
                 layim.getMessage(msg);
             }
         });
@@ -199,7 +208,11 @@
         layim.on('sendMessage', function(data){
             var To = data.to;
             console.log(data);
-            socket.send({type:1,content:data.mine.content,toid:2});
+            var t = data.to.type=='friend';
+            if(!t){
+                selfFlag = true;
+            }
+            socket.send({mtype:(t?1:2),content:data.mine.content,toid:t?2:data.to.id});
             return;
 
             if(To.type === 'friend'){

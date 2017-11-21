@@ -4,26 +4,102 @@
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df5de178-6c1f-495b-b5be-07f87a1ec8b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_1_5_8_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerProperties.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimWebsocketServerAutoConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/spring.factories" />
+    <list default="true" id="df5de178-6c1f-495b-b5be-07f87a1ec8b8" name="Default" comment="单聊测试">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/layim/socket.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_access_1_1_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_access_1_1_11.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_11.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_11.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_39.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_39.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_10.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_0_18.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_0_18.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_23_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_23_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_2_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_xiaoleilu_hutool_all_3_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_xiaoleilu_hutool_all_3_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_javax_transaction_api_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_javax_transaction_api_1_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_44.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_44.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_2_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_6.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_23.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_23.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_23.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_annotations_api_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_annotations_api_8_5_23.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_23.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_23.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_11.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_2_6_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_2_6_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_14.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_14.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_0_12_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_0_12_Final.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_0_12_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_0_12_Final.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_3_5_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_3_5_Final.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_0_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_0_0_Final.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_1_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_1_Final.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jodd_jodd_core_3_9_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jodd_jodd_core_3_9_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_2_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_2_0_Final.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_1_10_19.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_1_10_19.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_25.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_25.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_11_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_11_8_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_12_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_t_io_tio_core_2_0_1_v20171015_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_t_io_tio_core_2_0_1_v20171015_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_t_io_tio_http_common_0_0_3_tio_http.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_t_io_tio_http_common_0_0_3_tio_http.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_t_io_tio_utils_2_0_1_v20171015_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_t_io_tio_utils_2_0_1_v20171015_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_t_io_tio_websocket_common_0_0_3_tio_websocket.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_t_io_tio_websocket_common_0_0_3_tio_websocket.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_t_io_tio_websocket_server_0_0_3_tio_websocket.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_t_io_tio_websocket_server_0_0_3_tio_websocket.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpringBootLayIM.iml" afterPath="$PROJECT_DIR$/SpringBootLayIM.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/LayimApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/LayimApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/LayimWebsocketStarter.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/LayimWebsocketStarter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimAbsMsgProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimAbsMsgProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToClientMsgProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToClientMsgProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimMsgProcessorManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimMsgProcessorManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerAioHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerAioHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerAioListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerAioListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerStarter.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerStarter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/layim/index.html" afterPath="$PROJECT_DIR$/src/main/resources/layim/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.yml" afterPath="$PROJECT_DIR$/target/classes/application.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/convert/BodyConvert.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/convert/BodyConvert.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimMsgHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimMsgHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/fyp/layim/common/util/IdUtilTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/fyp/layim/common/util/IdUtilTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/layim/index.html" afterPath="$PROJECT_DIR$/target/classes/layim/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -42,66 +118,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LayimServerProperties.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerProperties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="44" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/layim/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+            <state relative-caret-position="286">
+              <caret line="201" column="12" lean-forward="false" selection-start-line="201" selection-start-column="12" selection-end-line="201" selection-end-column="12" />
               <folding>
-                <marker date="1511178534685" expanded="true" signature="6075:6089" ph="..." />
-                <marker date="1511178534685" expanded="true" signature="6987:7001" ph="..." />
+                <element signature="e#563#991#0" expanded="false" />
+                <element signature="e#2758#2808#0" expanded="false" />
+                <element signature="e#2850#2901#0" expanded="false" />
+                <element signature="e#2943#2994#0" expanded="false" />
+                <element signature="e#6139#6240#0" expanded="false" />
+                <element signature="e#6296#6933#0" expanded="false" />
+                <marker date="1511258436214" expanded="true" signature="6191:6205" ph="..." />
+                <marker date="1511258436214" expanded="true" signature="6799:6813" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LayimWebsocketServerAutoConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimWebsocketServerAutoConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="32" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spring.factories" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/spring.factories">
+      <file leaf-file-name="LayimMapperImpl.class" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/target/classes/com/fyp/layim/domain/mapper/LayimMapperImpl.class">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="118" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LayimServerAioHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerAioHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="144" column="30" lean-forward="true" selection-start-line="144" selection-start-column="30" selection-end-line="144" selection-end-column="30" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,8 +150,18 @@
       <file leaf-file-name="LayimMsgProcessorManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimMsgProcessorManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="114">
               <caret line="30" column="58" lean-forward="false" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientToClientMsgProcessor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToClientMsgProcessor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -120,29 +170,65 @@
       <file leaf-file-name="LayimAbsMsgProcessor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimAbsMsgProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="26" column="49" lean-forward="false" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+            <state relative-caret-position="327">
+              <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientToClientMsgProcessor.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToClientMsgProcessor.java">
+      <file leaf-file-name="BodyConvert.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/convert/BodyConvert.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+            <state relative-caret-position="569">
+              <caret line="56" column="8" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LayimServerAioListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerAioListener.java">
+      <file leaf-file-name="LayimMsgHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimMsgHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="462">
+              <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatRequestBody.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="373">
+              <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+              <folding>
+                <element signature="e#267#268#0" expanded="true" />
+                <element signature="e#294#295#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IdUtilTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/fyp/layim/common/util/IdUtilTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LayimBaseBody.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+              <folding>
+                <element signature="e#553#554#0" expanded="true" />
+                <element signature="e#583#584#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,12 +239,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="JUnit4 Test Class" />
         <option value="Interface" />
         <option value="Enum" />
         <option value="spring-beans.schema" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -167,6 +253,8 @@
       <find>wsMsgHandler</find>
       <find>onText</find>
       <find>log</find>
+      <find>LAYIM</find>
+      <find>call</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -186,8 +274,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/domain/viewmodels/LayimGroupMembersViewModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/domain/result/LAYIM_ENUM.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/service/GroupService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/fyp/layim/service/GroupServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/UserController.java" />
@@ -207,29 +293,23 @@
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/handler/LayimMsgProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimMsgProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimAbsMsgProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ClientToClientMsgBody.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/LayimConst.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/util/ByteUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimMsgProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/UnknownReponseBody.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/UnknownMsgProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/LayimServerDecoder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ContextUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/convert/BodyConvert.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/common/config/ContextWebListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimMsgHandler.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/spring.factories" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/LayimApplication.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/1.5.8.RELEASE/spring-boot-1.5.8.RELEASE.jar!/org/springframework/boot/context/properties/ConfigurationProperties.class" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerProperties.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/LayimWebsocketStarter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerStarter.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/layim/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimWebsocketServerAutoConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerAioListener.java" />
@@ -237,6 +317,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimMsgProcessorManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimAbsMsgProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToClientMsgProcessor.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/layim/socket.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/fyp/layim/common/util/IdUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimMsgHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/layim/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/convert/BodyConvert.java" />
       </list>
     </option>
   </component>
@@ -250,7 +338,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="D:\maven\repository" />
-        <option name="mavenHome" value="C:/Program Files/Maven/apache-maven-3.5.0" />
+        <option name="mavenHome" value="D:/Program Files (x86)/maven/apache-maven-3.5.0" />
         <option name="userSettingsFile" value="D:\maven\repository\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -280,6 +368,9 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -330,28 +421,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="layim" type="462c0819:PsiDirectoryNode" />
               <item name="im" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="layim" type="462c0819:PsiDirectoryNode" />
-              <item name="im" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="processor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="layim" type="462c0819:PsiDirectoryNode" />
-              <item name="im" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="packet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
@@ -366,7 +436,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="layim" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
@@ -374,18 +444,30 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="layim" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -413,6 +495,7 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\JavaProject\SpringBootLayIM\src\main\resources\static" />
       <recent name="E:\IdeaProject\SpringBootLayIM\src\main\resources\static\photos" />
       <recent name="E:\IdeaProject\SpringBootLayIM\src\main\resources\static" />
       <recent name="E:\IdeaProject\SpringBootLayIM\src\main\resources\templates" />
@@ -431,6 +514,31 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.LayimApplication">
+    <configuration name="IdUtilTest.testJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.fyp.layim.common.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="SpringBootLayIM" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.fyp.layim.common.util" />
+      <option name="MAIN_CLASS_NAME" value="com.fyp.layim.common.util.IdUtilTest" />
+      <option name="METHOD_NAME" value="testJson" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <configuration name="LayimApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -505,31 +613,6 @@
       <option name="PACKAGE_NAME" value="com.fyp.layim.service" />
       <option name="MAIN_CLASS_NAME" value="com.fyp.layim.service.UserServiceTest" />
       <option name="METHOD_NAME" value="testGetUserFriendGroups" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="UserServiceTest.testTestUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.fyp.layim.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="SpringBootLayIM" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.fyp.layim.service" />
-      <option name="MAIN_CLASS_NAME" value="com.fyp.layim.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="testTestUser" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -625,18 +708,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.LayimApplication" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.UserServiceTest.testTestUser" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.UserMapperTest.testUserMapper" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.RelationShipRepositoryTest.testGetRelationShip" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.UserServiceTest.testGetUserFriendGroups" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.UserMapperTest.testUserMapper" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.RelationShipRepositoryTest.testGetRelationShip" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.UserServiceTest.testGetUserFriendGroups" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.IdUtilTest.testJson" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Spring Boot.LayimApplication" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.UserServiceTest.testGetUserFriendGroups" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.RelationShipRepositoryTest.testGetRelationShip" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.UserMapperTest.testUserMapper" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.UserServiceTest.testTestUser" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.IdUtilTest.testJson" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.UserServiceTest.testGetUserFriendGroups" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.RelationShipRepositoryTest.testGetRelationShip" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.UserMapperTest.testUserMapper" />
       </list>
     </recent_temporary>
   </component>
@@ -671,18 +754,27 @@
       <workItem from="1511132643260" duration="7168000" />
       <workItem from="1511175739616" duration="2624000" />
       <workItem from="1511178454924" duration="3577000" />
+      <workItem from="1511248297614" duration="10391000" />
     </task>
+    <task id="LOCAL-00001" summary="单聊测试">
+      <created>1511258593546</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1511258593546</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RelationShipRepositoryTest_testGetRelationShip - 2017.11.05 at 16h 40m 26s.xml">
-      <configuration name="RelationShipRepositoryTest.testGetRelationShip" configurationId="JUnit" />
+    <history-entry file="IdUtilTest_testJson - 2017.11.21 at 17h 29m 56s.xml">
+      <configuration name="IdUtilTest.testJson" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RelationShipRepositoryTest_testGetRelationShip - 2017.11.05 at 16h 41m 16s.xml">
-      <configuration name="RelationShipRepositoryTest.testGetRelationShip" configurationId="JUnit" />
+    <history-entry file="IdUtilTest_testJson - 2017.11.21 at 17h 30m 58s.xml">
+      <configuration name="IdUtilTest.testJson" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RelationShipRepositoryTest_testGetRelationShip - 2017.11.05 at 16h 42m 25s.xml">
-      <configuration name="RelationShipRepositoryTest.testGetRelationShip" configurationId="JUnit" />
+    <history-entry file="IdUtilTest_testJson - 2017.11.21 at 17h 32m 30s.xml">
+      <configuration name="IdUtilTest.testJson" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RelationShipRepositoryTest_testGetRelationShip - 2017.11.05 at 16h 47m 21s.xml">
       <configuration name="RelationShipRepositoryTest.testGetRelationShip" configurationId="JUnit" />
@@ -707,35 +799,34 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92419000" />
+    <option name="totallyTimeSpent" value="102810000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1507431" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6611479" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38110402" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32908705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29723993" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29801324" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -752,36 +843,38 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="单聊测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="单聊测试" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="44" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimAbsMsgProcessor.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimAbsMsgProcessor.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimAbsMsgProcessor.java</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="50" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-common/0.0.3-tio-websocket/tio-websocket-common-0.0.3-tio-websocket-sources.jar!/org/tio/websocket/common/WsServerDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/Serializable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="168" column="17" lean-forward="false" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseMessage.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimChatRequestMsg.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-common/0.0.3-tio-websocket/tio-websocket-common-0.0.3-tio-websocket-sources.jar!/org/tio/websocket/common/WsRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-common/0.0.3-tio-websocket/tio-websocket-common-0.0.3-tio-websocket-sources.jar!/org/tio/websocket/common/WsRequest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/Protocol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -789,41 +882,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-server/0.0.3-tio-websocket/tio-websocket-server-0.0.3-tio-websocket.jar!/org/tio/websocket/server/handler/IWsMsgHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-common/0.0.3-tio-websocket/tio-websocket-common-0.0.3-tio-websocket-sources.jar!/org/tio/websocket/common/WsPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="92" column="18" lean-forward="false" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-common/0.0.3-tio-websocket/tio-websocket-common-0.0.3-tio-websocket-sources.jar!/org/tio/websocket/common/WsResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-common/0.0.3-tio-websocket/tio-websocket-common-0.0.3-tio-websocket-sources.jar!/org/tio/websocket/common/WsSessionContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-server/0.0.3-tio-websocket/tio-websocket-server-0.0.3-tio-websocket.jar!/org/tio/websocket/server/handler/IWsMsgHandler.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-common/0.0.3-tio-websocket/tio-websocket-common-0.0.3-tio-websocket-sources.jar!/org/tio/websocket/common/WsPacket.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-common/0.0.3-tio-websocket/tio-websocket-common-0.0.3-tio-websocket-sources.jar!/org/tio/websocket/common/WsResponse.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-common/0.0.3-tio-websocket/tio-websocket-common-0.0.3-tio-websocket-sources.jar!/org/tio/websocket/common/WsSessionContext.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/LayimConst.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -831,13 +893,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/core/Aio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="259" column="32" lean-forward="false" selection-start-line="259" selection-start-column="18" selection-end-line="259" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/core/Aio.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/util/convert.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/LayimMsgType.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -871,20 +927,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/core/ChannelContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6095">
-          <caret line="230" column="18" lean-forward="false" selection-start-line="230" selection-start-column="18" selection-end-line="230" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/core/ChannelContext.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimPacket.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimMsgProperty.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -928,54 +971,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/convert/BodyConvert.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/common/config/ContextWebListener.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <element signature="method#getBaseList#0;class#UserService#0" expanded="false" />
-            <element signature="e#2392#2393#0" expanded="false" />
-            <element signature="e#2445#2446#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimMsgHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="47" column="37" lean-forward="false" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/server/intf/ServerAioHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/core/intf/AioHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/server/intf/ServerAioHandler.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/core/intf/AioHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/LayimApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -987,22 +992,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/server/ServerGroupContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="72" column="11" lean-forward="false" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/server/ServerGroupContext.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/1.5.8.RELEASE/spring-boot-1.5.8.RELEASE.jar!/org/springframework/boot/context/properties/ConfigurationProperties.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
@@ -1015,12 +1005,12 @@
         <state relative-caret-position="690">
           <caret line="36" column="11" lean-forward="false" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
           <folding>
-            <element signature="e#265#266#0" expanded="true" />
-            <element signature="e#305#306#0" expanded="true" />
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#388#389#0" expanded="true" />
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="false" />
+            <element signature="e#305#306#0" expanded="false" />
+            <element signature="e#349#350#0" expanded="false" />
+            <element signature="e#388#389#0" expanded="false" />
+            <element signature="e#453#454#0" expanded="false" />
+            <element signature="e#509#510#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1041,20 +1031,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layim/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
-          <folding>
-            <marker date="1511178534685" expanded="true" signature="6075:6089" ph="..." />
-            <marker date="1511178534685" expanded="true" signature="6987:7001" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerProperties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="171">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="44" selection-end-column="1" />
           <folding />
         </state>
@@ -1062,10 +1041,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimWebsocketServerAutoConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
+        <state relative-caret-position="171">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="32" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1078,51 +1057,185 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerAioListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
+        <state relative-caret-position="570">
           <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimMsgProcessorManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="30" column="58" lean-forward="false" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
+        <state relative-caret-position="342">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="62" column="19" lean-forward="false" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+          <folding>
+            <element signature="n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/lay/modules/layim.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="58" column="16" lean-forward="true" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+          <folding>
+            <marker date="1511050663420" expanded="true" signature="4210:4218" ph="&amp;##xe617;" />
+            <marker date="1511050663420" expanded="true" signature="4373:4381" ph="&amp;##xe60f;" />
+            <marker date="1511050663420" expanded="true" signature="4594:4602" ph="&amp;##xe618;" />
+            <marker date="1511050663420" expanded="true" signature="4651:4659" ph="&amp;##xe617;" />
+            <marker date="1511050663420" expanded="true" signature="4805:4813" ph="&amp;##xe618;" />
+            <marker date="1511050663420" expanded="true" signature="4860:4868" ph="&amp;##xe60f;" />
+            <marker date="1511050663420" expanded="true" signature="5389:5397" ph="&amp;##xe612;" />
+            <marker date="1511050663420" expanded="true" signature="5634:5642" ph="&amp;##xe613;" />
+            <marker date="1511050663420" expanded="true" signature="5730:5738" ph="&amp;##xe611;" />
+            <marker date="1511050663420" expanded="true" signature="6095:6103" ph="&amp;##xe61a;" />
+            <marker date="1511050663420" expanded="true" signature="6119:6127" ph="&amp;##xe602;" />
+            <marker date="1511050663420" expanded="true" signature="7604:7612" ph="&amp;##xe615;" />
+            <marker date="1511050663420" expanded="true" signature="7737:7745" ph="&amp;##xe645;" />
+            <marker date="1511050663420" expanded="true" signature="7912:7920" ph="&amp;##xe608;" />
+            <marker date="1511050663420" expanded="true" signature="8024:8032" ph="&amp;##xe61b;" />
+            <marker date="1511050663420" expanded="true" signature="8157:8165" ph="&amp;##xe60b;" />
+            <marker date="1511050663420" expanded="true" signature="8300:8308" ph="&amp;##x1007;" />
+            <marker date="1511050663420" expanded="true" signature="9184:9192" ph="&amp;##xe61a;" />
+            <marker date="1511050663420" expanded="true" signature="9594:9602" ph="&amp;##xe60c;" />
+            <marker date="1511050663420" expanded="true" signature="9748:9756" ph="&amp;##xe60d;" />
+            <marker date="1511050663420" expanded="true" signature="9970:9978" ph="&amp;##xe61d;" />
+            <marker date="1511050663420" expanded="true" signature="10194:10202" ph="&amp;##xe6fc;" />
+            <marker date="1511050663420" expanded="true" signature="10387:10395" ph="&amp;##xe6ed;" />
+            <marker date="1511050663420" expanded="true" signature="10803:10811" ph="&amp;##xe60e;" />
+            <marker date="1511050663420" expanded="true" signature="11544:11552" ph="&amp;##xe618;" />
+            <marker date="1511050663420" expanded="true" signature="11725:11733" ph="&amp;##xe618;" />
+            <marker date="1511050663420" expanded="true" signature="13555:13563" ph="&amp;##x1007;" />
+            <marker date="1511050663420" expanded="true" signature="15146:15154" ph="&amp;##xe61e;" />
+            <marker date="1511050663420" expanded="true" signature="15428:15436" ph="&amp;##xe652;" />
+            <marker date="1511050663420" expanded="true" signature="15692:15700" ph="&amp;##xe652;" />
+            <marker date="1511050663420" expanded="true" signature="58267:58304" ph="..." />
+            <marker date="1511050663420" expanded="true" signature="58320:58366" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerAioHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="144" column="30" lean-forward="true" selection-start-line="144" selection-start-column="30" selection-end-line="144" selection-end-column="30" />
+        <state relative-caret-position="344">
+          <caret line="141" column="34" lean-forward="true" selection-start-line="141" selection-start-column="34" selection-end-line="141" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layim/socket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="69" column="23" lean-forward="false" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
+          <folding>
+            <element signature="e#388#441#0" expanded="false" />
+            <element signature="e#470#529#0" expanded="false" />
+            <element signature="e#1055#1950#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimAbsMsgProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="26" column="49" lean-forward="false" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+        <state relative-caret-position="327">
+          <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+          <folding>
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/fyp/layim/common/util/IdUtilTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimMsgHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/com/fyp/layim/domain/mapper/LayimMapperImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layim/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="201" column="12" lean-forward="false" selection-start-line="201" selection-start-column="12" selection-end-line="201" selection-end-column="12" />
+          <folding>
+            <element signature="e#563#991#0" expanded="false" />
+            <element signature="e#2758#2808#0" expanded="false" />
+            <element signature="e#2850#2901#0" expanded="false" />
+            <element signature="e#2943#2994#0" expanded="false" />
+            <element signature="e#6139#6240#0" expanded="false" />
+            <element signature="e#6296#6933#0" expanded="false" />
+            <marker date="1511258436214" expanded="true" signature="6191:6205" ph="..." />
+            <marker date="1511258436214" expanded="true" signature="6799:6813" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimMsgProcessorManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="30" column="58" lean-forward="false" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToClientMsgProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+        <state relative-caret-position="228">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/convert/BodyConvert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="56" column="8" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+          <folding>
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#294#295#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

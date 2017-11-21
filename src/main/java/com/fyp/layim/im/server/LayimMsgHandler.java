@@ -45,7 +45,7 @@ public class LayimMsgHandler implements IWsMsgHandler {
         User user = new User();
         user.setUserName("小盘子");
         user.setId(Long.parseLong(token));
-        user.setAvatar("http://avatar");
+        user.setAvatar("/photo.jpg");
         if (user != null) {
 
             ContextUser contextUser = new ContextUser();

@@ -10,36 +10,9 @@
         html{background-color: #333;}
     </style>
 </head>
-<body>
-
 
 <script src="/layui.js"></script>
 <script>
-    var ws;
-    function initWs(uid) {
-        ws = new WebSocket("ws://localhost:8888/"+uid);
-        ws.onmessage = function (event) {
-          console.log(event.data);
-        };
-        ws.onclose = function (event) {
-            console.log(event);
-        };
-        ws.onopen = function (event) {
-            console.log("connected...`");
-
-        };
-        ws.onerror = function (event) {
-            console.log("请求异常，请确认是否登陆");
-        };
-    }
-    function send() {
-        ws.send(JSON.stringify({
-            type:1,
-            content:"今天你好吗？",
-            toid:"1"
-        }));
-    }
-    //initWs();
 </script>
 <script>
 
@@ -47,7 +20,7 @@
         alert('请部署到localhost上查看该演示');
     }
 
-    layui.use('layim', function(layim){
+    layui.use(['layim','socket'], function(layim,socket){
 
         //演示自动回复
         var autoReplay = [
@@ -67,7 +40,7 @@
 
             //初始化接口
             init: {
-                url: '/layim/base/1'
+                url: '/layim/base/2'
                 ,data: {}
             }
             //查看群员接口
@@ -115,6 +88,29 @@
             ,find: layui.cache.dir + 'css/modules/layim/html/find.html' //发现页面地址，若不开启，剔除该项即可
             ,chatLog: layui.cache.dir + 'css/modules/layim/html/chatLog.html' //聊天记录页面地址，若不开启，剔除该项即可
 
+        });
+
+
+        socket.config({
+            log:true,
+            server:'ws://127.0.0.1:8888/2'
+        });
+        socket.on('open',function (e) {
+            console.log("监听到事件：open");
+        });
+        socket.on('close',function (e) {
+            console.log("监听到事件：close");
+        });
+        socket.on('error',function (e) {
+            console.log("监听到事件：error");
+        });
+        socket.on('msg',function (e) {
+            console.log("监听到事件：msg");
+            if(e.data!='消息发送成功'){
+                var msg = JSON.parse(e.data);
+                console.log(msg);
+                layim.getMessage(msg);
+            }
         });
 
         /*
@@ -203,6 +199,8 @@
         layim.on('sendMessage', function(data){
             var To = data.to;
             console.log(data);
+            socket.send({type:1,content:data.mine.content,toid:2});
+            return;
 
             if(To.type === 'friend'){
                 layim.setChatStatus('<span style="color:#FF5722;">对方正在输入。。。</span>');
@@ -220,18 +218,11 @@
                         ,content: autoReplay[Math.random()*9|0]
                     }
                 } else {
-                    obj = {
-                        username: "小盘子"
-                        ,avatar: To.avatar
-                        ,id: To.id
-                        ,type: "friend"
-                        ,timestamp:1511095592241
-                        ,content: "接收到消息后转化为这个即可"
-                    }
-                    layim.setChatStatus('<span style="color:#FF5722;">在线</span>');
+
+                    //layim.setChatStatus('<span style="color:#FF5722;">在线</span>');
                 }
                 console.log(obj);
-                layim.getMessage(obj);
+               //layim.getMessage(obj);
             }, 1000);
         });
 

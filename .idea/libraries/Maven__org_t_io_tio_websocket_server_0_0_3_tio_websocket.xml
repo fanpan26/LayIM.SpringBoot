@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.t-io:tio-websocket-server:0.0.3-tio-websocket">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-server/0.0.3-tio-websocket/tio-websocket-server-0.0.3-tio-websocket.jar!/" />
+      <root url="jar://D:/maven/repository/org/t-io/tio-websocket-server/0.0.3-tio-websocket/tio-websocket-server-0.0.3-tio-websocket.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-server/0.0.3-tio-websocket/tio-websocket-server-0.0.3-tio-websocket-javadoc.jar!/" />
+      <root url="jar://D:/maven/repository/org/t-io/tio-websocket-server/0.0.3-tio-websocket/tio-websocket-server-0.0.3-tio-websocket-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/t-io/tio-websocket-server/0.0.3-tio-websocket/tio-websocket-server-0.0.3-tio-websocket-sources.jar!/" />
+      <root url="jar://D:/maven/repository/org/t-io/tio-websocket-server/0.0.3-tio-websocket/tio-websocket-server-0.0.3-tio-websocket-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

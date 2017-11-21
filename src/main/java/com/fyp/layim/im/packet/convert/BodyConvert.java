@@ -55,8 +55,9 @@ public class BodyConvert {
         msgBody.setAvatar(contextUser.getAvatar());
         //发送人
         msgBody.setId(contextUser.getUserid());
+        //msgBody.setId("1");
         //消息内容
-        msgBody.setContent(requestBody.getConent());
+        msgBody.setContent(requestBody.getContent());
         //发送时间
         msgBody.setTimestamp(requestBody.getTimestamp());
         msgBody.setMsgType(LayimMsgType.CLIENT_TO_CLIENT);

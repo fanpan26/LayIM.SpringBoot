@@ -20,16 +20,16 @@ public class ChatRequestBody extends LayimBaseBody {
         this.toId = toId;
     }
 
-    public String getConent() {
-        return conent;
+    public String getContent() {
+        return content;
     }
 
-    public void setConent(String conent) {
-        this.conent = conent;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     /**
      * 消息内容
      * */
-    private String conent;
+    private String content;
 }

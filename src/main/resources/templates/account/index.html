@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>LayIM 3.x PC版本地演示</title>
 
-    <link rel="stylesheet" href="/css/layui.css">
+    <link rel="stylesheet" th:href="@{/vendor/fontawesome/css/font-awesome.min.css}"></link>
     <style>
         html{background-color: #333;}
     </style>
 </head>
 
-<script src="/layui.js"></script>
+<script src="/layui/layui.js"></script>
 <script>
 </script>
 <script>
@@ -264,9 +263,5 @@
     });
 
 </script>
-
-<input type="text" id="userid"/>
-<input type="button" value="连接" onclick="javascript:initWs(document.getElementById('userid').value)"/>
-<input type="button" value="发送" onclick="send()">
 </body>
 </html>

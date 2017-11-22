@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(LayimServerProperties.class)
-public class LayimWebsocketServerAutoConfig {
+public class LayimServerAutoConfig {
 
     @Autowired
     LayimServerProperties properties;

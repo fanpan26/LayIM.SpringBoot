@@ -1,0 +1,56 @@
+package com.fyp.layim.service.auth;
+
+import com.fyp.layim.domain.UserAccount;
+import com.fyp.layim.service.UserService;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ * 用户登录验证逻辑，用 shiro 框架
+ * */
+public class AuthRealm extends AuthorizingRealm {
+    @Autowired
+    private UserService userService;
+
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+        UsernamePasswordToken token = (UsernamePasswordToken)authenticationToken;
+
+        String username = token.getUsername();
+        //查询
+        UserAccount account = userService.getUserAccount(username);
+        if(account!=null) {
+            return new SimpleAuthenticationInfo(account, account.getPassword(), this.getClass().getName());
+        }
+        return null;
+    }
+
+    /**
+     * 暂时先不做权限，只做有没有登录
+     * */
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+        /*
+        *  User user=(User) principal.fromRealm(this.getClass().getName()).iterator().next();//获取session中的用户
+        List<String> permissions=new ArrayList<>();
+        Set<Role> roles = user.getRoles();
+        if(roles.size()>0) {
+            for(Role role : roles) {
+                Set<Module> modules = role.getModules();
+                if(modules.size()>0) {
+                    for(Module module : modules) {
+                        permissions.add(module.getMname());
+                    }
+                }
+            }
+        }
+        SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
+        info.addStringPermissions(permissions);//将权限放入shiro中.
+        return info;
+        * */
+        return null;
+    }
+}

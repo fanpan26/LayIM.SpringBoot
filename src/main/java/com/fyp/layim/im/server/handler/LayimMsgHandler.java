@@ -1,7 +1,9 @@
 package com.fyp.layim.im.server.handler;
 
-import com.fyp.layim.domain.User;
+import com.fyp.layim.im.common.util.SpringUtil;
 import com.fyp.layim.im.packet.ContextUser;
+import com.fyp.layim.im.packet.LayimContextUserInfo;
+import com.fyp.layim.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.core.Aio;
@@ -11,6 +13,8 @@ import org.tio.http.common.HttpResponse;
 import org.tio.http.common.HttpResponseStatus;
 import org.tio.websocket.common.WsRequest;
 import org.tio.websocket.server.handler.IWsMsgHandler;
+
+import java.util.List;
 
 /**
  * @author fyp
@@ -33,29 +37,37 @@ public class LayimMsgHandler implements IWsMsgHandler {
 
     @Override
     public HttpResponse handshake(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext) throws Exception {
-        //这里需要重构
+        return handleHandshakeUserInfo(httpRequest,httpResponse,channelContext);
+    }
+
+    /**
+     * 用 @Autowired 注解UserService 不起作用（原因我不是很清楚）
+     * 解析客户端的token，获取用户信息转化为ContextUser对象
+     * 将ContextUser对象，以UserId为Key，ContextUser为value存入ChannelContext的Attribute中，方便后续使用当前用户信息
+     * 获取用户群组，遍历调用 Aio.bindGroup方法加入群组
+     * */
+    private HttpResponse handleHandshakeUserInfo(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext){
+        UserService userService = (UserService) SpringUtil.getBean("userService");
         //增加token验证方法
         String path = httpRequest.getRequestLine().getPath();
 
         String token = path.substring(1);
-        User user = new User();
-        user.setUserName("小盘子");
-        user.setId(Long.parseLong(token));
-        user.setAvatar("/photo.jpg");
-        if (user != null) {
-            logger.info("LayimMsgHandler.handshake:绑定用户信息");
-            ContextUser contextUser = new ContextUser();
-            contextUser.setUserid(token);
-            contextUser.setUsername(user.getUserName());
-            contextUser.setAvatar(user.getAvatar());
 
-            channelContext.setAttribute(contextUser.getUserid(), contextUser);
-            Aio.bindUser(channelContext, token);
-            //测试
-            Aio.bindGroup(channelContext,"1");
-        } else {
+        LayimContextUserInfo userInfo = userService.getContextUserInfo(Long.parseLong(token));
+        if(userInfo == null){
             httpResponse.setStatus(HttpResponseStatus.C404);
+        }else {
+            channelContext.setAttribute(userInfo.getContextUser().getUserid(), userInfo.getContextUser());
+            //绑定用户ID
+            Aio.bindUser(channelContext, token);
+            //绑定用户群组
+            List<String> groupIds =  userInfo.getGroupIds();
+            //绑定用户群信息
+            if(groupIds!=null) {
+                groupIds.forEach((String groupId) -> Aio.bindGroup(channelContext, groupId));
+            }
         }
+
         return httpResponse;
     }
 

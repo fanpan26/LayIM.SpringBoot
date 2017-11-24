@@ -22,23 +22,23 @@
                 ]]
                 ,data: [{
                     "id": "10001"
-                    ,"api": "/api/user"
+                    ,"api": "注册用户"
                     ,"method": "put"
                     ,"url": "/api/user"
-                    ,"param": JSON.stringify({"username":"小小小盘子","avatar":"http://avatar.jpg","sign":"我的理想是"})
+                    ,"param": JSON.stringify({"account":"admin","password":"admin", "username":"小小小盘子","avatar":"http://avatar.jpg","sign":"我的理想是不上班"})
+                    ,"try": "try it"
+                },{
+                    "id": "10002"
+                    ,"api": "好友/群组申请"
+                    ,"method": "post"
+                    ,"url": "/api/apply"
+                    ,"param": JSON.stringify({"toid":2,"type":1,"remark":"你很帅，加我吧"})
                     ,"try": "try it"
                 },{
                     "id": "10001"
-                    ,"api": "/api/user"
-                    ,"method": "put"
-                    ,"url": "/api/user"
-                    ,"param": JSON.stringify({"username":"小小小盘子","avatar":"http://avatar.jpg","sign":"我的理想是"})
-                    ,"try": "try it"
-                },{
-                    "id": "10001"
-                    ,"api": "/api/user"
-                    ,"method": "put"
-                    ,"url": "/api/user"
+                    ,"api": "好友（群）请求处理"
+                    ,"method": "post"
+                    ,"url": "/api/handle"
                     ,"param": JSON.stringify({"username":"小小小盘子","avatar":"http://avatar.jpg","sign":"我的理想是"})
                     ,"try": "try it"
                 },{

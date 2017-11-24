@@ -197,7 +197,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/iconfont.svg">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="494">
-              <caret line="26" column="56" lean-forward="true" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+              <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -207,7 +207,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="232">
-              <caret line="116" column="69" lean-forward="true" selection-start-line="116" selection-start-column="69" selection-end-line="116" selection-end-column="69" />
+              <caret line="116" column="69" lean-forward="false" selection-start-line="116" selection-start-column="69" selection-end-line="116" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getContextUserInfo#0;class#UserService#0" expanded="false" />
@@ -220,7 +220,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/common/util/AESUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
-              <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+              <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -814,7 +814,7 @@
       <workItem from="1511338166001" duration="2145000" />
       <workItem from="1511484862341" duration="7808000" />
       <workItem from="1511498054785" duration="12519000" />
-      <workItem from="1511512893753" duration="7500000" />
+      <workItem from="1511512893753" duration="7640000" />
     </task>
     <task id="LOCAL-00001" summary="单聊测试">
       <created>1511258593546</created>
@@ -872,7 +872,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511520398257</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="单聊群聊完善">
+      <created>1511520518975</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1511520518975</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -908,7 +915,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160741000" />
+    <option name="totallyTimeSpent" value="160881000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1322,7 +1329,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/common/util/AESUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
-          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1332,7 +1339,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
-          <caret line="116" column="69" lean-forward="true" selection-start-line="116" selection-start-column="69" selection-end-line="116" selection-end-column="69" />
+          <caret line="116" column="69" lean-forward="false" selection-start-line="116" selection-start-column="69" selection-end-line="116" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getContextUserInfo#0;class#UserService#0" expanded="false" />
@@ -1377,7 +1384,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/iconfont.svg">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
-          <caret line="26" column="56" lean-forward="true" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+          <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
           <folding />
         </state>
       </provider>

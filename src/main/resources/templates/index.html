@@ -515,7 +515,7 @@
             socket: '/js/socket',
         });
         layui.use(['layim','socket'], function(layim,socket){
-
+            var $ =layui.jquery;
             var selfFlag = false;
             //基础配置
             layim.config({
@@ -552,9 +552,12 @@
 
             });
 $.get('/layim/token',function (res) {
+    if(res.code>0) {
+        return;
+    }
     socket.config({
         log:true,
-        server:'ws://127.0.0.1:8888/'+res.data
+        server:'ws://127.0.0.1:8888/'
     });
 
     socket.on('open',function (e) {

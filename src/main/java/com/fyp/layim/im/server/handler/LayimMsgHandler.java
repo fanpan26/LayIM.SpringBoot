@@ -6,6 +6,7 @@ import com.fyp.layim.im.common.util.SpringUtil;
 import com.fyp.layim.im.packet.ContextUser;
 import com.fyp.layim.im.packet.LayimContextUserInfo;
 import com.fyp.layim.service.UserService;
+import com.fyp.layim.service.auth.UserToken;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
@@ -19,6 +20,8 @@ import org.tio.websocket.common.WsRequest;
 import org.tio.websocket.server.handler.IWsMsgHandler;
 
 import java.util.List;
+
+import static com.fyp.layim.common.util.AESUtil.decrypt;
 
 /**
  * @author fyp
@@ -50,23 +53,28 @@ public class LayimMsgHandler implements IWsMsgHandler {
      * 将ContextUser对象，以UserId为Key，ContextUser为value存入ChannelContext的Attribute中，方便后续使用当前用户信息
      * 获取用户群组，遍历调用 Aio.bindGroup方法加入群组
      * */
-    private HttpResponse handleHandshakeUserInfo(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext){
+    private HttpResponse handleHandshakeUserInfo(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext) {
         UserService userService = (UserService) SpringUtil.getBean("userService");
         //增加token验证方法
 
-             String path = httpRequest.getRequestLine().getPath();
-             String token = path.substring(1);
+        String path = httpRequest.getRequestLine().getPath();
+        String token = path.substring(1);
 
-           // AESUtil.decrypt()
+        String userId = UserToken.IsValid(token);
 
-            LayimContextUserInfo userInfo = userService.getContextUserInfo(1L);
+        if (userId == null) {
+            //没有token 未授权
+            httpResponse.setStatus(HttpResponseStatus.C401);
+        } else {
+            //解析token
+            LayimContextUserInfo userInfo = userService.getContextUserInfo(Long.parseLong(userId));
             if (userInfo == null) {
+                //没有找到用户
                 httpResponse.setStatus(HttpResponseStatus.C404);
             } else {
-                String userId = userInfo.getContextUser().getUserid();
                 channelContext.setAttribute(userId, userInfo.getContextUser());
                 //绑定用户ID
-                Aio.bindUser(channelContext,userId);
+                Aio.bindUser(channelContext, userId);
                 //绑定用户群组
                 List<String> groupIds = userInfo.getGroupIds();
                 //绑定用户群信息
@@ -74,8 +82,7 @@ public class LayimMsgHandler implements IWsMsgHandler {
                     groupIds.forEach((String groupId) -> Aio.bindGroup(channelContext, groupId));
                 }
             }
-
-
+        }
         return httpResponse;
     }
 

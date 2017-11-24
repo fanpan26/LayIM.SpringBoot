@@ -14,11 +14,13 @@ import org.slf4j.LoggerFactory;
 import org.tio.core.Aio;
 import org.tio.core.ChannelContext;
 import org.tio.http.common.HttpRequest;
+import org.tio.http.common.HttpRequestDecoder;
 import org.tio.http.common.HttpResponse;
 import org.tio.http.common.HttpResponseStatus;
 import org.tio.websocket.common.WsRequest;
 import org.tio.websocket.server.handler.IWsMsgHandler;
 
+import java.net.URLDecoder;
 import java.util.List;
 
 import static com.fyp.layim.common.util.AESUtil.decrypt;
@@ -53,12 +55,12 @@ public class LayimMsgHandler implements IWsMsgHandler {
      * 将ContextUser对象，以UserId为Key，ContextUser为value存入ChannelContext的Attribute中，方便后续使用当前用户信息
      * 获取用户群组，遍历调用 Aio.bindGroup方法加入群组
      * */
-    private HttpResponse handleHandshakeUserInfo(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext) {
+    private HttpResponse handleHandshakeUserInfo(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext) throws  Exception {
         UserService userService = (UserService) SpringUtil.getBean("userService");
         //增加token验证方法
 
         String path = httpRequest.getRequestLine().getPath();
-        String token = path.substring(1);
+        String token = URLDecoder.decode(path.substring(1),"utf-8");
 
         String userId = UserToken.IsValid(token);
 

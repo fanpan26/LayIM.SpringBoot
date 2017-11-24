@@ -36,6 +36,7 @@ public class ShiroConfiguration {
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<>();
         //配置静态文件匿名访问
         //我 x,加上static 还不行，还得具体的路径。之前加上 /static/css/** 不可以，所以直接改为访问路径
+        filterChainDefinitionMap.put("/favicon.ico","anon");
         filterChainDefinitionMap.put("/css/**", "anon");
         filterChainDefinitionMap.put("/js/**", "anon");
         filterChainDefinitionMap.put("/images/**", "anon");

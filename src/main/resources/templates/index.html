@@ -551,13 +551,10 @@
                 ,chatLog: layui.cache.dir + 'css/modules/layim/html/chatLog.html' //聊天记录页面地址，若不开启，剔除该项即可
 
             });
-$.get('/layim/token',function (res) {
-    if(res.code>0) {
-        return;
-    }
     socket.config({
         log:true,
-        server:'ws://127.0.0.1:8888/'
+        token:'/layim/token',
+        server:'ws://127.0.0.1:8888'
     });
 
     socket.on('open',function (e) {
@@ -584,7 +581,6 @@ $.get('/layim/token',function (res) {
             layim.getMessage(msg);
         }
     });
-})
 
 
             //监听在线状态的切换事件

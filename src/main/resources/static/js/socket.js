@@ -11,6 +11,7 @@ layui.define(['jquery','layer'],function (exports) {
     var defaultOptions = {
         log:true,
         server:'ws://127.0.0.1:8888',
+        token:'/layim/token',
         reconn:false
     };
     var tool={
@@ -27,11 +28,23 @@ layui.define(['jquery','layer'],function (exports) {
             this.log('加载配置:'+JSON.stringify(tool.options));
             this.connect();
         },
+        token:function (callback) {
+          $.get(tool.options.token,function (res) {
+              if(res.code>0){
+                  layer.msg("未登录");
+              }else{
+                  callback(res.data);
+              }
+          })
+        },
         connect:function () {
             if(this.wsUseful()) {
                 if (this.options.server) {
-                    this.ws = new WebSocket(this.options.server);
-                    this.regWsEvent();
+                    this.token(function (token) {
+                        tool.ws = new WebSocket(tool.options.server+'/'+encodeURIComponent(token));
+                        tool.regWsEvent();
+                    });
+
                 }else{
                     layer.msg("server配置项无效");
                 }

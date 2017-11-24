@@ -1,5 +1,6 @@
 package com.fyp.layim.service;
 
+import com.fyp.layim.common.util.AESUtil;
 import com.fyp.layim.common.util.ResultUtil;
 import com.fyp.layim.domain.BigGroup;
 import com.fyp.layim.domain.FriendGroup;
@@ -16,6 +17,9 @@ import com.fyp.layim.im.packet.ContextUser;
 import com.fyp.layim.im.packet.LayimContextUserInfo;
 import com.fyp.layim.repository.UserAccountRepository;
 import com.fyp.layim.repository.UserRepository;
+import com.fyp.layim.service.auth.ShiroUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +35,9 @@ import java.util.stream.Collectors;
  */
 @Service
 public class UserService {
+
+    private static Logger logger = LoggerFactory.getLogger(UserService.class);
+
     @Autowired
     private UserRepository userRepository;
 
@@ -38,10 +45,10 @@ public class UserService {
     private UserAccountRepository userAccountRepository;
     /**
     * 获取init接口所需要的数据结果
-    *@param userId 用户ID
     *@return 返回 JsonResult(LayimInitDataViewModel)
     */
-    public JsonResult getBaseList(long userId){
+    public JsonResult getBaseList(){
+        Long userId =ShiroUtil.getUserId();
         LayimInitDataViewModel resultViewModel = new LayimInitDataViewModel();
 
         //开始构造
@@ -103,6 +110,21 @@ public class UserService {
             return contextUserInfo;
         }
         return null;
+    }
+
+    /**
+     * 获取token，访问ws
+     * 本来想用websocker服务调用这边的api，后来想用简单方法，传个token过去，然后，在websocket服务器解析。
+     * */
+    public JsonResult getUserToken() throws Exception {
+        Long userId = ShiroUtil.getUserId();
+        if (userId > 0) {
+            String key = String.format("%d_%d", userId, System.currentTimeMillis());
+            logger.info("当前时间：{}",key);
+            String token = AESUtil.encyrpt(key);
+            return ResultUtil.success(token);
+        }
+        return ResultUtil.fail(LAYIM_ENUM.NO_USER);
     }
 
 }

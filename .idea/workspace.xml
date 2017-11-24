@@ -4,8 +4,7 @@
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df5de178-6c1f-495b-b5be-07f87a1ec8b8" name="Default" comment="单聊群聊完善">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="df5de178-6c1f-495b-b5be-07f87a1ec8b8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -625,7 +624,7 @@
       <workItem from="1511484862341" duration="7808000" />
       <workItem from="1511498054785" duration="12519000" />
       <workItem from="1511512893753" duration="7816000" />
-      <workItem from="1511520773444" duration="88000" />
+      <workItem from="1511520773444" duration="95000" />
     </task>
     <task id="LOCAL-00001" summary="单聊测试">
       <created>1511258593546</created>
@@ -697,7 +696,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511520550445</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="单聊群聊完善">
+      <created>1511520866120</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1511520866121</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -733,7 +739,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161145000" />
+    <option name="totallyTimeSpent" value="161152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />

@@ -5,6 +5,7 @@ import com.fyp.layim.im.server.config.LayimServerConfig;
 import com.fyp.layim.im.server.LayimServerStarter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.tio.server.ServerGroupContext;
 
 import java.io.IOException;

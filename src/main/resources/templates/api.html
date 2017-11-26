@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="layout">
+<head th:include="layout :: htmlhead" th:with="title='favorites'"></head>
+<body>
+<scetion layout:fragment="content">
+    <table class="layui-hide" id="demo"></table>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        layui.use('table', function(){
+            var table = layui.table;
+
+            //展示已知数据
+            table.render({
+                elem: '#demo'
+                ,cols: [[ //标题栏
+                    {field: 'id', title: 'ID', width: 80}
+                    ,{field: 'api', title: 'api', width: 200}
+                    ,{field: 'method', title: 'method', width: 80}
+                    ,{field: 'url', title: 'url', width: 200}
+                    ,{field: 'param', title: 'param', minWidth: 300}
+                    ,{field: 'try', title: 'try', width: 100}
+                ]]
+                ,data: [{
+                    "id": "10001"
+                    ,"api": "注册用户"
+                    ,"method": "put"
+                    ,"url": "/api/user"
+                    ,"param": JSON.stringify({"account":"admin","password":"admin", "username":"小小小盘子","avatar":"http://avatar.jpg","sign":"我的理想是不上班"})
+                    ,"try": "try it"
+                },{
+                    "id": "10002"
+                    ,"api": "好友/群组申请"
+                    ,"method": "post"
+                    ,"url": "/api/apply"
+                    ,"param": JSON.stringify({"toid":2,"type":1,"remark":"你很帅，加我吧"})
+                    ,"try": "try it"
+                },{
+                    "id": "10001"
+                    ,"api": "好友（群）请求处理"
+                    ,"method": "post"
+                    ,"url": "/api/handle"
+                    ,"param": JSON.stringify({"username":"小小小盘子","avatar":"http://avatar.jpg","sign":"我的理想是"})
+                    ,"try": "try it"
+                },{
+                    "id": "10001"
+                    ,"api": "/api/user"
+                    ,"method": "put"
+                    ,"url": "/api/user"
+                    ,"param": JSON.stringify({"username":"小小小盘子","avatar":"http://avatar.jpg","sign":"我的理想是"})
+                    ,"try": "try it"
+                },{
+                    "id": "10001"
+                    ,"api": "/api/user"
+                    ,"method": "put"
+                    ,"url": "/api/user"
+                    ,"param": JSON.stringify({"username":"小小小盘子","avatar":"http://avatar.jpg","sign":"我的理想是"})
+                    ,"try": "try it"
+                },{
+                    "id": "10001"
+                    ,"api": "/api/user"
+                    ,"method": "put"
+                    ,"url": "/api/user"
+                    ,"param": JSON.stringify({"username":"小小小盘子","avatar":"http://avatar.jpg","sign":"我的理想是"})
+                    ,"try": "try it"
+                }]
+                //,skin: 'line' //表格风格
+                ,even: true
+                //,page: true //是否显示分页
+                //,limits: [5, 7, 10]
+                //,limit: 5 //每页默认显示的数量
+            });
+        });
+    </script>
+</scetion>
+
+</body>
+
+</html>

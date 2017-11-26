@@ -9,10 +9,17 @@ spring:
       ddl-auto: update
       show-sql: true
     open-in-view: true
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    check-template: true
+    suffix: .html
+    encoding: utf-8
+    content-type: text/html
+    mode: HTML5
 debug: false
 
 layim.websocket:
     ip: 127.0.0.1
     port: 8888
     heartBeatTimeout: 0
-

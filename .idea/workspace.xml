@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df5de178-6c1f-495b-b5be-07f87a1ec8b8" name="Default" comment="单聊测试">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToGroupMsgProcessor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/listener/LayimGroupListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/LayimApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/LayimApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/LayimWebsocketStarter.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/LayimWebsocketStarter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToClientMsgProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToClientMsgProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimMsgProcessorManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimMsgProcessorManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimMsgProperty.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimMsgProperty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/convert/BodyConvert.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/convert/BodyConvert.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerStarter.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerStarter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimWebsocketServerAutoConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimWebsocketServerAutoConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/layim/index.html" afterPath="$PROJECT_DIR$/src/main/resources/layim/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/layim/socket.js" afterPath="$PROJECT_DIR$/src/main/resources/layim/socket.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/layim/index.html" afterPath="$PROJECT_DIR$/target/classes/layim/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/LayimMsgType.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimMsgType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ClientToClientMsgBody.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimToClientMsgBody.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimMsgHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/handler/LayimMsgHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerAioHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/handler/LayimServerAioHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerAioListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/listener/LayimServerAioListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/config/LayimServerConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/LayimServerProperties.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/config/LayimServerProperties.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,17 +23,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/layim/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2185">
-              <caret line="125" column="20" lean-forward="true" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
+            <state relative-caret-position="3565">
+              <caret line="155" column="37" lean-forward="false" selection-start-line="155" selection-start-column="37" selection-end-line="155" selection-end-column="37" />
               <folding>
-                <element signature="e#593#1021#0" expanded="false" />
-                <element signature="e#6521#6622#0" expanded="false" />
-                <element signature="e#6678#7315#0" expanded="false" />
-                <marker date="1511272995491" expanded="true" signature="6573:6587" ph="..." />
-                <marker date="1511272995491" expanded="true" signature="7181:7195" ph="..." />
+                <marker date="1511435204710" expanded="true" signature="6573:6587" ph="..." />
               </folding>
             </state>
           </provider>
@@ -64,7 +38,7 @@
       <file leaf-file-name="ClientToGroupMsgProcessor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToGroupMsgProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
+            <state relative-caret-position="69">
               <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -76,8 +50,8 @@
       <file leaf-file-name="socket.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/layim/socket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="59" column="9" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="59" selection-end-column="9" />
+            <state relative-caret-position="1265">
+              <caret line="59" column="9" lean-forward="false" selection-start-line="39" selection-start-column="7" selection-end-line="59" selection-end-column="9" />
               <folding>
                 <element signature="e#408#461#0" expanded="false" />
                 <element signature="e#490#549#0" expanded="false" />
@@ -87,38 +61,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LayimMsgProcessorManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimMsgProcessorManager.java">
+      <file leaf-file-name="socket.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/socket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="26" selection-end-column="5" />
+            <state relative-caret-position="322">
+              <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientToClientMsgProcessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToClientMsgProcessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="26" column="73" lean-forward="false" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LayimToClientMsgBody.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LayimToClientMsgBody.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimToClientMsgBody.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
+            <state relative-caret-position="532">
               <caret line="57" column="25" lean-forward="true" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
               <folding>
-                <element signature="e#924#925#0" expanded="true" />
-                <element signature="e#951#952#0" expanded="true" />
-                <element signature="e#989#990#0" expanded="true" />
-                <element signature="e#1021#1022#0" expanded="true" />
-                <element signature="e#1053#1054#0" expanded="true" />
-                <element signature="e#1080#1081#0" expanded="true" />
                 <element signature="e#1120#1121#0" expanded="true" />
                 <element signature="e#1152#1153#0" expanded="true" />
               </folding>
@@ -126,21 +84,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LayimAbsMsgProcessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimAbsMsgProcessor.java">
+      <file leaf-file-name="ChatRequestBody.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="26" column="52" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="52" />
+            <state relative-caret-position="368">
+              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LayimMsgHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/handler/LayimMsgHandler.java">
+      <file leaf-file-name="LayimBaseBody.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="45" column="57" lean-forward="false" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
+            <state relative-caret-position="207">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LayimAbsMsgProcessor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimAbsMsgProcessor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="26" column="52" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -149,18 +117,8 @@
       <file leaf-file-name="LayimServerAioHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/handler/LayimServerAioHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="2691">
               <caret line="147" column="59" lean-forward="false" selection-start-line="147" selection-start-column="59" selection-end-line="147" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BodyConvert.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/convert/BodyConvert.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-550">
-              <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -207,7 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/LayimMsgType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimMsgType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimPacket.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/handler/LayimAbstractMsgHander.java" />
@@ -245,11 +202,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/GroupChatRequestBody.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimMsgType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java" />
-        <option value="D:/maven/repository/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE.jar!/org/tio/core/Aio.class" />
+        <option value="$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE.jar!/org/tio/core/Aio.class" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToGroupMsgProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimMsgProperty.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java" />
-        <option value="D:/maven/repository/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE.jar!/org/tio/server/ServerChannelContext.class" />
+        <option value="$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE.jar!/org/tio/server/ServerChannelContext.class" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimToClientMsgBody.java" />
         <option value="$PROJECT_DIR$/src/main/resources/layim/socket.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/LayimMsgProcessorManager.java" />
@@ -258,6 +215,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/convert/BodyConvert.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/handler/LayimServerAioHandler.java" />
         <option value="$PROJECT_DIR$/src/main/resources/layim/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/OnlineRequestBody.java" />
       </list>
     </option>
   </component>
@@ -300,6 +258,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -308,12 +268,55 @@
               <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="layim" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="layim" type="462c0819:PsiDirectoryNode" />
+              <item name="im" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="layim" type="462c0819:PsiDirectoryNode" />
+              <item name="im" type="462c0819:PsiDirectoryNode" />
+              <item name="packet" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -608,6 +611,7 @@
       <workItem from="1511178454924" duration="3577000" />
       <workItem from="1511248297614" duration="10512000" />
       <workItem from="1511261173507" duration="11019000" />
+      <workItem from="1511437911301" duration="390000" />
     </task>
     <task id="LOCAL-00001" summary="单聊测试">
       <created>1511258593546</created>
@@ -659,21 +663,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113950000" />
+    <option name="totallyTimeSpent" value="114360000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1507431" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31740975" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31740975" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -681,20 +684,21 @@
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29723993" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29723993" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.128125" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -714,25 +718,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/util/convert.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/util/ByteUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/UnknownMsgProcessor.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/UnknownReponseBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/core/ChannelContext.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimPacket.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/LayimServerDecoder.java">
@@ -770,10 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="16" column="59" lean-forward="false" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
-          <folding>
-            <element signature="e#287#288#0" expanded="false" />
-            <element signature="e#353#354#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -787,8 +768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/LayimWebsocketStarter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+        <state relative-caret-position="414">
+          <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -797,7 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1932">
           <caret line="105" column="84" lean-forward="false" selection-start-line="105" selection-start-column="84" selection-end-line="105" selection-end-column="84" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,9 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="32" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -815,7 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="118" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -823,7 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,52 +812,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/lay/modules/layim.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="58" column="16" lean-forward="true" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
-          <folding>
-            <marker date="1511050663420" expanded="true" signature="4210:4218" ph="&amp;##xe617;" />
-            <marker date="1511050663420" expanded="true" signature="4373:4381" ph="&amp;##xe60f;" />
-            <marker date="1511050663420" expanded="true" signature="4594:4602" ph="&amp;##xe618;" />
-            <marker date="1511050663420" expanded="true" signature="4651:4659" ph="&amp;##xe617;" />
-            <marker date="1511050663420" expanded="true" signature="4805:4813" ph="&amp;##xe618;" />
-            <marker date="1511050663420" expanded="true" signature="4860:4868" ph="&amp;##xe60f;" />
-            <marker date="1511050663420" expanded="true" signature="5389:5397" ph="&amp;##xe612;" />
-            <marker date="1511050663420" expanded="true" signature="5634:5642" ph="&amp;##xe613;" />
-            <marker date="1511050663420" expanded="true" signature="5730:5738" ph="&amp;##xe611;" />
-            <marker date="1511050663420" expanded="true" signature="6095:6103" ph="&amp;##xe61a;" />
-            <marker date="1511050663420" expanded="true" signature="6119:6127" ph="&amp;##xe602;" />
-            <marker date="1511050663420" expanded="true" signature="7604:7612" ph="&amp;##xe615;" />
-            <marker date="1511050663420" expanded="true" signature="7737:7745" ph="&amp;##xe645;" />
-            <marker date="1511050663420" expanded="true" signature="7912:7920" ph="&amp;##xe608;" />
-            <marker date="1511050663420" expanded="true" signature="8024:8032" ph="&amp;##xe61b;" />
-            <marker date="1511050663420" expanded="true" signature="8157:8165" ph="&amp;##xe60b;" />
-            <marker date="1511050663420" expanded="true" signature="8300:8308" ph="&amp;##x1007;" />
-            <marker date="1511050663420" expanded="true" signature="9184:9192" ph="&amp;##xe61a;" />
-            <marker date="1511050663420" expanded="true" signature="9594:9602" ph="&amp;##xe60c;" />
-            <marker date="1511050663420" expanded="true" signature="9748:9756" ph="&amp;##xe60d;" />
-            <marker date="1511050663420" expanded="true" signature="9970:9978" ph="&amp;##xe61d;" />
-            <marker date="1511050663420" expanded="true" signature="10194:10202" ph="&amp;##xe6fc;" />
-            <marker date="1511050663420" expanded="true" signature="10387:10395" ph="&amp;##xe6ed;" />
-            <marker date="1511050663420" expanded="true" signature="10803:10811" ph="&amp;##xe60e;" />
-            <marker date="1511050663420" expanded="true" signature="11544:11552" ph="&amp;##xe618;" />
-            <marker date="1511050663420" expanded="true" signature="11725:11733" ph="&amp;##xe618;" />
-            <marker date="1511050663420" expanded="true" signature="13555:13563" ph="&amp;##x1007;" />
-            <marker date="1511050663420" expanded="true" signature="15146:15154" ph="&amp;##xe61e;" />
-            <marker date="1511050663420" expanded="true" signature="15428:15436" ph="&amp;##xe652;" />
-            <marker date="1511050663420" expanded="true" signature="15692:15700" ph="&amp;##xe652;" />
-            <marker date="1511050663420" expanded="true" signature="58267:58304" ph="..." />
-            <marker date="1511050663420" expanded="true" signature="58320:58366" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/lay/modules/layim.js" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/fyp/layim/common/util/IdUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -890,7 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -898,10 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="505">
           <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-          <folding>
-            <element signature="e#809#810#0" expanded="false" />
-            <element signature="e#859#860#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -909,9 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -919,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -927,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -935,23 +859,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="24" column="54" lean-forward="true" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/GroupChatRequestBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="47" lean-forward="true" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/GroupChatRequestBody.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/common/config/LayimConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -959,7 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -967,15 +881,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/maven/repository/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE.jar!/org/tio/core/Aio.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE.jar!/org/tio/core/Aio.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
           <caret line="297" column="23" lean-forward="false" selection-start-line="297" selection-start-column="23" selection-end-line="297" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,19 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-          <folding>
-            <element signature="e#199#200#0" expanded="true" />
-            <element signature="e#239#240#0" expanded="true" />
-            <element signature="e#273#274#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1003,31 +902,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/maven/repository/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE.jar!/org/tio/server/ServerChannelContext.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE.jar!/org/tio/server/ServerChannelContext.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/maven/repository/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/server/ServerChannelContext.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/t-io/tio-core/2.0.1.v20171015-RELEASE/tio-core-2.0.1.v20171015-RELEASE-sources.jar!/org/tio/server/ServerChannelContext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-189">
           <caret line="15" column="45" lean-forward="true" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="37" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1035,13 +923,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="26" column="5" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="26" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/handler/LayimMsgHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
+        <state relative-caret-position="805">
           <caret line="45" column="57" lean-forward="false" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
           <folding />
         </state>
@@ -1051,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="26" column="73" lean-forward="false" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1063,34 +949,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimToClientMsgBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="57" column="25" lean-forward="true" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
-          <folding>
-            <element signature="e#924#925#0" expanded="true" />
-            <element signature="e#951#952#0" expanded="true" />
-            <element signature="e#989#990#0" expanded="true" />
-            <element signature="e#1021#1022#0" expanded="true" />
-            <element signature="e#1053#1054#0" expanded="true" />
-            <element signature="e#1080#1081#0" expanded="true" />
-            <element signature="e#1120#1121#0" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/intf/LayimAbsMsgProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="26" column="52" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="52" />
+        <state relative-caret-position="437">
+          <caret line="26" column="52" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/server/handler/LayimServerAioHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="2691">
           <caret line="147" column="59" lean-forward="false" selection-start-line="147" selection-start-column="59" selection-end-line="147" selection-end-column="59" />
           <folding />
         </state>
@@ -1098,7 +967,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/common/processor/ClientToGroupMsgProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
+        <state relative-caret-position="69">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1108,8 +977,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/layim/socket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="59" column="9" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="59" selection-end-column="9" />
+        <state relative-caret-position="1265">
+          <caret line="59" column="9" lean-forward="false" selection-start-line="39" selection-start-column="7" selection-end-line="59" selection-end-column="9" />
           <folding>
             <element signature="e#408#461#0" expanded="false" />
             <element signature="e#490#549#0" expanded="false" />
@@ -1120,15 +989,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/layim/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2185">
-          <caret line="125" column="20" lean-forward="true" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
+        <state relative-caret-position="3565">
+          <caret line="155" column="37" lean-forward="false" selection-start-line="155" selection-start-column="37" selection-end-line="155" selection-end-column="37" />
           <folding>
-            <element signature="e#593#1021#0" expanded="false" />
-            <element signature="e#6521#6622#0" expanded="false" />
-            <element signature="e#6678#7315#0" expanded="false" />
-            <marker date="1511272995491" expanded="true" signature="6573:6587" ph="..." />
-            <marker date="1511272995491" expanded="true" signature="7181:7195" ph="..." />
+            <marker date="1511435204710" expanded="true" signature="6573:6587" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="32" column="18" lean-forward="false" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/socket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimToClientMsgBody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="57" column="25" lean-forward="true" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+          <folding>
+            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#1152#1153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/LayimBaseBody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/ChatRequestBody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/im/packet/OnlineRequestBody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

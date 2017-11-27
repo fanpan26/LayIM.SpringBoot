@@ -4,9 +4,9 @@ import com.fyp.layim.common.util.AESUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UserToken {
+public class TokenVerify {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserToken.class);
+    private static final Logger logger = LoggerFactory.getLogger(TokenVerify.class);
     /**
      * 校验token
      * 返回用户ID

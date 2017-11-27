@@ -1,20 +1,14 @@
 package com.fyp.layim.im.server.handler;
 
-import com.fyp.layim.common.util.AESUtil;
-import com.fyp.layim.domain.UserAccount;
 import com.fyp.layim.im.common.util.SpringUtil;
-import com.fyp.layim.im.packet.ContextUser;
 import com.fyp.layim.im.packet.LayimContextUserInfo;
 import com.fyp.layim.service.UserService;
-import com.fyp.layim.service.auth.UserToken;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
+import com.fyp.layim.service.auth.TokenVerify;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.core.Aio;
 import org.tio.core.ChannelContext;
 import org.tio.http.common.HttpRequest;
-import org.tio.http.common.HttpRequestDecoder;
 import org.tio.http.common.HttpResponse;
 import org.tio.http.common.HttpResponseStatus;
 import org.tio.websocket.common.WsRequest;
@@ -22,8 +16,6 @@ import org.tio.websocket.server.handler.IWsMsgHandler;
 
 import java.net.URLDecoder;
 import java.util.List;
-
-import static com.fyp.layim.common.util.AESUtil.decrypt;
 
 /**
  * @author fyp
@@ -62,7 +54,7 @@ public class LayimMsgHandler implements IWsMsgHandler {
         String path = httpRequest.getRequestLine().getPath();
         String token = URLDecoder.decode(path.substring(1),"utf-8");
 
-        String userId = UserToken.IsValid(token);
+        String userId = TokenVerify.IsValid(token);
 
         if (userId == null) {
             //没有token 未授权

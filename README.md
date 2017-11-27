@@ -3,6 +3,9 @@
 ## 项目简介
    LayIM的Spring boot + t-io 实现版。
    数据库：mysql
+## 开发进度
+1.哈哈`
+2.哈哈`
 
 ## QA
 

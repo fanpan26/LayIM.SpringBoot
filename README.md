@@ -1,5 +1,9 @@
 # SpringBootLayIM
 
+## 项目简介
+   LayIM的Spring boot + t-io 实现版。
+   数据库：mysql
+
 ## QA
 
 ### 问：为什么没有数据库脚本？

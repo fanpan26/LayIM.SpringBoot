@@ -26,10 +26,11 @@
    
    10.消息盒子
    
+## 资料参考
+   https://my.oschina.net/panzi1/blog/1577007 单聊群聊的实现原理
+   https://gitee.com/tywo45/t-io t-io源码
 
-相关博客：https://my.oschina.net/panzi1/blog/1577007
-
-## QA
+## Q&A
 
 #### 问：为什么没有数据库脚本？
 ### 答：因为 spring boot jpa 

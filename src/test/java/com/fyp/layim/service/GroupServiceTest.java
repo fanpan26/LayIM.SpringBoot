@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -24,6 +25,7 @@ public class GroupServiceTest {
 
     @Test
     public void mapTest(){
+        LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<>();
         HashMap<Object,Object> map = new HashMap<>(5);
 //        HashMap<HashMapTest,String> map = new HashMap<>(5);
 //

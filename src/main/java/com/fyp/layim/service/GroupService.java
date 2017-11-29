@@ -1,8 +1,10 @@
 package com.fyp.layim.service;
 
+import com.fyp.layim.common.util.IdUtil;
 import com.fyp.layim.common.util.ResultUtil;
 import com.fyp.layim.domain.BigGroup;
 import com.fyp.layim.domain.FriendGroup;
+import com.fyp.layim.domain.User;
 import com.fyp.layim.domain.mapper.LayimMapper;
 import com.fyp.layim.domain.result.JsonResult;
 import com.fyp.layim.domain.result.LAYIM_ENUM;
@@ -10,10 +12,14 @@ import com.fyp.layim.domain.viewmodels.LayimGroupMembersViewModel;
 import com.fyp.layim.domain.viewmodels.UserViewModel;
 import com.fyp.layim.repository.BigGroupRepository;
 import com.fyp.layim.repository.FriendGroupRepository;
+import jodd.util.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author fyp
@@ -24,6 +30,9 @@ import java.util.List;
 public class GroupService {
     @Autowired
     private BigGroupRepository bigGroupRepository;
+
+    @Autowired
+    private FriendGroupRepository friendGroupRepository;
 
     /**
     * 根据群组ID获取群内所有用户列表
@@ -44,5 +53,65 @@ public class GroupService {
         membersViewModel.setList(memberList);
 
         return ResultUtil.success(membersViewModel);
+    }
+
+    /**
+     * 添加一个好友分组
+     * */
+    public JsonResult addFriendGroup(String name,Long userId) {
+
+        if(StringUtils.isBlank(name) || name.length() > 10){
+             return ResultUtil.fail("参数group长度限制为1-20");
+        }
+
+        boolean exist = friendGroupRepository.countByName(name) > 0;
+        if(exist){
+            return ResultUtil.fail("已经存在该分组");
+        }
+
+        FriendGroup friendGroup = new FriendGroup();
+        friendGroup.setName(name);
+
+        User user = new User();
+        user.setId(userId);
+        friendGroup.setOwner(user);
+
+        friendGroupRepository.save(friendGroup);
+        return ResultUtil.success();
+    }
+
+    /**
+     * 删除一个好友分组
+     * */
+    public JsonResult deleteFriendGroup(Long id,Long uid){
+        friendGroupRepository.deleteByIdAndUserId(id,uid);
+        return ResultUtil.success();
+    }
+
+    /**
+     * 创建一个群组
+     * 中间遇到中间关系表插入数据插不进去的问题，后来发现需要两个实体映射都要写  @JoinTable 注解，否则有一个不写的话，是插入不了数据的
+     * */
+    public JsonResult addBigGroup(Long userId,String name,String avatar,String description){
+
+        if(StringUtils.isBlank(name) || name.length() > 10) {
+            return ResultUtil.fail("参数group长度限制为1-20");
+        }
+
+        BigGroup bigGroup = new BigGroup();
+        bigGroup.setGroupName(name);
+        bigGroup.setAvatar(avatar);
+        bigGroup.setDescription(description);
+
+        User user = new User();
+        user.setId(userId);
+        bigGroup.setOwner(user);
+        //群员
+        ArrayList<User> users= new ArrayList<>(1);
+        users.add(user);
+        bigGroup.setUsers(users);
+
+        bigGroupRepository.save(bigGroup);
+        return ResultUtil.success();
     }
 }

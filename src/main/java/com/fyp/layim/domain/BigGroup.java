@@ -53,7 +53,8 @@ public class BigGroup extends DomainBase {
         this.users = users;
     }
 
-    @ManyToMany(mappedBy = "bigGroupsIn")
+    @ManyToMany
+    @JoinTable(name = "user_big_group",joinColumns = {@JoinColumn(name = "group_id")},inverseJoinColumns = {@JoinColumn(name = "uid")})
     private List<User> users;
 
     public User getOwner() {

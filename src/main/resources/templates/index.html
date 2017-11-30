@@ -519,16 +519,13 @@
             var selfFlag = false;
             //基础配置
             layim.config({
-
                 //初始化接口
                 init: {
                     url: '/layim/base'
-                    ,data: {}
                 }
                 //查看群员接口
                 ,members: {
                     url: '/layim/members'
-                    ,data: {}
                 }
                 //上传图片接口
                 ,uploadImage: {
@@ -563,21 +560,34 @@
         console.log("监听到事件：error");
     });
     socket.on('msg',function (e) {
-        console.log(e.data);
-        if(e.data!='消息发送成功'){
-            var msg = JSON.parse(e.data);
-            if(msg.from=='2') {
-                if(selfFlag) {
+        var msg = JSON.parse(e.data);
+        var handleChat = function (msg) {
+            if (true) {//这里 用from 和当前用户 id 比较,窗口多开的情况下特殊处理
+                if (selfFlag) {
                     selfFlag = false;
                     return;
-                }else{
-                    msg['mine']=true;
+                } else {
+                    msg['mine'] = true;
                 }
             }
             layim.getMessage(msg);
         }
-    });
+        if (msg.mtype) {
+            switch (msg.mtype) {
+                case -1:
+                    return console.log(msg.msg);
+                case socket.mtype.chatFriend:
+                case socket.mtype.chatGroup:
+                    handleChat(msg);
+                    break;
+                case socket.mtype.checkIsOnline:
+                    layim.setChatStatus('<span style="color:#FF5722;">'+(msg.online?'在线':'离线')+'</span>');
+                    break;
+            }
 
+        }
+    });
+            console.log(socket.mtype);
 
             //监听在线状态的切换事件
             layim.on('online', function(data){
@@ -601,9 +611,7 @@
             //监听layim建立就绪
             layim.on('ready', function(res){
                 layim.msgbox(5); //模拟消息盒子有新消息，实际使用时，一般是动态获得
-
             });
-
             //监听发送消息
             layim.on('sendMessage', function(data){
                 var To = data.to;
@@ -611,7 +619,7 @@
                 if(!t){
                     selfFlag = true;
                 }
-                socket.send({mtype:(t?1:2),content:data.mine.content,toid:data.to.id});
+                socket.send({mtype:(t?socket.mtype.chatFriend:socket.mtype.chatGroup),content:data.mine.content,toid:data.to.id});
                 return;
             });
             //监听查看群员
@@ -620,6 +628,11 @@
             });
             //监听天窗口的切换
             layim.on('chatChange', function(res){
+                socket.send({
+                    mtype:socket.mtype.checkIsOnline,
+                    id:res.data.id
+                });
+                //监听状态
                 //layim.setChatStatus('<span style="color:#FF5722;">在线</span>');
             });
         });

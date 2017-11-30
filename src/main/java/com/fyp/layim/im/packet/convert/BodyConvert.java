@@ -4,7 +4,7 @@ import com.fyp.layim.im.common.LayimConst;
 import com.fyp.layim.im.common.intf.LayimMsgType;
 import com.fyp.layim.im.common.util.ByteUtil;
 import com.fyp.layim.im.packet.ChatRequestBody;
-import com.fyp.layim.im.packet.LayimToClientMsgBody;
+import com.fyp.layim.im.packet.LayimToClientChatMsgBody;
 import com.fyp.layim.im.packet.ContextUser;
 import org.tio.core.ChannelContext;
 import org.tio.utils.json.Json;
@@ -45,8 +45,8 @@ public class BodyConvert {
         }
         return response;
     }
-    public LayimToClientMsgBody convertToClientMsgBody(ChatRequestBody requestBody, ChannelContext channelContext){
-        LayimToClientMsgBody msgBody = new LayimToClientMsgBody();
+    public LayimToClientChatMsgBody convertToClientMsgBody(ChatRequestBody requestBody, ChannelContext channelContext){
+        LayimToClientChatMsgBody msgBody = new LayimToClientChatMsgBody();
         //先获取用户信息
         ContextUser contextUser =(ContextUser)channelContext.getAttribute(channelContext.getUserid());
         //设置当前用户名

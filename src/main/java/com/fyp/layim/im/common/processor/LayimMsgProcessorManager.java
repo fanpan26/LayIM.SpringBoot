@@ -23,6 +23,7 @@ public class LayimMsgProcessorManager {
 
         processorMap.put("CLIENT_TO_CLIENT",new ClientToClientMsgProcessor());
         processorMap.put("CLIENT_TO_GROUP",new ClientToGroupMsgProcessor());
+        processorMap.put("CLIENT_CHECK_ONLINE",new ClientCheckOnlineMsgProcessor());
         isInit = true;
     }
 
@@ -43,6 +44,9 @@ public class LayimMsgProcessorManager {
                 break;
             case LayimMsgType.CLIENT_TO_GROUP:
                 key = "CLIENT_TO_GROUP";
+                break;
+            case LayimMsgType.CLIENT_CHECK_ONLINE:
+                key = "CLIENT_CHECK_ONLINE";
                 break;
             default:
                 break;

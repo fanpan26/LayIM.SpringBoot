@@ -6,10 +6,10 @@ import com.fyp.layim.im.common.LayimConst;
  * @author fyp
  * @crate 2017/11/19 23:56
  * @project SpringBootLayIM
- * 单聊信息发送包，客户端发送过来的包 ChatRequestBody 转化为 LayimToClientMsgBody
+ * 单聊信息发送包，客户端发送过来的包 ChatRequestBody 转化为 LayimToClientChatMsgBody
  * 转化方法: packet.convert.BodyConvert.convertToClientMsgBody
  */
-public class LayimToClientMsgBody extends LayimBaseBody{
+public class LayimToClientChatMsgBody extends LayimBaseBody{
     public String getId() {
         return id;
     }

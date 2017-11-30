@@ -14,4 +14,8 @@ public interface LayimMsgType {
      * 群聊
      * */
     byte CLIENT_TO_GROUP = 2;
+    /**
+     * 客户端检查是否在线
+     * */
+    byte CLIENT_CHECK_ONLINE = 3;
 }

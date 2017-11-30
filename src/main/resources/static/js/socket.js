@@ -14,6 +14,12 @@ layui.define(['jquery','layer'],function (exports) {
         token:'/layim/token',
         reconn:false
     };
+    var msgType={
+        chatFriend:1,
+        chatGroup:2,
+        checkIsOnline:3,
+        checkOnlineCount:4
+    };
     var tool={
         ws:null,
         options :{},
@@ -111,6 +117,7 @@ layui.define(['jquery','layer'],function (exports) {
     socket.prototype.send=function(data){
         tool.send(data);
     }
+    socket.prototype.mtype=msgType;
     exports('socket',new socket());
 })
 

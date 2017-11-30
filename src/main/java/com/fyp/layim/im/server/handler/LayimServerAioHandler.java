@@ -7,7 +7,7 @@ import com.fyp.layim.im.common.intf.LayimAbsMsgProcessor;
 import com.fyp.layim.im.common.processor.LayimMsgProcessorManager;
 import com.fyp.layim.im.common.util.ByteUtil;
 import com.fyp.layim.im.packet.LayimMsgProperty;
-import com.fyp.layim.im.packet.UnknownReponseBody;
+import com.fyp.layim.im.packet.LayimResponseBody;
 import com.fyp.layim.im.server.config.LayimServerConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -148,17 +148,21 @@ public class LayimServerAioHandler implements ServerAioHandler{
             log.info("LayimServerAioHandler:或得到的消息处理器为：{}",processor.getClass().getName());
             boolean unknown = processor == null;
             if(!unknown) {
-
                 processor.process(websocketPacket, channelContext);
             }
             //这里应该增加未知消息处理
-
-            Object retObj = wsMsgHandler.onText(websocketPacket, text, channelContext);
+            wsMsgHandler.onText(websocketPacket, text, channelContext);
+            Object retObj ;
             String methodName = "onText";
+            /**
+             * 此处不采用 onText返回的消息
+             * */
             if(unknown){
-                retObj = new UnknownReponseBody(type).getMsg();
+                retObj = new LayimResponseBody("unknown");
+            }else{
+                retObj = new LayimResponseBody("ok");
             }
-            wsResponse = processRetObj(retObj, methodName, channelContext);
+            wsResponse = processRetObj(Json.toJson(retObj), methodName, channelContext);
             return wsResponse;
         } else if (opcode == Opcode.BINARY) {
             if (bytes == null || bytes.length == 0) {

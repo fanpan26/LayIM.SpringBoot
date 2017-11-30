@@ -530,17 +530,13 @@
                     url: '/layim/members'
                     ,data: {}
                 }
-
                 //上传图片接口
                 ,uploadImage: {
-                    url: '/upload/image' //（返回的数据格式见下文）
-                    ,type: '' //默认post
+                    url: '/upload/file'
                 }
-
                 //上传文件接口
                 ,uploadFile: {
-                    url: '/upload/file' //（返回的数据格式见下文）
-                    ,type: '' //默认post
+                    url: '/upload/file'
                 }
                 ,isAudio: true //开启聊天工具栏音频
                 ,isVideo: true //开启聊天工具栏视频
@@ -567,7 +563,7 @@
         console.log("监听到事件：error");
     });
     socket.on('msg',function (e) {
-        console.log("监听到事件：msg");
+        console.log(e.data);
         if(e.data!='消息发送成功'){
             var msg = JSON.parse(e.data);
             if(msg.from=='2') {
@@ -611,12 +607,11 @@
             //监听发送消息
             layim.on('sendMessage', function(data){
                 var To = data.to;
-                console.log(data);
                 var t = data.to.type=='friend';
                 if(!t){
                     selfFlag = true;
                 }
-                socket.send({mtype:(t?1:2),content:data.mine.content,toid:t?2:data.to.id});
+                socket.send({mtype:(t?1:2),content:data.mine.content,toid:data.to.id});
                 return;
             });
             //监听查看群员

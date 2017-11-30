@@ -572,6 +572,15 @@
             }
             layim.getMessage(msg);
         }
+        var handleStatus=function (msg) {
+            var status ='';
+            if(typeof msg.count !== 'undefined'){
+               status = msg.count+'人在线';
+            }else{
+                status = msg.online?'在线':'离线';
+            }
+            layim.setChatStatus('<span style="color:#FF5722;">'+status+'</span>');
+        }
         if (msg.mtype) {
             switch (msg.mtype) {
                 case -1:
@@ -581,7 +590,8 @@
                     handleChat(msg);
                     break;
                 case socket.mtype.checkIsOnline:
-                    layim.setChatStatus('<span style="color:#FF5722;">'+(msg.online?'在线':'离线')+'</span>');
+                case socket.mtype.checkOnlineCount:
+                    handleStatus(msg);
                     break;
             }
 
@@ -628,12 +638,11 @@
             });
             //监听天窗口的切换
             layim.on('chatChange', function(res){
+                var t = res.data.type=='friend';
                 socket.send({
-                    mtype:socket.mtype.checkIsOnline,
+                    mtype:t? socket.mtype.checkIsOnline:socket.mtype.checkOnlineCount,
                     id:res.data.id
                 });
-                //监听状态
-                //layim.setChatStatus('<span style="color:#FF5722;">在线</span>');
             });
         });
     </script>

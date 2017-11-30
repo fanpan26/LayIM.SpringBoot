@@ -24,6 +24,7 @@ public class LayimMsgProcessorManager {
         processorMap.put("CLIENT_TO_CLIENT",new ClientToClientMsgProcessor());
         processorMap.put("CLIENT_TO_GROUP",new ClientToGroupMsgProcessor());
         processorMap.put("CLIENT_CHECK_ONLINE",new ClientCheckOnlineMsgProcessor());
+        processorMap.put("CLIENT_CHECK_ONLINE_COUNT",new ClientCheckOnlineCountMsgProcessor());
         isInit = true;
     }
 
@@ -36,7 +37,7 @@ public class LayimMsgProcessorManager {
         return processorMap.get(getKey(type));
     }
 
-    private static String getKey(byte type){
+    private static String getKey(byte type) {
         String key = null;
         switch (type) {
             case LayimMsgType.CLIENT_TO_CLIENT:
@@ -47,6 +48,9 @@ public class LayimMsgProcessorManager {
                 break;
             case LayimMsgType.CLIENT_CHECK_ONLINE:
                 key = "CLIENT_CHECK_ONLINE";
+                break;
+            case LayimMsgType.CLIENT_CHECK_ONLINE_COUNT:
+                key = "CLIENT_CHECK_ONLINE_COUNT";
                 break;
             default:
                 break;

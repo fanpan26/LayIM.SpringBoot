@@ -20,6 +20,22 @@ layui.define(['jquery','layer'],function (exports) {
         checkIsOnline:3,
         checkOnlineCount:4
     };
+    var counter = {
+        count:function (id) {
+
+            if (!this[id]) {
+                this[id] = 1;
+            }
+            var oldCount = this[id];
+            this[id]++;
+
+            if (this[id] > 3) {
+                this[id] = 1;
+            }
+            return oldCount == 1;
+        }
+    };
+
     var tool={
         ws:null,
         options :{},
@@ -81,7 +97,6 @@ layui.define(['jquery','layer'],function (exports) {
             console.log(reconnectInterval);
             if(tool.options.reconn) {
                 if (reconnectInterval == null) {
-
                     reconnectInterval = setInterval(function () {
                         tool.log("正在尝试重连...");
                         tool.connect();
@@ -89,11 +104,17 @@ layui.define(['jquery','layer'],function (exports) {
                 }
             }
         },
-        send:function (data){
+        check:function (data) {
             if(!data||!data['mtype']){
-                return layer.msg('消息格式不正确');
+                layer.msg('消息格式不正确');
+                return false;
             }
-            this.ws.send(JSON.stringify(data));
+            return true;
+        },
+        send:function (data){
+            if(this.check(data)) {
+                this.ws.send(JSON.stringify(data));
+            }
         }
     };
     //回调

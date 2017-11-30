@@ -16,7 +16,8 @@ public class ClientCheckOnlineCountMsgProcessor extends ClientCheckOnlineMsgProc
     @Override
     public WsResponse process(WsRequest layimPacket, CheckOnlineRequestBody body, ChannelContext channelContext) throws Exception {
 
-        SetWithLock<ChannelContext> channelLocks = Aio.getChannelContextsByGroup(channelContext.getGroupContext(),body.getId());
+        SetWithLock<ChannelContext> channelLocks =
+                Aio.getChannelContextsByGroup(channelContext.getGroupContext(),body.getId());
         int onlineCount = channelLocks.getObj().size();
 
         LayimToClientCheckOnlineCountMsgBody msgBody = new LayimToClientCheckOnlineCountMsgBody(onlineCount);

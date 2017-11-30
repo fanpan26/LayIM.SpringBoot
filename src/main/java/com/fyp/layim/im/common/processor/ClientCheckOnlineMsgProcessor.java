@@ -20,7 +20,8 @@ public class ClientCheckOnlineMsgProcessor extends LayimAbsMsgProcessor<CheckOnl
 
     @Override
     public WsResponse process(WsRequest layimPacket, CheckOnlineRequestBody body, ChannelContext channelContext) throws Exception {
-        ChannelContext checkChannelContext = Aio.getChannelContextByUserid(channelContext.getGroupContext(),body.getId());
+        ChannelContext checkChannelContext =
+                Aio.getChannelContextByUserid(channelContext.getGroupContext(),body.getId());
         //检查是否在线
         boolean isOnline = checkChannelContext != null && !checkChannelContext.isClosed();
         //组织返回数据

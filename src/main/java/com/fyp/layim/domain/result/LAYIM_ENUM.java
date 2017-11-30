@@ -10,7 +10,8 @@ public enum LAYIM_ENUM {
      * 用户不存在
     */
     NO_USER(1001,"该用户不存在"),
-    GROUP_NOT_EXIST(1002,"群组不存在")
+    GROUP_NOT_EXIST(1002,"群组不存在"),
+    NO_FILE(1003,"未找到文件")
     ;
 
     private LAYIM_ENUM(Integer code,String msg){

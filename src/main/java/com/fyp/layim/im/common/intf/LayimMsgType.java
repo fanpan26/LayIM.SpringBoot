@@ -18,4 +18,8 @@ public interface LayimMsgType {
      * 客户端检查是否在线
      * */
     byte CLIENT_CHECK_ONLINE = 3;
+    /**
+     * 客户端检查在线人数
+     * */
+    byte CLIENT_CHECK_ONLINE_COUNT = 4;
 }

@@ -25,3 +25,4 @@ src/main/resources/static/js/layui/*.js
 /target/
 src/main/resources/static/js/layui/lay/modules/layim.js
 upload/
+.idea/workspace.xml

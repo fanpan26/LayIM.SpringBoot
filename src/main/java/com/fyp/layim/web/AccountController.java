@@ -1,12 +1,19 @@
 package com.fyp.layim.web;
 
+import com.fyp.layim.domain.User;
+import com.fyp.layim.domain.UserAccount;
+import com.fyp.layim.domain.result.JsonResult;
+import com.fyp.layim.service.UserService;
+import com.fyp.layim.web.form.UserRegisterParam;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +29,9 @@ import java.util.HashMap;
 public class AccountController {
 
     private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/login")
     public String login() {
@@ -68,5 +78,28 @@ public class AccountController {
     @RequestMapping(value = "/reg")
     public String reg(){
         return  "/account/reg";
+    }
+
+    @RequestMapping(value = "/reg",method = RequestMethod.POST)
+    public String reg(HttpServletRequest request, UserRegisterParam userReg) {
+        request.getSession().setAttribute("reg_msg","");
+
+        String msg = userReg.getCheckMessage("123456");
+        if(msg!=null){
+            request.getSession().setAttribute("reg_msg",msg);
+            return "/account/reg";
+        }
+        UserAccount userAccount = new UserAccount();
+        userAccount.setUsername(userReg.getAccount());
+        userAccount.setPassword(userReg.getPassword());
+        User user = new User();
+        user.setUserName(userReg.getNickname());
+        user.setSign("我的签名我做主");
+        JsonResult regResult = userService.register(userAccount, user);
+        if (regResult.isSuccess()) {
+            return "/account/login";
+        }
+        request.getSession().setAttribute("reg_msg","注册失败");
+        return "/account/reg";
     }
 }

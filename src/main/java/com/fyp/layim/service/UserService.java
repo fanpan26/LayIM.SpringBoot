@@ -127,4 +127,12 @@ public class UserService {
         return ResultUtil.fail(LAYIM_ENUM.NO_USER);
     }
 
+    @Transactional
+    public JsonResult register(UserAccount account,User user) {
+        account = userAccountRepository.save(account);
+        user.setId(account.getId());
+        user = userRepository.save(user);
+        return ResultUtil.success(user.getId());
+    }
+
 }

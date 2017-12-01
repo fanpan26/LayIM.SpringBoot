@@ -50,4 +50,8 @@ public class JsonResult {
 
     private String msg;
     private Object data;
+
+    public  boolean isSuccess(){
+        return this.code == 0;
+    }
 }

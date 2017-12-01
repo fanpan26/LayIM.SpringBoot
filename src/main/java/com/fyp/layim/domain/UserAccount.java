@@ -1,11 +1,13 @@
 package com.fyp.layim.domain;
 
+import com.fyp.layim.domain.base.DomainBase;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class UserAccount {
+public class UserAccount extends DomainBase {
 
     public String getUsername() {
         return username;
@@ -23,16 +25,6 @@ public class UserAccount {
         this.password = password;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Id
-    private Long id;
     @Column(nullable = false,unique = true,length = 20)
     private String username;
     @Column(nullable = false,length = 20)

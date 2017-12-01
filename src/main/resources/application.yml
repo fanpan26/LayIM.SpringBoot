@@ -27,4 +27,4 @@ layim.websocket:
     ip: 127.0.0.1
     port: 8888
     heartBeatTimeout: 0
-layim.upload.dir: G:\IdeaProject\SpringBootLayIM\upload
+layim.upload.dir: G:\JavaProject\SpringBootLayIM\upload

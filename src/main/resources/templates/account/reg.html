@@ -20,9 +20,6 @@
                                     <div class="layui-input-inline">
                                         <input type="text" id="L_email" name="account" required="required" lay-verify="email" autocomplete="off" class="layui-input" />
                                     </div>
-                                    <div class="layui-form-mid">
-                                        <span style="color: #c00;">该账号已存在</span>
-                                    </div>
                                 </div>
                                 <div class="layui-form-item">
                                     <label for="L_username" class="layui-form-label">昵称</label>
@@ -35,17 +32,11 @@
                                     <div class="layui-input-inline">
                                         <input type="password" id="L_pass" name="password" required="required" lay-verify="required" autocomplete="off" class="layui-input"/>
                                     </div>
-                                    <div class="layui-form-mid">
-                                        <span style="color: #c00;">密码6-16位</span>
-                                    </div>
                                 </div>
                                 <div class="layui-form-item">
                                     <label for="L_repass" class="layui-form-label">确认密码</label>
                                     <div class="layui-input-inline">
                                         <input type="password" id="L_repass" name="repassword" required="required" lay-verify="required" autocomplete="off" class="layui-input"/>
-                                    </div>
-                                    <div class="layui-form-mid">
-                                        <span style="color: #c00;">两个密码不一致</span>
                                     </div>
                                 </div>
                                 <div class="layui-form-item">
@@ -53,15 +44,12 @@
                                     <div class="layui-input-inline">
                                         <input type="text" id="L_vercode" name="vercode" required="required" lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input"/>
                                     </div>
-                                    <div class="layui-form-mid">
-                                        <span style="color: #c00;">验证答案错误</span>
-                                    </div>
                                 </div>
                                 <div class="layui-form-item">
                                     <button class="layui-btn" lay-filter="*" lay-submit="true">立即注册</button>
                                 </div>
-                                <div class="layui-form-mid">
-                                    <span style="color: #c00;">两个密码不一致</span>
+                                <div class="layui-form-mid" th:if="${session.reg_msg!=null}">
+                                    <span style="color: #c00;" th:text="${session.reg_msg}">注册失败，请重试</span>
                                 </div>
                                 <div class="layui-form-item fly-form-app">
                                     <span>或者直接使用社交账号快捷注册</span>

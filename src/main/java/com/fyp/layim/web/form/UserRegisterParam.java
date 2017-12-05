@@ -53,17 +53,17 @@ public class UserRegisterParam {
     private String vercode;
 
     public String getCheckMessage(String realCode){
-        if(realCode != vercode){
-            return "vercode:验证码不正确";
+        if(!realCode.equals(vercode)){
+            return "验证码不正确";
         }
-        if(RegexUtil.isValid(account,"[a-zA-Z]{1}[a-zA-Z0-9_]{1,15}")){
-            return "account:由字母数字下划线组成且开头必须是字母，不能超过16位";
+        if(account==null || account.length()==0||account.length()>16){
+            return "账号长度1-16位";
         }
         if(!(password.length()>=6 &&password.length()<=20)){
-            return "password:密码长度6-20位";
+            return "密码长度6-20位";
         }
-        if(repassword!=password){
-            return "repassword:两次密码输入不一致";
+        if(!repassword.equals(password)){
+            return "两次密码输入不一致";
         }
         return null;
     }

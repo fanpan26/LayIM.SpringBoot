@@ -15,6 +15,7 @@ import com.fyp.layim.domain.viewmodels.LayimInitDataViewModel;
 import com.fyp.layim.domain.viewmodels.UserViewModel;
 import com.fyp.layim.im.packet.ContextUser;
 import com.fyp.layim.im.packet.LayimContextUserInfo;
+import com.fyp.layim.repository.FriendGroupRepository;
 import com.fyp.layim.repository.UserAccountRepository;
 import com.fyp.layim.repository.UserRepository;
 import com.fyp.layim.service.auth.ShiroUtil;
@@ -24,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import javax.xml.transform.Result;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,6 +42,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private FriendGroupRepository friendGroupRepository;
 
     @Autowired
     private UserAccountRepository userAccountRepository;
@@ -129,10 +134,26 @@ public class UserService {
 
     @Transactional
     public JsonResult register(UserAccount account,User user) {
-        account = userAccountRepository.save(account);
-        user.setId(account.getId());
-        user = userRepository.save(user);
-        return ResultUtil.success(user.getId());
+        try {
+            //添加账户
+            UserAccount existAccount = userAccountRepository.findByUsername(account.getUsername());
+            if (existAccount != null) {
+                return ResultUtil.fail("该账号已经存在");
+            }
+            account = userAccountRepository.save(account);
+            user.setId(account.getId());
+            //添加用户
+            user = userRepository.save(user);
+            //添加好友分组
+            FriendGroup friendGroup = new FriendGroup();
+            friendGroup.setName("我的好友");
+            friendGroup.setOwner(user);
+            friendGroupRepository.save(friendGroup);
+            return ResultUtil.success(user.getId());
+        }
+        catch (Exception ex){
+            return ResultUtil.fail("注册失败");
+        }
     }
 
 }

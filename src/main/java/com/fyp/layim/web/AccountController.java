@@ -94,12 +94,14 @@ public class AccountController {
         userAccount.setPassword(userReg.getPassword());
         User user = new User();
         user.setUserName(userReg.getNickname());
-        user.setSign("我的签名我做主");
+        //默认头像和签名
+        user.setAvatar("/images/avatar/0.jpg");
+        user.setSign("暂无签名");
         JsonResult regResult = userService.register(userAccount, user);
         if (regResult.isSuccess()) {
             return "/account/login";
         }
-        request.getSession().setAttribute("reg_msg","注册失败");
+        request.getSession().setAttribute("reg_msg",regResult.getMsg());
         return "/account/reg";
     }
 }

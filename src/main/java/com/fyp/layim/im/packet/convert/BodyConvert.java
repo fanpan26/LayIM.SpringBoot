@@ -71,6 +71,7 @@ public class BodyConvert {
             //群聊消息会让用户都收到信息，所以，自己的就不给自己显示了，需要客户端根据from字段进行处理，另外，单聊消息就不给赋值了，没必要。
             msgBody.setFrom(channelContext.getUserid());
         }
+        msgBody.setMtype(requestBody.getMtype());
         //消息内容
         msgBody.setContent(requestBody.getContent());
         //发送时间

@@ -559,14 +559,14 @@
     socket.on('msg',function (e) {
         var msg = JSON.parse(e.data);
         var handleChat = function (msg) {
-            if (true) {//这里 用from 和当前用户 id 比较,窗口多开的情况下特殊处理
-                if (selfFlag) {
-                    selfFlag = false;
-                    return;
-                } else {
-                    msg['mine'] = true;
-                }
-            }
+//            if (true) {//这里 用from 和当前用户 id 比较,窗口多开的情况下特殊处理
+//                if (selfFlag) {
+//                    selfFlag = false;
+//                    return;
+//                } else {
+//                    msg['mine'] = true;
+//                }
+//            }
             layim.getMessage(msg);
         }
         var handleStatus=function (msg) {

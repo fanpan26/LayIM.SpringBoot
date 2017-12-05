@@ -1,5 +1,6 @@
 package com.fyp.layim.web;
 
+import com.fyp.layim.common.util.IdUtil;
 import com.fyp.layim.domain.User;
 import com.fyp.layim.domain.UserAccount;
 import com.fyp.layim.domain.result.JsonResult;
@@ -76,17 +77,34 @@ public class AccountController {
     }
 
     @RequestMapping(value = "/reg")
-    public String reg(){
+    public String reg(HttpServletRequest request){
+        resetCode(request);
         return  "/account/reg";
     }
 
+    private void resetCode(HttpServletRequest request){
+        //验证码
+        request.getSession().setAttribute("reg_code", IdUtil.nextUserId());
+    }
+    private String getCode(HttpServletRequest request){
+        Object code = request.getSession().getAttribute("reg_code");
+        String codeStr;
+        if(code==null){
+            codeStr = "";
+        }else{
+            codeStr = code.toString();
+        }
+        return codeStr;
+    }
     @RequestMapping(value = "/reg",method = RequestMethod.POST)
     public String reg(HttpServletRequest request, UserRegisterParam userReg) {
         request.getSession().setAttribute("reg_msg","");
 
-        String msg = userReg.getCheckMessage("123456");
+        String codeStr = getCode(request);
+        String msg = userReg.getCheckMessage(codeStr);
         if(msg!=null){
             request.getSession().setAttribute("reg_msg",msg);
+            resetCode(request);
             return "/account/reg";
         }
         UserAccount userAccount = new UserAccount();
@@ -101,6 +119,7 @@ public class AccountController {
         if (regResult.isSuccess()) {
             return "/account/login";
         }
+        resetCode(request);
         request.getSession().setAttribute("reg_msg",regResult.getMsg());
         return "/account/reg";
     }

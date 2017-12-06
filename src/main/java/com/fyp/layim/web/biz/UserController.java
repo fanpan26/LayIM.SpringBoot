@@ -1,6 +1,9 @@
 package com.fyp.layim.web.biz;
 
+import com.fyp.layim.common.event.ApplyEvent;
 import com.fyp.layim.domain.result.JsonResult;
+import com.fyp.layim.im.LayimWebsocketStarter;
+import com.fyp.layim.im.common.util.SpringUtil;
 import com.fyp.layim.im.packet.ContextUser;
 import com.fyp.layim.service.ApplyService;
 import com.fyp.layim.service.GroupService;
@@ -50,6 +53,12 @@ public class UserController {
      * */
     @PostMapping(value = "/apply-friend")
     public JsonResult apply(@RequestParam("toid") Long toId,@RequestParam("remark") String remark){
-        return applyService.saveFriendApply(toId, remark);
+
+        JsonResult result = applyService.saveFriendApply(toId, remark);
+        //申请成功，发布申请事件，通知 toId处理消息，如果不在线，不会进行处理
+        if(result.isSuccess()){
+            SpringUtil.publish(new ApplyEvent("apply",toId));
+        }
+        return result;
     }
 }

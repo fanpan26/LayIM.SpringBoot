@@ -106,7 +106,7 @@ full: true
                     ,yes:function (e,o) {
                         var remark = o.find('textarea').val();
                         apply(remark,function (res) {
-                            layer.msg(res?"好友申请已发送":"好友申请发送失败");
+                            layer.msg(res.code==0?"好友申请已发送":(res.msg||"好友申请发送失败"));
                             layer.close(e);
                         })
 
@@ -119,7 +119,7 @@ full: true
                var loading = layer.open({type:3});
                 $.post('/layim/apply-friend',{toid:uid,remark:remark},function (res) {
                     layer.close(loading);
-                        callback(res.code==0);
+                        callback(res);
                 });
             }
         })

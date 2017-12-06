@@ -28,6 +28,6 @@ public class ShiroUtil {
      * */
     public static ContextUser getCurrentUser(){
         Subject subject = SecurityUtils.getSubject();
-      return (ContextUser)subject.getSession().getAttribute("user");
+        return (ContextUser)subject.getSession().getAttribute("user");
     }
 }

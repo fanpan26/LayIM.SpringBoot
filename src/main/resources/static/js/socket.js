@@ -18,7 +18,8 @@ layui.define(['jquery','layer'],function (exports) {
         chatFriend:1,
         chatGroup:2,
         checkIsOnline:3,
-        checkOnlineCount:4
+        checkOnlineCount:4,
+        serverNotice:5
     };
     var counter = {
         count:function (id) {

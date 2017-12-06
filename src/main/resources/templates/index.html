@@ -558,6 +558,7 @@
             });
             socket.on('msg',function (e) {
                 var msg = JSON.parse(e.data);
+                console.log(msg);
                 var handleChat = function (msg) {
 //            if (true) {//这里 用from 和当前用户 id 比较,窗口多开的情况下特殊处理
 //                if (selfFlag) {
@@ -590,6 +591,9 @@
                         case socket.mtype.checkOnlineCount:
                             handleStatus(msg);
                             break;
+                        case socket.mtype.serverNotice:
+                            layim.msgbox(msg.count);
+                            break;
                     }
 
                 }
@@ -617,7 +621,7 @@
             });
             //监听layim建立就绪
             layim.on('ready', function(res){
-                layim.msgbox(5); //模拟消息盒子有新消息，实际使用时，一般是动态获得
+                //layim.msgbox(5); //模拟消息盒子有新消息，实际使用时，一般是动态获得
             });
             //监听发送消息
             layim.on('sendMessage', function(data){

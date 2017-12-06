@@ -22,4 +22,8 @@ public interface LayimMsgType {
      * 客户端检查在线人数
      * */
     byte CLIENT_CHECK_ONLINE_COUNT = 4;
+    /**
+     * 服务端向客户端推送消息
+     * */
+    byte SERVER_TO_CLIENT_NOTICE = 5;
 }

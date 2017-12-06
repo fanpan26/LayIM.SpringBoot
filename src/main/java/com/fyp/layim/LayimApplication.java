@@ -11,6 +11,6 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication
 public class LayimApplication {
     public static void main(String[] args) {
-       ApplicationContext applicationContext = SpringApplication.run(LayimApplication.class, args);
+       SpringApplication.run(LayimApplication.class, args);
     }
 }

@@ -541,24 +541,24 @@
                 ,chatLog: layui.cache.dir + 'css/modules/layim/html/chatLog.html' //聊天记录页面地址，若不开启，剔除该项即可
 
             });
-    socket.config({
-        log:true,
-        token:'/layim/token',
-        server:'ws://127.0.0.1:8888'
-    });
+            socket.config({
+                log:true,
+                token:'/layim/token',
+                server:'ws://127.0.0.1:8888'
+            });
 
-    socket.on('open',function (e) {
-        console.log("监听到事件：open");
-    });
-    socket.on('close',function (e) {
-        console.log("监听到事件：close");
-    });
-    socket.on('error',function (e) {
-        console.log("监听到事件：error");
-    });
-    socket.on('msg',function (e) {
-        var msg = JSON.parse(e.data);
-        var handleChat = function (msg) {
+            socket.on('open',function (e) {
+                console.log("监听到事件：open");
+            });
+            socket.on('close',function (e) {
+                console.log("监听到事件：close");
+            });
+            socket.on('error',function (e) {
+                console.log("监听到事件：error");
+            });
+            socket.on('msg',function (e) {
+                var msg = JSON.parse(e.data);
+                var handleChat = function (msg) {
 //            if (true) {//这里 用from 和当前用户 id 比较,窗口多开的情况下特殊处理
 //                if (selfFlag) {
 //                    selfFlag = false;
@@ -567,33 +567,33 @@
 //                    msg['mine'] = true;
 //                }
 //            }
-            layim.getMessage(msg);
-        }
-        var handleStatus=function (msg) {
-            var status ='';
-            if(typeof msg.count !== 'undefined'){
-               status = msg.count+'人在线';
-            }else{
-                status = msg.online?'在线':'离线';
-            }
-            layim.setChatStatus('<span style="color:#FF5722;">'+status+'</span>');
-        }
-        if (msg.mtype) {
-            switch (msg.mtype) {
-                case -1:
-                    return console.log(msg.msg);
-                case socket.mtype.chatFriend:
-                case socket.mtype.chatGroup:
-                    handleChat(msg);
-                    break;
-                case socket.mtype.checkIsOnline:
-                case socket.mtype.checkOnlineCount:
-                    handleStatus(msg);
-                    break;
-            }
+                    layim.getMessage(msg);
+                }
+                var handleStatus=function (msg) {
+                    var status ='';
+                    if(typeof msg.count !== 'undefined'){
+                        status = msg.count+'人在线';
+                    }else{
+                        status = msg.online?'在线':'离线';
+                    }
+                    layim.setChatStatus('<span style="color:#FF5722;">'+status+'</span>');
+                }
+                if (msg.mtype) {
+                    switch (msg.mtype) {
+                        case -1:
+                            return console.log(msg.msg);
+                        case socket.mtype.chatFriend:
+                        case socket.mtype.chatGroup:
+                            handleChat(msg);
+                            break;
+                        case socket.mtype.checkIsOnline:
+                        case socket.mtype.checkOnlineCount:
+                            handleStatus(msg);
+                            break;
+                    }
 
-        }
-    });
+                }
+            });
             console.log(socket.mtype);
 
             //监听在线状态的切换事件

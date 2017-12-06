@@ -18,5 +18,17 @@
 <div th:replace="fragments/header :: header">Header</div>
 <div layout:fragment="content" id="content" ></div>
 <div th:replace="fragments/footer :: footer">footer</div>
+<script th:inline="javascript">
+    var events = {};
+    layui.use('jquery',function ($) {
+        //注册全局js onclick事件
+        $(function () {
+            $('body').on('click', '*[lay-event]', function(e){
+                var othis = $(this), method = othis.attr('lay-event');
+                events[method]?events[method].call(this,othis,e):'';
+            });
+        });
+    })
+</script>
 </body>
 </html>

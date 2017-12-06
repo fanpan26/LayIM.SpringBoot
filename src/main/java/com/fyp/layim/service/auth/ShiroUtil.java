@@ -1,6 +1,7 @@
 package com.fyp.layim.service.auth;
 
 import com.fyp.layim.domain.UserAccount;
+import com.fyp.layim.im.packet.ContextUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
@@ -20,5 +21,13 @@ public class ShiroUtil {
         }
         logger.info("当前获取到的用户ID：{}",userId);
         return userId;
+    }
+
+    /**
+     * 获取当前用户信息
+     * */
+    public static ContextUser getCurrentUser(){
+        Subject subject = SecurityUtils.getSubject();
+      return (ContextUser)subject.getSession().getAttribute("user");
     }
 }

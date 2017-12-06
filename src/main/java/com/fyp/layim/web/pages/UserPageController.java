@@ -2,6 +2,7 @@ package com.fyp.layim.web.pages;
 
 import com.fyp.layim.common.util.TimeUtil;
 import com.fyp.layim.domain.User;
+import com.fyp.layim.service.GroupService;
 import com.fyp.layim.service.UserService;
 import com.fyp.layim.web.base.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +22,20 @@ public class UserPageController extends BaseController{
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private GroupService groupService;
+
     /**
      * 属性赋值
      * */
     private void setModel(User user,Model model){
 
+        long currentUserId = getUserId();
+        long visitUserId = user.getId();
         //是否是自己
-        boolean isSelf = user.getId() == getUserId();
+        boolean isSelf = currentUserId == visitUserId;
         //两个用户是否已经是好友
-        boolean isFriend = false;
+        boolean isFriend = groupService.isFriend(currentUserId,visitUserId);
 
         Map<String,Object> userMap = new HashMap<>(8);
         userMap.put("avatar",user.getAvatar());

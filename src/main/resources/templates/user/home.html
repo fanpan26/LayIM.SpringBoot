@@ -4,6 +4,7 @@
 <body>
 <scetion layout:fragment="content">
     <div class="fly-home" style="background-image: url();">
+        <input type="hidden" th:value="${user.uid}" id="visitUid"/>
         <img src="" th:src="${user.avatar}" th:alt="${user.name}"/>
         <h1>
             <p th:text="${user.name}"></p>
@@ -97,18 +98,30 @@ full: true
 
     </div>
     <script th:inline="javascript">
-        layui.use('layer',function (layer) {
+        layui.use(['layer','jquery'],function (layer,$) {
             events['addFriend'] = function () {
-                var reasonLay = layer.open({
-                    title: '在线调试'
+                 layer.open({
+                    title: '好友申请'
                     , content: '<textarea name="desc" placeholder="备注" maxlength="20" class="layui-textarea"></textarea>'
                     ,yes:function (e,o) {
                         var remark = o.find('textarea').val();
-                        layer.alert(remark);
-                        layer.close(e);
+                        apply(remark,function (res) {
+                            layer.msg(res?"好友申请已发送":"好友申请发送失败");
+                            layer.close(e);
+                        })
+
                     }
                 });
             };
+
+            var apply = function (remark,callback) {
+                var uid = $('#visitUid').val();
+               var loading = layer.open({type:3});
+                $.post('/layim/apply-friend',{toid:uid,remark:remark},function (res) {
+                    layer.close(loading);
+                        callback(res.code==0);
+                });
+            }
         })
 
     </script>

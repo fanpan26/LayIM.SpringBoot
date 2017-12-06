@@ -1,5 +1,7 @@
 package com.fyp.layim.domain.result;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author fyp
  * @crate 2017/11/1 19:55
@@ -39,9 +41,11 @@ public class JsonResult {
         return data;
     }
 
+    @JsonIgnore
     public boolean isSuccess(){
         return code == SUCCESS_COCE;
     }
+    @JsonIgnore
     public boolean isFail(){
         return !isSuccess();
     }

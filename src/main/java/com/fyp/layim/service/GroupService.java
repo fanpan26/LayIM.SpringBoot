@@ -110,4 +110,11 @@ public class GroupService {
         bigGroupRepository.save(bigGroup);
         return JsonResult.success();
     }
+
+    /**
+     * 判断一个人是否在另个人的好友列表中
+     * */
+    public boolean isFriend(long userId,long friendId) {
+        return friendGroupRepository.countByUidInGroup(userId,friendId) > 0;
+    }
 }

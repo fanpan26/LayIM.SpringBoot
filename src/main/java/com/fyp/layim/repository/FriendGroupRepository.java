@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
+import javax.transaction.RollbackException;
 import javax.transaction.Transactional;
 
 /**
@@ -15,6 +16,9 @@ import javax.transaction.Transactional;
  * @project SpringBootLayIM
  */
 public interface FriendGroupRepository extends JpaRepository<FriendGroup,Long> {
+    /**
+     * 获取群组个数
+     * */
     Integer countByName(String groupName);
 
     /**
@@ -23,8 +27,14 @@ public interface FriendGroupRepository extends JpaRepository<FriendGroup,Long> {
      * 必须添加  @Transactional  否则：nested exception is javax.persistence.TransactionRequiredException: Executing an update/delete query] with root cause
      * 删除一个好友分组
      * */
-    @Modifying
     @Transactional
+    @Modifying
     @Query(value = "delete from FriendGroup where id=?1 and uid =?2")
     void deleteByIdAndUserId(Long id,Long uid);
+
+    /**
+     * 查询某个用户是否互为好友
+     * */
+    @Query(value = "select count(1) from user_friend_group A where group_id in (select id from friend_group where uid=?1) and A.uid=?2",nativeQuery = true)
+    Integer countByUidInGroup(long userId,long friendId);
 }

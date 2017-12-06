@@ -136,6 +136,9 @@ public class UserService {
         return JsonResult.fail("用户不存在");
     }
 
+    /**
+     * 用户注册
+     * */
     @Transactional
     public JsonResult register(UserAccount account,User user) {
         try {

@@ -115,6 +115,13 @@ public class UserService {
     }
 
     /**
+     * 获取单条用户信息
+     * */
+    public User getUser(Long userId){
+        return userRepository.findOne(userId);
+    }
+
+    /**
      * 获取token，访问ws
      * 本来想用websocker服务调用这边的api，后来想用简单方法，传个token过去，然后，在websocket服务器解析。
      * */

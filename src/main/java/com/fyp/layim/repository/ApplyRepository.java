@@ -9,5 +9,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @project SpringBootLayIM
  */
 public interface ApplyRepository extends JpaRepository<Apply,Long> {
+    /**
+     * 获取有没有申请过该类型
+     * */
     int countByToidAndTypeAndResult(long toId,int type,int result);
+
+    /**
+     * 获取未读消息条数
+     * */
+    int countByToidAndIsread(long userId,boolean isRead);
 }

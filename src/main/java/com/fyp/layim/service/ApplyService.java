@@ -39,8 +39,7 @@ public class ApplyService {
 
         int record = applyRepository.countByToidAndTypeAndResult(toId,ApplyType.friend,0);
         if(record > 0){
-            //如果有记录，直接成功
-            return JsonResult.success();
+            return JsonResult.fail("已经申请过");
         }
         ContextUser user = ShiroUtil.getCurrentUser();
 
@@ -57,5 +56,12 @@ public class ApplyService {
         apply.setResult(0);
 
         return saveApply(apply);
+    }
+
+    /**
+     * 获取未读消息的条数
+     * */
+    public int getUnreadMsgCount(long userId){
+        return  applyRepository.countByToidAndIsread(userId,false);
     }
 }

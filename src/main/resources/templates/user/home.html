@@ -18,7 +18,7 @@
             <!--<i class="iconfont icon-zuichun" title="飞吻"></i><span style="color: #FF7200;">67206飞吻</span>-->
            <i class="iconfont icon-shijian"></i><span>2015-06-17 加入</span>
            <!--<i class="iconfont icon-chengshi"></i><span>来自杭州</span>-->
-            <i class="iconfont icon-qq"></i><a href="#" title="添加TA为好友">加为好友</a>
+            <i class="iconfont icon-qq" th:if="${self==true}"></i><a href="#" title="添加TA为好友" th:if="${self==true}">加为好友</a>
         </p>
         <p class="fly-home-sign">（人生仿若一场修行）</p>
     </div>

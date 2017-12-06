@@ -1,4 +1,4 @@
-package com.fyp.layim.web;
+package com.fyp.layim.web.biz;
 
 import com.fyp.layim.common.util.IdUtil;
 import com.fyp.layim.domain.User;
@@ -14,14 +14,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 
 /**
  * 这里注意，不要使用 RestController ，由于我习惯性的使用了RestController，导致我半天没有将模板对应到templates文件夹下的html，浪费了时间！！！唉。。。
@@ -54,7 +50,7 @@ public class AccountController {
         // 登录失败从request中获取shiro处理的异常信息。
         // shiroLoginFailure:就是shiro异常类的全类名.
         String exception = (String) request.getAttribute("shiroLoginFailure");
-        System.out.println("exception=" + exception);
+        System.out.println("登录成功");
         String msg ;
         if (exception != null) {
             if (UnknownAccountException.class.getName().equals(exception)) {
@@ -87,6 +83,9 @@ public class AccountController {
         //验证码
         request.getSession().setAttribute("reg_code", IdUtil.nextUserId());
     }
+    /**
+     * 获取验证码
+     * */
     private String getCode(HttpServletRequest request){
         Object code = request.getSession().getAttribute("reg_code");
         String codeStr;

@@ -1,4 +1,4 @@
-package com.fyp.layim.web;
+package com.fyp.layim.web.biz;
 
 import com.fyp.layim.domain.result.JsonResult;
 import com.fyp.layim.service.UploadService;

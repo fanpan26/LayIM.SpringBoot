@@ -1,4 +1,4 @@
-package com.fyp.layim.web;
+package com.fyp.layim.web.biz;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -13,6 +13,9 @@ public class LayimApiConfig extends WebMvcConfigurerAdapter{
         return  new TokenVerifyInterceptor();
     }
 
+    /**
+     * 拦截API的请求
+     * */
     @Override
     public void addInterceptors(InterceptorRegistry registry){
         registry.addInterceptor(tokenVerifyInterceptor()).addPathPatterns("/api/layim/**");

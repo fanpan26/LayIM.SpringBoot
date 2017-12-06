@@ -6,11 +6,11 @@
         <div class="main">
             <a class="logo" href="/" title="Fly">Fly社区</a>
             <div class="nav">
-                <a class="nav-this" href="index.html">
+                <a class="nav-this" href="index.html" th:href="@{/}">
                     <i class="iconfont icon-wenda"></i>问答
                 </a>
-                <a href="http://www.layui.com/" target="_blank">
-                    <i class="iconfont icon-ui"></i>框架
+                <a href="https://github.com/fanpan26/SpringBootLayIM" class="nav-this" target="_blank">
+                    <i class="iconfont icon-daima"></i>源码
                 </a>
             </div>
 
@@ -24,11 +24,11 @@
                 </p>
             </div>
 
-            <div class="nav-user" th:if="true">
-                <a class="avatar" href="user/index.html">
-                    <img th:src="@{/images/avatar/0.jpg}"/>
-                    <cite>贤心</cite>
-                    <i>VIP2</i>
+            <div class="nav-user" th:if="${session.user!=null}">
+                <a class="avatar" href="user/index.html" th:href="@{/user/{id}(id=${session.user.userid})}">
+                    <img th:src="${session.user.avatar}"/>
+                    <cite th:text="${session.user.username}"></cite>
+                    <!--<i>VIP2</i>-->
                 </a>
                 <div class="nav">
                     <a href="/user/set/"><i class="iconfont icon-shezhi"></i>设置</a>

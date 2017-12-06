@@ -41,8 +41,16 @@ public class LayimAspect {
     @Pointcut("execution(public * com.fyp.layim.web.*.*(..))")
     public  void log(){}
 
-    @Pointcut("execution(public * com.fyp.layim.web.pages.PageController.*(..))")
+    @Pointcut("execution(public * com.fyp.layim.web.pages.*.*(..))")
     public void user(){}
+
+    @Before("user()")
+    public void beforeRunPage(){
+        logger.info("进入需要设置用户信息的URL");
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        setUserInfo(request);
+    }
 
     @Before("log()")
     public void before(JoinPoint joinPoint){

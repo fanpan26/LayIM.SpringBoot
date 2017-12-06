@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 @Controller
 @RequestMapping("/user")
-public class UserController extends BaseController{
+public class UserPageController extends BaseController{
     /**
      * 用户首页
      * */

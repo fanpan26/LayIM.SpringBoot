@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fda94d66-b1ae-4e8f-94d7-1496a66254c6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/base/BaseController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/IndexController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/UserController.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/IndexController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/PageController.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/filter/LayimApiConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/filter/LayimApiConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/filter/LayimAspect.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/filter/LayimAspect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/user/home.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/home.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/biz/AccountController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/ErrorController.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/biz/ErrorController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/UploadController.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/biz/UploadController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/biz/UserController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/IndexPageController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/UserPageController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,8 +25,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/UserController.java">
+      <file leaf-file-name="UserPageController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/UserPageController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="456">
               <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
@@ -47,17 +37,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/IndexController.java">
+      <file leaf-file-name="IndexPageController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/IndexPageController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
-              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+              <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#271#272#0" expanded="true" />
-                <element signature="e#301#302#0" expanded="true" />
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#414#415#0" expanded="true" />
+                <element signature="e#275#276#0" expanded="true" />
+                <element signature="e#305#306#0" expanded="true" />
+                <element signature="e#390#391#0" expanded="true" />
+                <element signature="e#418#419#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LayimAspect.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LayimAspect.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/filter/LayimAspect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="43" column="78" lean-forward="false" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="78" />
+            <state relative-caret-position="229">
+              <caret line="48" column="35" lean-forward="false" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
               <folding>
                 <element signature="method#setUserInfo#0;class#LayimAspect#0" expanded="false" />
               </folding>
@@ -233,11 +223,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/service/auth/ShiroConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/PageController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/filter/LayimAspect.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/biz/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/PageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/IndexController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fyp/layim/web/filter/LayimAspect.java" />
       </list>
     </option>
   </component>
@@ -312,6 +302,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="layim" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="layim" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootLayIM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="layim" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootLayIM" type="b2602c69:ProjectViewProjectNode" />
@@ -483,12 +492,12 @@
       <workItem from="1512475764900" duration="1127000" />
       <workItem from="1512477266422" duration="635000" />
       <workItem from="1512525047943" duration="6665000" />
-      <workItem from="1512533999654" duration="3909000" />
+      <workItem from="1512533999654" duration="4193000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50556000" />
+    <option name="totallyTimeSpent" value="50840000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
@@ -852,7 +861,7 @@
         <state relative-caret-position="380">
           <caret line="20" column="113" lean-forward="false" selection-start-line="20" selection-start-column="113" selection-end-line="20" selection-end-column="113" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#scetion#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#scetion#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -896,16 +905,6 @@
         <state relative-caret-position="133">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/filter/LayimAspect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="43" column="78" lean-forward="false" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="78" />
-          <folding>
-            <element signature="method#setUserInfo#0;class#LayimAspect#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -961,7 +960,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/UserPageController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
@@ -971,16 +970,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/IndexController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/pages/IndexPageController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#275#276#0" expanded="true" />
+            <element signature="e#305#306#0" expanded="true" />
+            <element signature="e#390#391#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fyp/layim/web/filter/LayimAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="48" column="35" lean-forward="false" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+          <folding>
+            <element signature="method#setUserInfo#0;class#LayimAspect#0" expanded="false" />
           </folding>
         </state>
       </provider>

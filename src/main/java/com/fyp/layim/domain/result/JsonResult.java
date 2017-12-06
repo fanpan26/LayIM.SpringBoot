@@ -1,7 +1,5 @@
 package com.fyp.layim.domain.result;
 
-import org.tio.utils.json.Json;
-
 /**
  * @author fyp
  * @crate 2017/11/1 19:55

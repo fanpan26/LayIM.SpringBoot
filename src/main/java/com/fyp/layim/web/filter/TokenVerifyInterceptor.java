@@ -1,8 +1,6 @@
 package com.fyp.layim.web.filter;
 
-import com.fyp.layim.common.util.ResultUtil;
 import com.fyp.layim.domain.result.JsonResult;
-import com.fyp.layim.domain.result.LAYIM_ENUM;
 import com.fyp.layim.service.auth.TokenVerify;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -10,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-import org.tio.http.common.HttpResponseStatus;
 import org.tio.utils.json.Json;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +34,7 @@ public class TokenVerifyInterceptor extends HandlerInterceptorAdapter {
             response.setStatus(HttpStatus.OK.value());
             //解决乱码问题
             response.setContentType("application/json;charset=utf-8");
-            JsonResult result = ResultUtil.fail("invalid token");
+            JsonResult result = JsonResult.fail("invalid token");
             response.getWriter().print(Json.toJson(result));
         }
         return flag;

@@ -1,7 +1,6 @@
 package com.fyp.layim.service;
 
 import com.fyp.layim.common.util.AESUtil;
-import com.fyp.layim.common.util.ResultUtil;
 import com.fyp.layim.domain.BigGroup;
 import com.fyp.layim.domain.FriendGroup;
 import com.fyp.layim.domain.User;
@@ -9,7 +8,6 @@ import com.fyp.layim.domain.UserAccount;
 import com.fyp.layim.domain.mapper.LayimMapper;
 import com.fyp.layim.domain.result.JsonResult;
 
-import com.fyp.layim.domain.result.LAYIM_ENUM;
 import com.fyp.layim.domain.viewmodels.FriendGroupViewModel;
 import com.fyp.layim.domain.viewmodels.LayimInitDataViewModel;
 import com.fyp.layim.domain.viewmodels.UserViewModel;
@@ -25,7 +23,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import javax.xml.transform.Result;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -60,7 +57,7 @@ public class UserService {
         //获取用户基本信息
         User user = userRepository.findOne(userId);
         if(user == null){
-            return ResultUtil.fail(LAYIM_ENUM.NO_USER);
+            return JsonResult.fail("用户不存在");
         }
         //映射用户信息
         UserViewModel mine = LayimMapper.INSTANCE.mapUser(user);
@@ -82,7 +79,7 @@ public class UserService {
         List<BigGroup> bigGroups = user.getBigGroups();
         resultViewModel.setGroup(LayimMapper.INSTANCE.mapBigGroup(bigGroups));
 
-        return ResultUtil.success(resultViewModel);
+        return JsonResult.success(resultViewModel);
     }
 
     /**
@@ -127,9 +124,9 @@ public class UserService {
             String key = String.format("%d_%d", userId, System.currentTimeMillis());
             logger.info("当前时间：{}",key);
             String token = AESUtil.encyrpt(key);
-            return ResultUtil.success(token);
+            return JsonResult.success(token);
         }
-        return ResultUtil.fail(LAYIM_ENUM.NO_USER);
+        return JsonResult.fail("用户不存在");
     }
 
     @Transactional
@@ -138,7 +135,7 @@ public class UserService {
             //添加账户
             UserAccount existAccount = userAccountRepository.findByUsername(account.getUsername());
             if (existAccount != null) {
-                return ResultUtil.fail("该账号已经存在");
+                return JsonResult.fail("该账号已经存在");
             }
             account = userAccountRepository.save(account);
             user.setId(account.getId());
@@ -149,10 +146,10 @@ public class UserService {
             friendGroup.setName("我的好友");
             friendGroup.setOwner(user);
             friendGroupRepository.save(friendGroup);
-            return ResultUtil.success(user.getId());
+            return JsonResult.success(user.getId());
         }
         catch (Exception ex){
-            return ResultUtil.fail("注册失败");
+            return JsonResult.fail("注册失败");
         }
     }
 

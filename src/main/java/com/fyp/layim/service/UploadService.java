@@ -1,16 +1,11 @@
 package com.fyp.layim.service;
 
-import com.fyp.layim.common.util.ResultUtil;
 import com.fyp.layim.domain.result.JsonResult;
-import com.fyp.layim.domain.result.LAYIM_ENUM;
 import com.fyp.layim.domain.result.UploadResult;
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.id.GUIDGenerator;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.Valid;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -36,9 +31,9 @@ public class UploadService {
             uploadResult.setSrc("/upload/" + newFileName);
             uploadResult.setName(fileName);
 
-            return ResultUtil.success(uploadResult);
+            return JsonResult.success(uploadResult);
         }else{
-            return ResultUtil.fail(LAYIM_ENUM.NO_FILE);
+            return JsonResult.fail("无文件");
         }
     }
 }

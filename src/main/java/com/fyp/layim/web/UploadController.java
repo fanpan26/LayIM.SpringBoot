@@ -2,13 +2,11 @@ package com.fyp.layim.web;
 
 import com.fyp.layim.domain.result.JsonResult;
 import com.fyp.layim.service.UploadService;
-import com.fyp.layim.service.auth.ShiroUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

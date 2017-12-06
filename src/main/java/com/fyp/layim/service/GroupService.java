@@ -1,25 +1,21 @@
 package com.fyp.layim.service;
 
-import com.fyp.layim.common.util.IdUtil;
-import com.fyp.layim.common.util.ResultUtil;
 import com.fyp.layim.domain.BigGroup;
 import com.fyp.layim.domain.FriendGroup;
 import com.fyp.layim.domain.User;
 import com.fyp.layim.domain.mapper.LayimMapper;
 import com.fyp.layim.domain.result.JsonResult;
-import com.fyp.layim.domain.result.LAYIM_ENUM;
 import com.fyp.layim.domain.viewmodels.LayimGroupMembersViewModel;
 import com.fyp.layim.domain.viewmodels.UserViewModel;
 import com.fyp.layim.repository.BigGroupRepository;
 import com.fyp.layim.repository.FriendGroupRepository;
-import jodd.util.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.tio.utils.json.Json;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author fyp
@@ -44,7 +40,7 @@ public class GroupService {
 
         BigGroup group = bigGroupRepository.findOne(groupId);
         if(group == null){
-            return ResultUtil.fail(LAYIM_ENUM.GROUP_NOT_EXIST);
+            return JsonResult.fail("该群组不存在");
         }
         UserViewModel owner = LayimMapper.INSTANCE.mapUser(group.getOwner());
         membersViewModel.setOwner(owner);
@@ -52,7 +48,7 @@ public class GroupService {
         List<UserViewModel> memberList =LayimMapper.INSTANCE.mapUser(group.getUsers());
         membersViewModel.setList(memberList);
 
-        return ResultUtil.success(membersViewModel);
+        return JsonResult.success(membersViewModel);
     }
 
     /**
@@ -61,12 +57,12 @@ public class GroupService {
     public JsonResult addFriendGroup(String name,Long userId) {
 
         if(StringUtils.isBlank(name) || name.length() > 10){
-             return ResultUtil.fail("参数group长度限制为1-20");
+             return JsonResult.fail("参数group长度限制为1-20");
         }
 
         boolean exist = friendGroupRepository.countByName(name) > 0;
         if(exist){
-            return ResultUtil.fail("已经存在该分组");
+            return JsonResult.fail("已经存在该分组");
         }
 
         FriendGroup friendGroup = new FriendGroup();
@@ -77,7 +73,7 @@ public class GroupService {
         friendGroup.setOwner(user);
 
         friendGroupRepository.save(friendGroup);
-        return ResultUtil.success();
+        return JsonResult.success();
     }
 
     /**
@@ -85,7 +81,7 @@ public class GroupService {
      * */
     public JsonResult deleteFriendGroup(Long id,Long uid){
         friendGroupRepository.deleteByIdAndUserId(id,uid);
-        return ResultUtil.success();
+        return JsonResult.success();
     }
 
     /**
@@ -95,7 +91,7 @@ public class GroupService {
     public JsonResult addBigGroup(Long userId,String name,String avatar,String description){
 
         if(StringUtils.isBlank(name) || name.length() > 10) {
-            return ResultUtil.fail("参数group长度限制为1-20");
+            return JsonResult.fail("参数group长度限制为1-20");
         }
 
         BigGroup bigGroup = new BigGroup();
@@ -112,6 +108,6 @@ public class GroupService {
         bigGroup.setUsers(users);
 
         bigGroupRepository.save(bigGroup);
-        return ResultUtil.success();
+        return JsonResult.success();
     }
 }

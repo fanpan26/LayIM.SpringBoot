@@ -17,10 +17,22 @@
 <body>
 <div th:replace="fragments/header :: header">Header</div>
 <script th:inline="javascript">
-    layui.extend({
-        socket: '/js/socket',
-        req:'/js/req'
-    });
+    layui.cache.page = '';
+    layui.cache.user = {
+        username: '游客'
+        ,uid: -1
+        ,avatar: '../res/images/avatar/00.jpg'
+        ,experience: 83
+        ,sex: '男'
+    };
+    layui.config({
+        version: "2.0.0"
+        ,base: '/js/mods/'
+    }).extend({
+        socket: 'socket',
+        req:'req',
+        fly: 'index'
+    }).use('fly');
     var events = {};
     layui.use('jquery',function ($) {
         //注册全局js onclick事件

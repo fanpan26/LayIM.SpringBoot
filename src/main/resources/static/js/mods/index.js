@@ -10,7 +10,7 @@ layui.define(['layer', 'laytpl', 'form', 'upload', 'util'], function(exports){
   var $ = layui.jquery
   ,layer = layui.layer
   ,laytpl = layui.laytpl
-  ,form = layui.form()
+  ,form = layui.form
   ,util = layui.util
   ,device = layui.device()
   
@@ -330,7 +330,9 @@ layui.define(['layer', 'laytpl', 'form', 'upload', 'util'], function(exports){
 
   //表单提交
   form.on('submit(*)', function(data){
+    return true;
     var action = $(data.form).attr('action'), button = $(data.elem);
+    if(action=="/account/login"||action=="/account/reg"){return true;}
     gather.json(action, data.field, function(res){
       var end = function(){
         if(res.action){

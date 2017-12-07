@@ -14,11 +14,11 @@
                 <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 50px;">
                     <div class="layui-tab-item layui-show">
                         <div class="layui-form layui-form-pane">
-                            <form method="post">
+                            <form method="post" th:action="@{/account/reg}">
                                 <div class="layui-form-item">
                                     <label for="L_email" class="layui-form-label">账号</label>
                                     <div class="layui-input-inline">
-                                        <input type="text" id="L_email" name="account" required="required" lay-verify="email" autocomplete="off" class="layui-input" />
+                                        <input type="text" id="L_email" name="account" required="required" lay-verify="required" autocomplete="off" class="layui-input" />
                                     </div>
                                 </div>
                                 <div class="layui-form-item">

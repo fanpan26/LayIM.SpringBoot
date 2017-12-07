@@ -13,7 +13,7 @@ layui.define(['laypage', 'fly', 'element'], function(exports){
   var form = layui.form;
   var laypage = layui.laypage;
   var fly = layui.fly;
-  var element = layui.element();
+  var element = layui.element;
 
   var gather = {}, dom = {
     mine: $('#LAY_mine')

@@ -11,7 +11,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * LayimApplication
  * */
 @SpringBootApplication
-@EnableAsync
 public class LayimApplication {
     public static void main(String[] args) {
         SpringApplication springApplication = new SpringApplication(LayimApplication.class);

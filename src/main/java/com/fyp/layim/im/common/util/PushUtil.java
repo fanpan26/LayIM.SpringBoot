@@ -32,7 +32,7 @@ public final class PushUtil {
         return applyService;
     }
 
-    private Logger logger = LoggerFactory.getLogger(PushUtil.class);
+    private static Logger logger = LoggerFactory.getLogger(PushUtil.class);
 
     private static LayimWebsocketStarter getStarter(){
         return (LayimWebsocketStarter)SpringUtil.getBean("layimWebsocketStarter");
@@ -66,8 +66,8 @@ public final class PushUtil {
      * 向服务端推送消息
      * */
     public static void pushApplyMessage(String toId) {
+        logger.info("执行到了发送方法:pushApplyMessage");
         LayimToClientNoticeMsgBody body = new LayimToClientNoticeMsgBody();
-
         ChannelContext channelContext = getChannelContext(toId);
         //先判断是否在线，再去查询数据库，减少查询次数
         if (channelContext != null && !channelContext.isClosed()) {

@@ -98,7 +98,7 @@ full: true
 
     </div>
     <script th:inline="javascript">
-        layui.use(['layer','jquery'],function (layer,$) {
+        layui.use(['layer','jquery','req'],function (layer,$,req) {
             events['addFriend'] = function () {
                  layer.open({
                     title: '好友申请'
@@ -113,20 +113,16 @@ full: true
                     }
                 });
             };
-
             var apply = function (remark,callback) {
                 var uid = $('#visitUid').val();
-               var loading = layer.open({type:3});
-                $.post('/layim/apply-friend',{toid:uid,remark:remark},function (res) {
-                    layer.close(loading);
-                        callback(res);
+                req.post('/layim/apply-friend',{toid:uid,remark:remark},function (res) {
+                    callback(res);
                 });
             }
         })
 
     </script>
 </scetion>
-
 </body>
 
 </html>

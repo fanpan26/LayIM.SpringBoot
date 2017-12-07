@@ -66,4 +66,12 @@ public class UserPageController extends BaseController{
         setModel(user,model);
         return "/user/home";
     }
+
+    /**
+     * 用户设置页面
+     * */
+    @RequestMapping("/set")
+    public String set(){
+        return "/user/set";
+    }
 }

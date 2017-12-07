@@ -1,5 +1,6 @@
 package com.fyp.layim.web.base;
 
+import com.fyp.layim.im.packet.ContextUser;
 import com.fyp.layim.service.auth.ShiroUtil;
 
 public class BaseController {
@@ -8,5 +9,9 @@ public class BaseController {
      * */
     protected Long getUserId() {
         return ShiroUtil.getUserId();
+    }
+
+    protected ContextUser getContextUser(){
+        return ShiroUtil.getCurrentUser();
     }
 }

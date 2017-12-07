@@ -21,11 +21,6 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 .idea/
-src/main/resources/static/js/layui/*.js
-/target/
 src/main/resources/static/js/layui/lay/modules/layim.js
 upload/
-src/main/resources/application.yml
-.idea/workspace.xml
-target/classes/application.yml
-src/main/resources/application.yml
+target/

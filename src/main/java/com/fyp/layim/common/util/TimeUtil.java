@@ -15,7 +15,6 @@ public class TimeUtil {
         Date date = new Date(millis);
         return HTTP_DATE_FORMAT.format(date);
     }
-
     static {
         HTTP_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
     }

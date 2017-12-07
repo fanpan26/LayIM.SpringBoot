@@ -9,7 +9,9 @@ import com.fyp.layim.service.ApplyService;
 import com.fyp.layim.service.GroupService;
 import com.fyp.layim.service.UserService;
 import com.fyp.layim.service.auth.ShiroUtil;
+import com.fyp.layim.web.base.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +23,10 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/layim")
-public class UserController {
+public class UserController extends BaseController {
 
+    @Autowired
+    private ApplicationContext applicationContext;
 
     @Autowired
     private UserService userService;
@@ -57,8 +61,13 @@ public class UserController {
         JsonResult result = applyService.saveFriendApply(toId, remark);
         //申请成功，发布申请事件，通知 toId处理消息，如果不在线，不会进行处理
         if(result.isSuccess()){
-            SpringUtil.publish(new ApplyEvent("apply",toId));
+            applicationContext.publishEvent(new ApplyEvent("apply",toId));
         }
         return result;
+    }
+
+    @GetMapping(value = "/notice/{pageIndex}")
+    public JsonResult apply(@PathVariable("pageIndex") int pageIndex){
+        return applyService.getSystemNotices(pageIndex,20,getUserId());
     }
 }

@@ -42,7 +42,7 @@ public final class PushUtil {
         return getStarter().getServerGroupContext();
     }
     /**
-     * 向服务端主动推送消息
+     * 服务端主动推送消息
      * */
     private static void push(ChannelContext channelContext,Object msg) {
         try {
@@ -63,7 +63,7 @@ public final class PushUtil {
         return channelContext;
     }
     /**
-     * 向服务端推送消息
+     * 服务端推送消息
      * */
     public static void pushApplyMessage(String toId) {
         logger.info("执行到了发送方法:pushApplyMessage");

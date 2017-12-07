@@ -29,7 +29,6 @@ public class UserPageController extends BaseController{
      * 属性赋值
      * */
     private void setModel(User user,Model model){
-
         long currentUserId = getUserId();
         long visitUserId = user.getId();
         //是否是自己
@@ -50,12 +49,6 @@ public class UserPageController extends BaseController{
         userMap.put("self",isSelf || isFriend);
 
         model.addAttribute("user",userMap);
-
-//        model.addAttribute("avatar",user.getAvatar());
-//        model.addAttribute("name",user.getUserName());
-//        model.addAttribute("addtime", TimeUtil.formatDate(user.getCreateAt()));
-//        model.addAttribute("sign",user.getSign());
-//        model.addAttribute("uid",user.getId());
     }
     /**
      * 用户首页

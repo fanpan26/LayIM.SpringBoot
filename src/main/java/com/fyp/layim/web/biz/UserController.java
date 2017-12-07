@@ -25,6 +25,10 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/layim")
 public class UserController extends BaseController {
 
+    /**
+     * 用于事件发布
+     * applicationContext.publishEvent(event)
+     * */
     @Autowired
     private ApplicationContext applicationContext;
 
@@ -37,16 +41,26 @@ public class UserController extends BaseController {
     @Autowired
     private ApplyService applyService;
 
+    /**
+     * layim基础初始化数据
+     * 好友信息，群组信息，个人信息
+     * */
     @GetMapping(value = "/base")
     public JsonResult getBaseData(){
         return userService.getBaseList();
     }
 
+    /**
+     * 根据群ID获取群内的所有人
+     * */
     @GetMapping(value="/members")
     public JsonResult getMembers( long id){
         return groupService.getGroupMembers(id);
     }
 
+    /**
+     * 获取用户token，调用api会用到token
+     * */
     @GetMapping(value = "/token")
     public JsonResult getToken() throws Exception{
         return userService.getUserToken();
@@ -66,6 +80,9 @@ public class UserController extends BaseController {
         return result;
     }
 
+    /**
+     * 用户收到的通知分页
+     * */
     @GetMapping(value = "/notice/{pageIndex}")
     public JsonResult apply(@PathVariable("pageIndex") int pageIndex){
         return applyService.getSystemNotices(pageIndex,20,getUserId());

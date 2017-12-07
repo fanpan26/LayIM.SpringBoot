@@ -1,7 +1,11 @@
 package com.fyp.layim.repository;
 
 import com.fyp.layim.domain.Apply;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 /**
  * @author fyp
@@ -18,4 +22,9 @@ public interface ApplyRepository extends JpaRepository<Apply,Long> {
      * 获取未读消息条数
      * */
     int countByToidAndIsread(long userId,boolean isRead);
+
+    /**
+     * 分页获取系统消息
+     * */
+    Page<Apply> findAppliesByToidOrderByCreateAtDesc(long toId, Pageable pageable);
 }

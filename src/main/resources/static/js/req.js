@@ -3,6 +3,7 @@ layui.define(['jquery','layer'],function (exports) {
     var layer = layui.layer;
 
     var req = {
+        loading:true,
         get:function (url,data,success,error) {
             ajax('GET',url,data,success,error)
         },
@@ -16,16 +17,18 @@ layui.define(['jquery','layer'],function (exports) {
             url:url,
             type:type||'get',
             data:data||{},
-            before:function () {
-             loading = layer.open({type:3});
+            beforeSend:function () {
+                if(req.loading) {
+                    loading = layer.open({type: 3});
+                }
             },
             success:function (d) {
                 success &&success(d);
-                layer.close(loading);
+                loading &&layer.close(loading);
             },
             error:function (d) {
                 error&&error(d);
-                layer.close(loading);
+                loading&&layer.close(loading);
             }
         });
     }

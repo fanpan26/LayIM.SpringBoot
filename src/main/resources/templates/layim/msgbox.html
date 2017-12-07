@@ -68,6 +68,7 @@
 
         //请求消息
         var renderMsg = function(page, callback){
+            req.loading = false;
             req.get('/layim/notice/'+page,{}, function(res){
                 if(res.code != 0){
                     return layer.msg(res.msg);

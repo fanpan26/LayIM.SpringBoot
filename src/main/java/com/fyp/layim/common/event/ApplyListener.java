@@ -17,20 +17,26 @@ import java.util.concurrent.Future;
  */
 /**
  * 不加@async 就是同步消息处理
+ * 问题：Async 的作用？
+ * 目前先用 new Thread 实现（有待研究）
  * */
 public class ApplyListener implements ApplicationListener<ApplyEvent> {
 
     private Logger logger = LoggerFactory.getLogger(ApplyListener.class);
 
-    /**
-     * 在程序启动处添加@EnableAsync才会起作用
-     * */
-    @Async
     @Override
-    public void onApplicationEvent(ApplyEvent applyEvent){
-        Long toId = applyEvent.getToId();
-        PushUtil.pushApplyMessage(toId.toString());
+    public void onApplicationEvent(ApplyEvent applyEvent) {
+        new Thread(){
+            public void run(){
+                Long toId = applyEvent.getToId();
+//                try {
+//                    Thread.sleep(5000);
+//                }catch (InterruptedException e){
+//
+//                }
+                PushUtil.pushApplyMessage(toId.toString());
+            }
+        }.start();
+
     }
-
-
 }

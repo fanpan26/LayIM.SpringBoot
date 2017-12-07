@@ -44,9 +44,11 @@ public class ApplyService {
         remark = HtmlUtils.htmlEscape(remark);
         ContextUser user = ShiroUtil.getCurrentUser();
         long userId = Long.parseLong(user.getUserid());
-
+        if(toId==userId){
+            return JsonResult.fail("不可加自己为好友");
+        }
         int record = applyRepository.countByToidAndUidAndTypeAndResult(toId,userId,ApplyType.friend,0);
-        if(record > 0){
+        if(record > 0) {
             return JsonResult.fail("已经申请过");
         }
 

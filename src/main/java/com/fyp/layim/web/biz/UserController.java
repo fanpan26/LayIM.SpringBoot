@@ -71,7 +71,10 @@ public class UserController extends BaseController {
      * */
     @PostMapping(value = "/apply-friend")
     public JsonResult apply(@RequestParam("toid") Long toId,@RequestParam("remark") String remark){
-
+        boolean isFriend = groupService.isFriend(getUserId(),toId);
+        if(isFriend){
+            return JsonResult.fail("已经是好友了");
+        }
         JsonResult result = applyService.saveFriendApply(toId, remark);
         //申请成功，发布申请事件，通知 toId处理消息，如果不在线，不会进行处理
         if(result.isSuccess()){

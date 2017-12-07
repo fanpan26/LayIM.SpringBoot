@@ -42,19 +42,20 @@ public class ApplyService {
     public JsonResult saveFriendApply(long toId,String remark){
 
         remark = HtmlUtils.htmlEscape(remark);
+        ContextUser user = ShiroUtil.getCurrentUser();
+        long userId = Long.parseLong(user.getUserid());
 
-        int record = applyRepository.countByToidAndTypeAndResult(toId,ApplyType.friend,0);
+        int record = applyRepository.countByToidAndUidAndTypeAndResult(toId,userId,ApplyType.friend,0);
         if(record > 0){
             return JsonResult.fail("已经申请过");
         }
-        ContextUser user = ShiroUtil.getCurrentUser();
 
         Apply apply  = new Apply();
         apply.setType(ApplyType.friend);
         apply.setToid(toId);
         apply.setRemark(remark);
 
-        apply.setUid(Long.parseLong(user.getUserid()));
+        apply.setUid(userId);
         apply.setAvatar(user.getAvatar());
         apply.setName(user.getUsername());
 

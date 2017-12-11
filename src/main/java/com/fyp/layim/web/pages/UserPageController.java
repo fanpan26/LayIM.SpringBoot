@@ -1,10 +1,10 @@
 package com.fyp.layim.web.pages;
 
-import com.fyp.layim.common.util.TimeUtil;
 import com.fyp.layim.domain.User;
 import com.fyp.layim.service.GroupService;
 import com.fyp.layim.service.UserService;
 import com.fyp.layim.web.base.BaseController;
+import com.xiaoleilu.hutool.date.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,7 +39,7 @@ public class UserPageController extends BaseController{
         Map<String,Object> userMap = new HashMap<>(8);
         userMap.put("avatar",user.getAvatar());
         userMap.put("name",user.getUserName());
-        userMap.put("addtime", TimeUtil.formatDate(user.getCreateAt())+" 加入");
+        userMap.put("addtime", DateUtil.date(user.getCreateAt())+" 加入");
         if(user.getSign()==null ||user.getSign().length()==0) {
             userMap.put("sign", "");
         }else {

@@ -511,7 +511,8 @@
         </div>
     </div>
     <script th:inline="javascript">
-        layui.use(['layim','socket'], function(layim,socket){
+        //<![CDATA[
+        layui.use(['layim','socket','req'], function(layim,socket,req){
             var $ =layui.jquery;
             var selfFlag = false;
             //基础配置
@@ -613,8 +614,11 @@
                 });
             });
             //监听layim建立就绪
-            layim.on('ready', function(res){
-                //layim.msgbox(5); //模拟消息盒子有新消息，实际使用时，一般是动态获得
+            layim.on('ready', function(){
+                req.loading = false;
+                req.get('/layim/apply-unread',{},function (res) {
+                    res.data&&layim.msgbox(res.data);
+                })
             });
             //监听发送消息
             layim.on('sendMessage', function(data){
@@ -639,6 +643,7 @@
                 });
             });
         });
+        //]]>
     </script>
 </scetion>
 

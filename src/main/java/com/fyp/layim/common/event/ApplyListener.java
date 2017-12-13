@@ -29,11 +29,6 @@ public class ApplyListener implements ApplicationListener<ApplyEvent> {
         new Thread(){
             public void run(){
                 Long toId = applyEvent.getToId();
-//                try {
-//                    Thread.sleep(5000);
-//                }catch (InterruptedException e){
-//
-//                }
                 PushUtil.pushApplyMessage(toId.toString());
             }
         }.start();

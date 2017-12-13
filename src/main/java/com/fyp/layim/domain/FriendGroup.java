@@ -33,7 +33,8 @@ public class FriendGroup extends DomainBase {
         this.users = users;
     }
 
-    @ManyToMany(mappedBy = "friendGroupsIn")
+    @ManyToMany
+    @JoinTable(name = "user_friend_group",joinColumns = {@JoinColumn(name = "group_id")},inverseJoinColumns = {@JoinColumn(name = "uid")})
     private List<User> users;
 
     public User getOwner() {

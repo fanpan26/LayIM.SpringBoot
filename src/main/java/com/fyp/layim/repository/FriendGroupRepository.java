@@ -37,4 +37,16 @@ public interface FriendGroupRepository extends JpaRepository<FriendGroup,Long> {
      * */
     @Query(value = "select count(1) from user_friend_group A where group_id in (select id from friend_group where uid=?1) and A.uid=?2",nativeQuery = true)
     Integer countByUidInGroup(long userId,long friendId);
+
+    /**
+     * 获取用户的第一个好友分组id
+     * */
+    @Query(value = "SELECT  * FROM friend_group where uid=?1 order by create_at asc limit 0,1",nativeQuery = true)
+    FriendGroup getFirstByUserId(long userId);
+
+    /**
+     * 根据好友分组ID获取好友分组
+     * */
+    @Query(value = "SELECT  * FROM friend_group where id=?1",nativeQuery = true)
+    FriendGroup getFirstById(long id);
 }

@@ -24,6 +24,7 @@ public final class ApplyMapper {
         viewModel.setTime(apply.getCreateAt());
         viewModel.setUid(apply.getUid());
         viewModel.setRemark(apply.getRemark());
+        viewModel.setResult(apply.getResult());
         return viewModel;
     }
 

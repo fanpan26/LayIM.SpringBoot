@@ -90,4 +90,30 @@ public class UserController extends BaseController {
     public JsonResult apply(@PathVariable("pageIndex") int pageIndex){
         return applyService.getSystemNotices(pageIndex,20,getUserId());
     }
+
+    /**
+     * 用户未读消息个数
+     * */
+    @GetMapping(value = "/apply-unread")
+    public JsonResult msgCount(){
+        int count = applyService.getUnreadMsgCount(getUserId());
+        return JsonResult.success(count);
+    }
+
+    /**
+     * 设置消息已读
+     * */
+    @PostMapping(value = "/apply-read")
+    public JsonResult unReadToRead(){
+        return applyService.setUnreadToRead(getUserId());
+    }
+
+    /**
+     * 处理申请消息 同意
+     * @param id 为申请ID
+     * */
+    @PostMapping(value = "/apply/agree/{id}")
+    public JsonResult handleFriendApply(@PathVariable("id") long id,long group){
+        return applyService.agreeApply(getUserId(),id,group);
+    }
 }

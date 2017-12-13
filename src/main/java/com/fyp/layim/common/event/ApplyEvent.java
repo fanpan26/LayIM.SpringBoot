@@ -23,4 +23,8 @@ public class ApplyEvent extends ApplicationEvent {
         super(source);
         this.toid = toId;
     }
+
+    public ApplyEvent(Object source,String toId){
+        this(source,Long.parseLong(toId));
+    }
 }

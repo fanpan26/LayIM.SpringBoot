@@ -23,6 +23,7 @@ public class SpringUtil implements ApplicationContextAware {
         return Instance;
     }
 
+    @Override
     public void setApplicationContext(ApplicationContext applicationContext)throws BeansException {
         SpringUtil.applicationContext = applicationContext;
     }

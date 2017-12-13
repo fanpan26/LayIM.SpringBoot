@@ -114,6 +114,11 @@ public class UserController extends BaseController {
      * */
     @PostMapping(value = "/apply/agree/{id}")
     public JsonResult handleFriendApply(@PathVariable("id") long id,long group){
-        return applyService.agreeApply(getUserId(),id,group);
+        JsonResult result = applyService.agreeApply(getUserId(),id,group);
+        //申请处理成功之后，给对方发送一条消息（要重构）
+        if(result.isSuccess()&&result.getData()!=null){
+            applicationContext.publishEvent(new ApplyEvent("apply",Long.parseLong(result.getData().toString())));
+        }
+        return result;
     }
 }

@@ -157,7 +157,7 @@ public class ApplyService {
                  * */
                 boolean isFriend =  friendGroupRepository.countByUidInGroup(apply.getToid(),apply.getUid()) > 0;
                 if(isFriend){
-                    return JsonResult.success();
+                    return JsonResult.success(apply.getUid());
                 }
                 //获取对方的分组默认取第一个,将当前用户放到对方好友分组里
                 FriendGroup toGroup = friendGroupRepository.getFirstByUserId(apply.getUid());
@@ -176,7 +176,7 @@ public class ApplyService {
                 friendGroups.add(myGroup);
 
                 friendGroupRepository.save(friendGroups);
-                return JsonResult.success();
+                return JsonResult.success(apply.getUid());
             case ApplyType.group:
                 break;
             case ApplyType.system:

@@ -68,4 +68,14 @@ public class ApplyViewModel {
     private String content;
     private String remark;
     private long time;
+
+    public int getResult() {
+        return result;
+    }
+
+    public void setResult(int result) {
+        this.result = result;
+    }
+
+    private int result;
 }

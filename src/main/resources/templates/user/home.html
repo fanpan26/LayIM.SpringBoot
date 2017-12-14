@@ -5,6 +5,8 @@
 <scetion layout:fragment="content">
     <div class="fly-home" style="background-image: url();">
         <input type="hidden" th:value="${user.uid}" id="visitUid"/>
+        <input type="hidden" th:value="${user.name}" id="visitUname"/>
+        <input type="hidden" th:value="${user.avatar}" id="visitUavatar"/>
         <img src="" th:src="${user.avatar}" th:alt="${user.name}"/>
         <h1>
             <p th:text="${user.name}"></p>
@@ -98,26 +100,49 @@ full: true
 
     </div>
     <script th:inline="javascript">
-        layui.use(['layer','jquery','req'],function (layer,$,req) {
+        layui.use(['layer','jquery','req','layim'],function (layer,$,req,layim) {
             events['addFriend'] = function () {
-                 layer.open({
-                    title: '好友申请'
-                    , content: '<textarea name="desc" placeholder="备注" maxlength="20" class="layui-textarea"></textarea>'
-                    ,yes:function (e,o) {
-                        var remark = o.find('textarea').val();
-                        apply(remark,function (res) {
-                            layer.msg(res.code==0?"好友申请已发送":(res.msg||"好友申请发送失败"));
-                            layer.close(e);
-                        })
-
+                getGroup(function (group) {
+                    var user = {
+                        username: $('#visitUname').val(),
+                        avatar: $('#visitUavatar').val(),
+                        group: group
                     }
-                });
+                    layim.add({
+                        type: 'friend'
+                        , username: user.username
+                        , avatar: user.avatar
+                        , group: user.group
+                        , submit: function (group, remark, index) {
+                            apply(remark, function (res) {
+                                if(res.code==0){
+                                    layer.msg('好友申请已发送，请等待对方确认', {
+                                        icon: 1
+                                        , shade: 0.5
+                                    }, function () {
+                                        layer.close(index);
+                                    });
+                                }else{
+                                    layer.msg("申请发送失败");
+                                }
+                            });
+
+                        }
+                    });
+                })
             };
             var apply = function (remark,callback) {
                 var uid = $('#visitUid').val();
+                req.loading = true;
                 req.post('/layim/apply-friend',{toid:uid,remark:remark},function (res) {
                     callback(res);
                 });
+            }
+            var getGroup = function (callback) {
+                req.loading = false;
+                req.get('/layim/friend-groups',{},function (res) {
+                    callback(res.data||[]);
+                })
             }
         })
 

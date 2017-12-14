@@ -618,7 +618,8 @@
                 req.loading = false;
                 req.get('/layim/apply-unread',{},function (res) {
                     res.data&&layim.msgbox(res.data);
-                })
+                });
+              console.log(layim.cache().friend);
             });
             //监听发送消息
             layim.on('sendMessage', function(data){

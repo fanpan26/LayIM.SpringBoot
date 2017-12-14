@@ -1,5 +1,6 @@
 package com.fyp.layim;
 
+import com.fyp.layim.common.event.AddFriendListener;
 import com.fyp.layim.common.event.ApplyListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,6 +21,7 @@ public class LayimApplication {
          * ApplyListener 是监听好友申请的事件
          * */
         springApplication.addListeners(new ApplyListener());
+        springApplication.addListeners(new AddFriendListener());
 
         springApplication.run(args);
     }

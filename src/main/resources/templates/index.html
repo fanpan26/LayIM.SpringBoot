@@ -588,6 +588,19 @@
                         case socket.mtype.serverNotice:
                             layim.msgbox(msg.count);
                             break;
+                        case socket.mtype.addFriendNotice:
+                            layim.addList({
+                               type:msg.type,
+                               avatar:msg.avatar,
+                               username:msg.username,
+                               groupid:msg.groupid,
+                               sign:msg.sign,
+                               id:msg.id
+                            });
+                            msg.mtype=socket.mtype.chatFriend;
+                            msg.content="我们已经是好友啦，一起来聊天吧！";
+                            layim.getMessage(msg);
+                            break;
                     }
 
                 }

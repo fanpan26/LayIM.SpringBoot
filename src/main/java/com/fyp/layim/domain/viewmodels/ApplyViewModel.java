@@ -69,6 +69,16 @@ public class ApplyViewModel {
     private String remark;
     private long time;
 
+    public long getGroup() {
+        return group;
+    }
+
+    public void setGroup(long group) {
+        this.group = group;
+    }
+
+    private long group;
+
     public int getResult() {
         return result;
     }

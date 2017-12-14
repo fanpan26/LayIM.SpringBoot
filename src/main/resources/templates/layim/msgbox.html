@@ -27,7 +27,7 @@
 <textarea title="消息模版" id="LAY_tpl" style="display:none;">
 {{# layui.each(d.data, function(index, item){
   if(item.uid){ }}
-    <li data-uid="{{ item.uid }}" data-id="{{ item.id }}">
+    <li data-uid="{{ item.uid }}" data-id="{{ item.id }}" data-group="{{ item.group }}">
       <a href="/user/{{ item.from }}/" target="_blank">
         <img src="{{ item.avatar }}" class="layui-circle layim-msgbox-avatar"/>
       </a>
@@ -128,13 +128,13 @@
                     , username: user.username
                     , avatar: user.avatar
                     , group: parent.layui.layim.cache().friend //获取好友分组数据
-                    , submit: function (group, index) {
+                    , submit: function (mygroup, index) {
                         //将好友追加到主面板
                         parent.layui.layim.addList({
                             type: 'friend'
                             , avatar: user.avatar //好友头像
                             , username: user.username //好友昵称
-                            , groupid: group //所在的分组id
+                            , groupid: mygroup //所在的分组id
                             , id: uid //好友ID
                             , sign: user.sign //好友签名
                         });
@@ -142,7 +142,7 @@
                         othis.parent().html('已同意');
 
                         req.post('/layim/apply/agree/' + id, {
-                            group: group
+                            group: mygroup
                         }, function (res) {
                             if (res.code != 0) {
                                 return layer.msg(res.msg);

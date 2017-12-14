@@ -101,6 +101,7 @@ full: true
     </div>
     <script th:inline="javascript">
         layui.use(['layer','jquery','req','layim'],function (layer,$,req,layim) {
+            var cacheGroup = null;
             events['addFriend'] = function () {
                 getGroup(function (group) {
                     var user = {
@@ -114,7 +115,7 @@ full: true
                         , avatar: user.avatar
                         , group: user.group
                         , submit: function (group, remark, index) {
-                            apply(remark, function (res) {
+                            apply({remark:remark,group:group}, function (res) {
                                 if(res.code==0){
                                     layer.msg('好友申请已发送，请等待对方确认', {
                                         icon: 1
@@ -123,7 +124,7 @@ full: true
                                         layer.close(index);
                                     });
                                 }else{
-                                    layer.msg("申请发送失败");
+                                    layer.msg(res.msg||"申请发送失败");
                                 }
                             });
 
@@ -131,18 +132,23 @@ full: true
                     });
                 })
             };
-            var apply = function (remark,callback) {
+            var apply = function (param,callback) {
                 var uid = $('#visitUid').val();
                 req.loading = true;
-                req.post('/layim/apply-friend',{toid:uid,remark:remark},function (res) {
+                req.post('/layim/apply-friend',{toid:uid,remark:param.remark,group:param.group},function (res) {
                     callback(res);
                 });
             }
             var getGroup = function (callback) {
-                req.loading = false;
-                req.get('/layim/friend-groups',{},function (res) {
-                    callback(res.data||[]);
-                })
+                if(cacheGroup!=null){
+                    callback(cacheGroup);
+                }else {
+                    req.loading = false;
+                    req.get('/layim/friend-groups', {}, function (res) {
+                        cacheGroup = res.data;
+                        callback(res.data || []);
+                    });
+                }
             }
         })
 

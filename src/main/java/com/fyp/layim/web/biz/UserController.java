@@ -1,5 +1,6 @@
 package com.fyp.layim.web.biz;
 
+import com.fyp.layim.common.event.AddFriendEvent;
 import com.fyp.layim.common.event.ApplyEvent;
 import com.fyp.layim.domain.result.JsonResult;
 import com.fyp.layim.im.LayimWebsocketStarter;
@@ -70,12 +71,12 @@ public class UserController extends BaseController {
      * 好友申请
      * */
     @PostMapping(value = "/apply-friend")
-    public JsonResult apply(@RequestParam("toid") Long toId,@RequestParam("remark") String remark){
+    public JsonResult apply(@RequestParam("toid") Long toId,@RequestParam("remark") String remark,@RequestParam("group") long group){
         boolean isFriend = groupService.isFriend(getUserId(),toId);
         if(isFriend){
-            return JsonResult.fail("已经是好友了");
+            return JsonResult.success();
         }
-        JsonResult result = applyService.saveFriendApply(toId, remark);
+        JsonResult result = applyService.saveFriendApply(toId, remark,group);
         //申请成功，发布申请事件，通知 toId处理消息，如果不在线，不会进行处理
         if(result.isSuccess()){
             applicationContext.publishEvent(new ApplyEvent("apply",toId));
@@ -118,6 +119,7 @@ public class UserController extends BaseController {
         //申请处理成功之后，给对方发送一条消息（要重构）
         if(result.isSuccess()&&result.getData()!=null){
             applicationContext.publishEvent(new ApplyEvent("apply",result.getData().toString()));
+            applicationContext.publishEvent(new AddFriendEvent("addFriend", id));
         }
         return result;
     }

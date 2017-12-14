@@ -2,6 +2,7 @@ package com.fyp.layim.domain;
 
 import com.fyp.layim.domain.base.DomainBase;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
@@ -85,4 +86,15 @@ public class Apply extends DomainBase {
     private int result;
     private int type;
     private long toid;
+
+    public long getGroup() {
+        return group;
+    }
+
+    public void setGroup(long group) {
+        this.group = group;
+    }
+
+    @Column(name = "group_id")
+    private long group;
 }

@@ -49,7 +49,7 @@ public class ApplyService {
     /**
      * 提交好友申请
      * */
-    public JsonResult saveFriendApply(long toId,String remark){
+    public JsonResult saveFriendApply(long toId,String remark,long group){
 
         remark = HtmlUtils.htmlEscape(remark);
         ContextUser user = ShiroUtil.getCurrentUser();
@@ -66,6 +66,7 @@ public class ApplyService {
         apply.setType(ApplyType.friend);
         apply.setToid(toId);
         apply.setRemark(remark);
+        apply.setGroup(group);
 
         apply.setUid(userId);
         apply.setAvatar(user.getAvatar());
@@ -111,12 +112,19 @@ public class ApplyService {
     }
 
     /**
+     * 获取单条消息
+     * */
+    public Apply getApply(long applyId){
+        return  applyRepository.findOne(applyId);
+    }
+
+    /**
      * 同意 处理逻辑
      * 更新同意状态，然后添加好友或者加群
      * */
     @Transactional
     public JsonResult agreeApply(long uid,long id,long group){
-        Apply myApply = applyRepository.findOne(id);
+        Apply myApply = getApply(id);
         //没有该申请
         if(myApply==null){
             return JsonResult.fail("申请不存在");
@@ -160,7 +168,8 @@ public class ApplyService {
                     return JsonResult.success(apply.getUid());
                 }
                 //获取对方的分组默认取第一个,将当前用户放到对方好友分组里
-                FriendGroup toGroup = friendGroupRepository.getFirstByUserId(apply.getUid());
+                long friendGroupId = apply.getGroup();
+                FriendGroup toGroup = friendGroupRepository.getFirstById(friendGroupId);
                 User me = new User();
                 me.setId(apply.getToid());
                 toGroup.getUsers().add(me);

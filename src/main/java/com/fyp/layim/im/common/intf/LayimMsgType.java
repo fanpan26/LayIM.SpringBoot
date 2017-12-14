@@ -26,4 +26,8 @@ public interface LayimMsgType {
      * 服务端向客户端推送消息
      * */
     byte SERVER_TO_CLIENT_NOTICE = 5;
+    /**
+     * 添加好友成功之后的消息
+     */
+    byte SERVER_TO_CLIENT_ADDFRIEND_NOTICE = 6;
 }

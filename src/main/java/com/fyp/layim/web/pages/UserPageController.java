@@ -56,6 +56,9 @@ public class UserPageController extends BaseController{
     @RequestMapping(value = "/{uid}")
     public String home(@PathVariable("uid") Long uid, Model model){
         User user = userService.getUser(uid);
+        if(user==null){
+            return "index";
+        }
         setModel(user,model);
         return "/user/home";
     }

@@ -121,4 +121,12 @@ public class UserController extends BaseController {
         }
         return result;
     }
+
+    /**
+     * 获取一个用户的好友分组
+     * */
+    @GetMapping(value = "/friend-groups")
+    public JsonResult getUserFriendGroups(){
+        return groupService.getUserFriendGroups(getUserId());
+    }
 }

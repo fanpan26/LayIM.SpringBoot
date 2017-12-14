@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 import javax.transaction.RollbackException;
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * @author fyp
@@ -49,4 +50,10 @@ public interface FriendGroupRepository extends JpaRepository<FriendGroup,Long> {
      * */
     @Query(value = "SELECT  * FROM friend_group where id=?1",nativeQuery = true)
     FriendGroup getFirstById(long id);
+
+    /**
+     * 获取当前用户的好友分组
+     * */
+    @Query(value = "SELECT * FROM friend_group where uid=?1",nativeQuery = true)
+    List<FriendGroup> getAllByUserId(long userId);
 }

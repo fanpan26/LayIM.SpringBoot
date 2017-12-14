@@ -5,6 +5,7 @@ import com.fyp.layim.domain.FriendGroup;
 import com.fyp.layim.domain.User;
 import com.fyp.layim.domain.mapper.LayimMapper;
 import com.fyp.layim.domain.result.JsonResult;
+import com.fyp.layim.domain.viewmodels.FriendGroupViewModel;
 import com.fyp.layim.domain.viewmodels.LayimGroupMembersViewModel;
 import com.fyp.layim.domain.viewmodels.UserViewModel;
 import com.fyp.layim.repository.BigGroupRepository;
@@ -116,5 +117,14 @@ public class GroupService {
      * */
     public boolean isFriend(long userId,long friendId) {
         return friendGroupRepository.countByUidInGroup(userId,friendId) > 0;
+    }
+
+    /**
+     * 获取一个用户的好友分组
+     * */
+    public JsonResult getUserFriendGroups(long userId){
+        List<FriendGroup> friendGroups = friendGroupRepository.getAllByUserId(userId);
+        List<FriendGroupViewModel> friendGroupViewModels = LayimMapper.INSTANCE.mapFriendGroup(friendGroups);
+        return JsonResult.success(friendGroupViewModels);
     }
 }

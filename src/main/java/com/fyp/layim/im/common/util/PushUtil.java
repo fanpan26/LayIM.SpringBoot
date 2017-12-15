@@ -8,6 +8,7 @@ import com.fyp.layim.im.packet.LayimToClientNoticeMsgBody;
 import com.fyp.layim.im.packet.convert.BodyConvert;
 import com.fyp.layim.service.ApplyService;
 import com.fyp.layim.service.UserService;
+import org.apache.commons.collections4.bidimap.DualHashBidiMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 import org.tio.core.Aio;
 import org.tio.core.ChannelContext;
 import org.tio.server.ServerGroupContext;
+import org.tio.utils.lock.ObjWithLock;
 import org.tio.websocket.common.WsResponse;
 
 import java.io.IOException;
@@ -117,4 +119,10 @@ public final class PushUtil {
             push(channelContext, body);
         }
     }
+
+    public static boolean isOnline(long userId){
+        ObjWithLock<DualHashBidiMap<String, ChannelContext>> userMap = getServerGroupContext().users.getMap();
+        return userMap.getObj().containsKey(userId+"");
+    }
+
 }

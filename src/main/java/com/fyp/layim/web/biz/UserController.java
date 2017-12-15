@@ -2,6 +2,8 @@ package com.fyp.layim.web.biz;
 
 import com.fyp.layim.common.event.AddFriendEvent;
 import com.fyp.layim.common.event.ApplyEvent;
+import com.fyp.layim.domain.Apply;
+import com.fyp.layim.domain.result.ApplyResult;
 import com.fyp.layim.domain.result.JsonResult;
 import com.fyp.layim.im.LayimWebsocketStarter;
 import com.fyp.layim.im.common.util.SpringUtil;
@@ -118,7 +120,8 @@ public class UserController extends BaseController {
         JsonResult result = applyService.agreeApply(getUserId(),id,group);
         //申请处理成功之后，给对方发送一条消息（要重构）
         if(result.isSuccess()&&result.getData()!=null){
-            applicationContext.publishEvent(new ApplyEvent("apply",result.getData().toString()));
+            ApplyResult applyResult = (ApplyResult)result.getData();
+            applicationContext.publishEvent(new ApplyEvent("apply",applyResult.getUid()));
             applicationContext.publishEvent(new AddFriendEvent("addFriend", id));
         }
         return result;

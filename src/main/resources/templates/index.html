@@ -601,8 +601,10 @@
                             msg.content="我们已经是好友啦，一起来聊天吧！";
                             layim.getMessage(msg);
                             break;
+                        case socket.mtype.onofflineNotice:
+                            layim.setFriendStatus(msg.id,msg.status);
+                            break;
                     }
-
                 }
             });
             console.log(socket.mtype);

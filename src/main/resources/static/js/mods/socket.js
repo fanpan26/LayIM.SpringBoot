@@ -20,7 +20,8 @@ layui.define(['jquery','layer'],function (exports) {
         checkIsOnline:3,
         checkOnlineCount:4,
         serverNotice:5,
-        addFriendNotice:6
+        addFriendNotice:6,
+        onofflineNotice:7
     };
     var counter = {
         count:function (id) {

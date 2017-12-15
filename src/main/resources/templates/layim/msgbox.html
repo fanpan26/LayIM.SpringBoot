@@ -129,23 +129,24 @@
                     , avatar: user.avatar
                     , group: parent.layui.layim.cache().friend //获取好友分组数据
                     , submit: function (mygroup, index) {
-                        //将好友追加到主面板
-                        parent.layui.layim.addList({
-                            type: 'friend'
-                            , avatar: user.avatar //好友头像
-                            , username: user.username //好友昵称
-                            , groupid: mygroup //所在的分组id
-                            , id: uid //好友ID
-                            , sign: user.sign //好友签名
-                        });
-                        parent.layer.close(index);
-                        othis.parent().html('已同意');
-
                         req.post('/layim/apply/agree/' + id, {
                             group: mygroup
                         }, function (res) {
                             if (res.code != 0) {
                                 return layer.msg(res.msg);
+                            }else{
+                                //将好友追加到主面板
+                                parent.layui.layim.addList({
+                                    type: 'friend'
+                                    , avatar: user.avatar //好友头像
+                                    , username: user.username //好友昵称
+                                    , groupid: mygroup //所在的分组id
+                                    , id: uid //好友ID
+                                    , status:res.data.status//好友状态
+                                    , sign: user.sign //好友签名
+                                });
+                                parent.layer.close(index);
+                                othis.parent().html('已同意');
                             }
                         });
                     }

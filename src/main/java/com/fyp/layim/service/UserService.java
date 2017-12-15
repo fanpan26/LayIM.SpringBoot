@@ -11,6 +11,7 @@ import com.fyp.layim.domain.result.JsonResult;
 import com.fyp.layim.domain.viewmodels.FriendGroupViewModel;
 import com.fyp.layim.domain.viewmodels.LayimInitDataViewModel;
 import com.fyp.layim.domain.viewmodels.UserViewModel;
+import com.fyp.layim.im.common.util.PushUtil;
 import com.fyp.layim.im.packet.ContextUser;
 import com.fyp.layim.im.packet.LayimContextUserInfo;
 import com.fyp.layim.repository.FriendGroupRepository;
@@ -25,6 +26,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -66,12 +68,18 @@ public class UserService {
         List<FriendGroup> friendGroups = user.getFriendGroups();
         List<FriendGroupViewModel> friendGroupViewModels = new ArrayList<FriendGroupViewModel>(friendGroups.size());
         //遍历好友分组
-        for (FriendGroup friendGroup : friendGroups){
+        for (FriendGroup friendGroup : friendGroups) {
             List<User> usersInGroup = friendGroup.getUsers();
             //先映射群组信息
             FriendGroupViewModel friendGroupViewModel = LayimMapper.INSTANCE.mapFriendGroup(friendGroup);
             //将每个组的人放到好友分组里面
-            friendGroupViewModel.setList(LayimMapper.INSTANCE.mapUser(usersInGroup));
+            List<UserViewModel> userViewModels = LayimMapper.INSTANCE.mapUser(usersInGroup);
+            boolean isOnline;
+            for (UserViewModel userViewModel : userViewModels) {
+                isOnline = PushUtil.isOnline(userViewModel.getId());
+                userViewModel.setStatus(isOnline ? "online" : "offline");
+            }
+            friendGroupViewModel.setList(userViewModels);
             friendGroupViewModels.add(friendGroupViewModel);
         }
         resultViewModel.setFriend(friendGroupViewModels);
@@ -161,6 +169,21 @@ public class UserService {
         catch (Exception ex){
             return JsonResult.fail("注册失败");
         }
+    }
+
+    /**
+     * 获取当前用户的所有好友
+     * */
+    @Transactional
+    public  List<String> getAllFriends(long userId){
+        List<FriendGroup> friendGroups = friendGroupRepository.getAllByUserId(userId);
+        List<String> userIds = new ArrayList<>();
+        friendGroups.forEach(group->
+            userIds.addAll(group.getUsers()
+                    .stream()
+                    .map(user -> user.getId().toString())
+                    .collect(Collectors.toList())));
+       return userIds;
     }
 
 }

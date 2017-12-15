@@ -1,11 +1,14 @@
 package com.fyp.layim.domain.viewmodels;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fyp.layim.domain.User;
+
 /**
  * @author fyp
  * @crate 2017/11/2 22:58
  * @project SpringBootLayIM
  */
-public class UserViewModel extends BaseViewModel {
+public class UserViewModel extends BaseViewModel implements Comparable {
     private String username;
 
     public String getUsername() {
@@ -28,10 +31,6 @@ public class UserViewModel extends BaseViewModel {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getSign() {
         return sign;
     }
@@ -43,4 +42,22 @@ public class UserViewModel extends BaseViewModel {
     private String avatar;
     private String status;
     private String sign;
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.status = sort==1?"online":"offline";
+        this.sort = sort;
+    }
+
+    @JsonIgnore
+    private int sort;
+
+    @Override
+    public int compareTo(Object o) {
+        UserViewModel o1 = (UserViewModel) o;
+        return o1.getSort().compareTo(this.getSort());
+    }
 }

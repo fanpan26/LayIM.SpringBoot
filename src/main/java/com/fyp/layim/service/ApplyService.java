@@ -155,7 +155,7 @@ public class ApplyService {
     /**
      * 根据类型进行处理
      * */
-    private JsonResult handle(Apply apply,long groupId){
+    private JsonResult handle(Apply apply,long myGroupId){
         switch (apply.getType()) {
             case ApplyType.friend:
 
@@ -176,7 +176,7 @@ public class ApplyService {
                 me.setId(apply.getToid());
                 toGroup.getUsers().add(me);
                 //将对方用户放到当前用户的好友分组里
-                FriendGroup myGroup = friendGroupRepository.getFirstById(groupId);
+                FriendGroup myGroup = friendGroupRepository.getFirstById(myGroupId);
                 User friend = new User();
                 friend.setId(apply.getUid());
                 myGroup.getUsers().add(friend);

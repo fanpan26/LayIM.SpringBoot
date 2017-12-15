@@ -121,7 +121,9 @@ public class UserController extends BaseController {
         //申请处理成功之后，给对方发送一条消息（要重构）
         if(result.isSuccess()&&result.getData()!=null){
             ApplyResult applyResult = (ApplyResult)result.getData();
+            //推送系统消息
             applicationContext.publishEvent(new ApplyEvent("apply",applyResult.getUid()));
+            //推送添加好友成功的消息
             applicationContext.publishEvent(new AddFriendEvent("addFriend", id));
         }
         return result;

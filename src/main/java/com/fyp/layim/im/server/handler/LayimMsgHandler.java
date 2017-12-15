@@ -96,25 +96,32 @@ public class LayimMsgHandler implements IWsMsgHandler {
      * */
     private void notify(ChannelContext channelContext,boolean online) throws IOException{
         long uid = Long.parseLong(channelContext.getUserid());
+        //获取用户所有的好友ID
         List<String> allFriendIds = getUserService().getAllFriends(uid);
         if(allFriendIds.size()==0){
             return;
         }
+        //构建消息体
         LayimToClientOnlineStatusMsgBody msgBody = new LayimToClientOnlineStatusMsgBody(uid,online);
         WsResponse statusPacket = BodyConvert.getInstance().convertToTextResponse(msgBody);
 
+        //调用sendToAll的方法
         Aio.sendToAll(channelContext.getGroupContext(), statusPacket, filterChannelContext -> {
+            //筛选掉已经移除和关闭的连接
             if(filterChannelContext.isRemoved()||filterChannelContext.isClosed()) {
                 return false;
             }
+            //筛选掉非当前用户好友的连接
             String channelContextUserid = filterChannelContext.getUserid();
-            boolean exists = allFriendIds.stream().anyMatch(friendUserId -> friendUserId.equals(channelContextUserid));
+            boolean exists = allFriendIds.stream().anyMatch(friendUserId ->
+                    friendUserId.equals(channelContextUserid));
             return exists;
         });
     }
 
     @Override
-    public Object onClose(WsRequest wsRequest, byte[] bytes, ChannelContext channelContext) throws Exception {
+    public Object onClose(WsRequest wsRequest, byte[] bytes, ChannelContext channelContext)
+            throws Exception {
         notify(channelContext,false);
         Aio.remove(channelContext,"onClose");
         return null;

@@ -120,9 +120,13 @@ public final class PushUtil {
         }
     }
 
+    /**
+     * 判断一个用户是否在线
+     * */
     public static boolean isOnline(long userId){
-        ObjWithLock<DualHashBidiMap<String, ChannelContext>> userMap = getServerGroupContext().users.getMap();
-        return userMap.getObj().containsKey(userId+"");
+        ChannelContext channelContext = getServerGroupContext()
+                .users.find(getServerGroupContext(),userId+"");
+        return channelContext!=null && !channelContext.isClosed()&&!channelContext.isRemoved();
     }
 
 }

@@ -25,8 +25,8 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -77,8 +77,11 @@ public class UserService {
             boolean isOnline;
             for (UserViewModel userViewModel : userViewModels) {
                 isOnline = PushUtil.isOnline(userViewModel.getId());
-                userViewModel.setStatus(isOnline ? "online" : "offline");
+                userViewModel.setSort(isOnline ? 1 : 0);
             }
+            //在线状态排序
+            Collections.sort(userViewModels);
+
             friendGroupViewModel.setList(userViewModels);
             friendGroupViewModels.add(friendGroupViewModel);
         }

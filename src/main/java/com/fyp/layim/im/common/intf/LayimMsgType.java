@@ -30,4 +30,8 @@ public interface LayimMsgType {
      * 添加好友成功之后的消息
      */
     byte SERVER_TO_CLIENT_ADDFRIEND_NOTICE = 6;
+    /**
+     * 客户端在线状态
+     */
+    byte CLIENT_ONLINE_STATUS = 7;
 }

@@ -5,8 +5,10 @@ import com.fyp.layim.common.util.IdUtil;
 import com.fyp.layim.domain.*;
 import com.fyp.layim.domain.base.LayimPage;
 import com.fyp.layim.domain.mapper.ApplyMapper;
+import com.fyp.layim.domain.result.ApplyResult;
 import com.fyp.layim.domain.result.JsonResult;
 import com.fyp.layim.domain.viewmodels.ApplyViewModel;
+import com.fyp.layim.im.common.util.PushUtil;
 import com.fyp.layim.im.packet.ContextUser;
 import com.fyp.layim.repository.ApplyRepository;
 import com.fyp.layim.repository.FriendGroupRepository;
@@ -165,7 +167,7 @@ public class ApplyService {
                  * */
                 boolean isFriend =  friendGroupRepository.countByUidInGroup(apply.getToid(),apply.getUid()) > 0;
                 if(isFriend){
-                    return JsonResult.success(apply.getUid());
+                    return JsonResult.fail("已经是好友了");
                 }
                 //获取对方的分组默认取第一个,将当前用户放到对方好友分组里
                 long friendGroupId = apply.getGroup();
@@ -185,7 +187,10 @@ public class ApplyService {
                 friendGroups.add(myGroup);
 
                 friendGroupRepository.save(friendGroups);
-                return JsonResult.success(apply.getUid());
+                ApplyResult applyResult = new ApplyResult();
+                applyResult.setUid(apply.getUid());
+                applyResult.setStatus(PushUtil.isOnline(apply.getUid())?"online":"offline");
+                return JsonResult.success(applyResult);
             case ApplyType.group:
                 break;
             case ApplyType.system:

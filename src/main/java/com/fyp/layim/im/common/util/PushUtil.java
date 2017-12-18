@@ -91,6 +91,9 @@ public final class PushUtil {
             push(channelContext, body);
         }
     }
+    public static void pushApplyMessage(long toId){
+        pushApplyMessage(toId+"");
+    }
 
     /**
      * 添加好友成功之后向对方推送消息

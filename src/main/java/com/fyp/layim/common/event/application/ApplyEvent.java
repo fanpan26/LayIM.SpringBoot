@@ -1,4 +1,4 @@
-package com.fyp.layim.common.event;
+package com.fyp.layim.common.event.application;
 
 import org.springframework.context.ApplicationEvent;
 
@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationEvent;
  * @author fyp
  * @crate 2017/12/6 21:59
  * @project SpringBootLayIM
+ * 已经用 guava 的 EventBus 代替
  */
 public class ApplyEvent extends ApplicationEvent {
 

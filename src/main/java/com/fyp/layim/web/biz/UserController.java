@@ -1,23 +1,21 @@
 package com.fyp.layim.web.biz;
 
-import com.fyp.layim.common.event.AddFriendEvent;
-import com.fyp.layim.common.event.ApplyEvent;
-import com.fyp.layim.domain.Apply;
+import com.fyp.layim.common.event.application.AddFriendEvent;
+import com.fyp.layim.common.event.application.ApplyEvent;
+import com.fyp.layim.common.event.bus.EventUtil;
+import com.fyp.layim.common.event.bus.LayimEventType;
+import com.fyp.layim.common.event.bus.body.AddFriendEventBody;
+import com.fyp.layim.common.event.bus.body.ApplyEventBody;
+import com.fyp.layim.common.event.bus.body.EventBody;
 import com.fyp.layim.domain.result.ApplyResult;
 import com.fyp.layim.domain.result.JsonResult;
-import com.fyp.layim.im.LayimWebsocketStarter;
-import com.fyp.layim.im.common.util.SpringUtil;
-import com.fyp.layim.im.packet.ContextUser;
 import com.fyp.layim.service.ApplyService;
 import com.fyp.layim.service.GroupService;
 import com.fyp.layim.service.UserService;
-import com.fyp.layim.service.auth.ShiroUtil;
 import com.fyp.layim.web.base.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author fyp
@@ -81,7 +79,8 @@ public class UserController extends BaseController {
         JsonResult result = applyService.saveFriendApply(toId, remark,group);
         //申请成功，发布申请事件，通知 toId处理消息，如果不在线，不会进行处理
         if(result.isSuccess()){
-            applicationContext.publishEvent(new ApplyEvent("apply",toId));
+            publishApplyEvent(toId);
+            //applicationContext.publishEvent(new ApplyEvent("apply",toId));
         }
         return result;
     }
@@ -122,9 +121,11 @@ public class UserController extends BaseController {
         if(result.isSuccess()&&result.getData()!=null){
             ApplyResult applyResult = (ApplyResult)result.getData();
             //推送系统消息
-            applicationContext.publishEvent(new ApplyEvent("apply",applyResult.getUid()));
+            //applicationContext.publishEvent(new ApplyEvent("apply",applyResult.getUid()));
             //推送添加好友成功的消息
-            applicationContext.publishEvent(new AddFriendEvent("addFriend", id));
+           // applicationContext.publishEvent(new AddFriendEvent("addFriend", id));
+            publishApplyEvent(applyResult.getUid());
+            publishAddFriendEvent(id);
         }
         return result;
     }
@@ -135,5 +136,24 @@ public class UserController extends BaseController {
     @GetMapping(value = "/friend-groups")
     public JsonResult getUserFriendGroups(){
         return groupService.getUserFriendGroups(getUserId());
+    }
+
+    /**
+     * 发布申请事件
+     * */
+    private void publishApplyEvent(long targetId){
+        EventBody eventBody = new EventBody();
+        eventBody.setEventType(LayimEventType.applyNotice);
+        eventBody.setEventData(new ApplyEventBody(targetId));
+        EventUtil.publish(eventBody);
+    }
+    /**
+     * 发布添加好友成功事件
+     * */
+    private void publishAddFriendEvent(long applyId){
+        EventBody eventBody = new EventBody();
+        eventBody.setEventType(LayimEventType.addFriendNotice);
+        eventBody.setEventData(new AddFriendEventBody(applyId));
+        EventUtil.publish(eventBody);
     }
 }

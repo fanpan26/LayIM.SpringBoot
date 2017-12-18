@@ -1,11 +1,9 @@
 package com.fyp.layim;
 
-import com.fyp.layim.common.event.AddFriendListener;
-import com.fyp.layim.common.event.ApplyListener;
+import com.fyp.layim.common.event.application.AddFriendListener;
+import com.fyp.layim.common.event.application.ApplyListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * @author fyp

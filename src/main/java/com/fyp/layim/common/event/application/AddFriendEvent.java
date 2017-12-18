@@ -1,9 +1,10 @@
-package com.fyp.layim.common.event;
+package com.fyp.layim.common.event.application;
 
 import org.springframework.context.ApplicationEvent;
 
 /**
  * 添加好友事件
+ * 已经用 guava 的 EventBus 代替
  * */
 public class AddFriendEvent extends ApplicationEvent {
 

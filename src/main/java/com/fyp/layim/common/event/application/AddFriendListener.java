@@ -1,4 +1,4 @@
-package com.fyp.layim.common.event;
+package com.fyp.layim.common.event.application;
 
 import com.fyp.layim.im.common.util.PushUtil;
 import org.slf4j.Logger;
@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationListener;
 
 /**
  * 添加好友事件监听
+ * 已经用 guava 的 EventBus 代替
  * */
 public class AddFriendListener implements ApplicationListener<AddFriendEvent> {
 

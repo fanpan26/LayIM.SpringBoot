@@ -16,14 +16,6 @@ public class UserMapperTest {
 
     @Test
     public void testUserMapper(){
-        User user = new User();
-        user.setId(1L);
-        user.setUserName("小盘子");
-        user.setSign("这个是我的签名");
-        user.setCreateAt(101L);
 
-        UserViewModel viewModel = LayimMapper.INSTANCE.mapUser(user);
-
-        Assert.assertEquals(viewModel.getAvatar(),user.getAvatar());
     }
 }

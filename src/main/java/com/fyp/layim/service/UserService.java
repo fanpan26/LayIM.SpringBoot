@@ -61,8 +61,9 @@ public class UserService {
         if(user == null){
             return JsonResult.fail("用户不存在");
         }
+        LayimMapper mapper = new LayimMapper();
         //映射用户信息
-        UserViewModel mine = LayimMapper.INSTANCE.mapUser(user);
+        UserViewModel mine = mapper.mapUser(user);
         resultViewModel.setMine(mine);
         //获取好友分组信息
         List<FriendGroup> friendGroups = user.getFriendGroups();
@@ -71,9 +72,9 @@ public class UserService {
         for (FriendGroup friendGroup : friendGroups) {
             List<User> usersInGroup = friendGroup.getUsers();
             //先映射群组信息
-            FriendGroupViewModel friendGroupViewModel = LayimMapper.INSTANCE.mapFriendGroup(friendGroup);
+            FriendGroupViewModel friendGroupViewModel = mapper.mapFriendGroup(friendGroup);
             //将每个组的人放到好友分组里面
-            List<UserViewModel> userViewModels = LayimMapper.INSTANCE.mapUser(usersInGroup);
+            List<UserViewModel> userViewModels = mapper.mapUser(usersInGroup);
             boolean isOnline;
             for (UserViewModel userViewModel : userViewModels) {
                 isOnline = PushUtil.isOnline(userViewModel.getId());
@@ -88,7 +89,7 @@ public class UserService {
         resultViewModel.setFriend(friendGroupViewModels);
         //获取群组信息
         List<BigGroup> bigGroups = user.getBigGroups();
-        resultViewModel.setGroup(LayimMapper.INSTANCE.mapBigGroup(bigGroups));
+        resultViewModel.setGroup(mapper.mapBigGroup(bigGroups));
 
         return JsonResult.success(resultViewModel);
     }

@@ -13,7 +13,6 @@ import com.fyp.layim.repository.FriendGroupRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.tio.utils.json.Json;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,10 +42,11 @@ public class GroupService {
         if(group == null){
             return JsonResult.fail("该群组不存在");
         }
-        UserViewModel owner = LayimMapper.INSTANCE.mapUser(group.getOwner());
+        LayimMapper mapper = new LayimMapper();
+        UserViewModel owner = mapper.mapUser(group.getOwner());
         membersViewModel.setOwner(owner);
 
-        List<UserViewModel> memberList =LayimMapper.INSTANCE.mapUser(group.getUsers());
+        List<UserViewModel> memberList = mapper.mapUser(group.getUsers());
         membersViewModel.setList(memberList);
 
         return JsonResult.success(membersViewModel);
@@ -124,7 +124,7 @@ public class GroupService {
      * */
     public JsonResult getUserFriendGroups(long userId){
         List<FriendGroup> friendGroups = friendGroupRepository.getAllByUserId(userId);
-        List<FriendGroupViewModel> friendGroupViewModels = LayimMapper.INSTANCE.mapFriendGroup(friendGroups);
+        List<FriendGroupViewModel> friendGroupViewModels = new LayimMapper().mapFriendGroup(friendGroups);
         return JsonResult.success(friendGroupViewModels);
     }
 }

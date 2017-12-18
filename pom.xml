@@ -47,12 +47,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--mapper-->
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
-            <version>${org.mapstruct.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.t-io</groupId>
             <artifactId>tio-core</artifactId>
@@ -96,13 +90,6 @@
                 <configuration>
                     <source>1.8</source> <!-- or higher, depending on your project -->
                     <target>1.8</target> <!-- or higher, depending on your project -->
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.mapstruct</groupId>
-                            <artifactId>mapstruct-processor</artifactId>
-                            <version>${org.mapstruct.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>

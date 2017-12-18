@@ -1,8 +1,8 @@
 package com.fyp.layim.common.event.bus;
 
-import com.fyp.layim.common.event.bus.EventHandler.AbsEventHandler;
-import com.fyp.layim.common.event.bus.EventHandler.AddFriendEventHandler;
-import com.fyp.layim.common.event.bus.EventHandler.ApplyEventHandler;
+import com.fyp.layim.common.event.bus.handler.AbsEventHandler;
+import com.fyp.layim.common.event.bus.handler.AddFriendEventHandler;
+import com.fyp.layim.common.event.bus.handler.ApplyEventHandler;
 import com.fyp.layim.common.event.bus.body.EventBody;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;

@@ -21,7 +21,7 @@ public class LayimWebsocketStarter {
     private LayimServerStarter layimServerStarter;
     private ServerGroupContext serverGroupContext;
 
-    public LayimWebsocketStarter(LayimServerConfig layimServerConfig) throws IOException {
+    public LayimWebsocketStarter(LayimServerConfig layimServerConfig) throws Exception {
         layimServerStarter = new LayimServerStarter(layimServerConfig, new LayimMsgHandler());
         serverGroupContext = layimServerStarter.getServerGroupContext();
     }

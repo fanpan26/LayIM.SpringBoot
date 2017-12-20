@@ -67,15 +67,16 @@ public class UserService {
         resultViewModel.setMine(mine);
         //获取好友分组信息
         List<FriendGroup> friendGroups = user.getFriendGroups();
-        List<FriendGroupViewModel> friendGroupViewModels = new ArrayList<FriendGroupViewModel>(friendGroups.size());
+        List<FriendGroupViewModel> friendGroupViewModels = new ArrayList<>(friendGroups.size());
         //遍历好友分组
+        boolean isOnline;
         for (FriendGroup friendGroup : friendGroups) {
             List<User> usersInGroup = friendGroup.getUsers();
             //先映射群组信息
             FriendGroupViewModel friendGroupViewModel = mapper.mapFriendGroup(friendGroup);
             //将每个组的人放到好友分组里面
             List<UserViewModel> userViewModels = mapper.mapUser(usersInGroup);
-            boolean isOnline;
+
             for (UserViewModel userViewModel : userViewModels) {
                 isOnline = PushUtil.isOnline(userViewModel.getId());
                 userViewModel.setSort(isOnline ? 1 : 0);

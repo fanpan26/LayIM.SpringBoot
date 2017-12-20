@@ -17,6 +17,7 @@ import org.tio.core.Aio;
 import org.tio.core.ChannelContext;
 import org.tio.server.ServerGroupContext;
 import org.tio.utils.lock.ObjWithLock;
+import org.tio.utils.lock.SetWithLock;
 import org.tio.websocket.common.WsResponse;
 
 import java.io.IOException;
@@ -73,8 +74,14 @@ public final class PushUtil {
     private static ChannelContext getChannelContext(String toId) {
         ServerGroupContext context = getServerGroupContext();
         //找到用户
-        ChannelContext channelContext = context.users.find(context, toId);
-        return channelContext;
+        SetWithLock<ChannelContext> channelContexts = Aio.getChannelContextsByUserid(context, toId);
+        if (channelContexts == null) {
+            return null;
+        }
+        if (channelContexts.getObj().size() > 0) {
+            return channelContexts.getObj().iterator().next();
+        }
+        return null;
     }
     /**
      * 服务端推送消息
@@ -127,8 +134,7 @@ public final class PushUtil {
      * 判断一个用户是否在线
      * */
     public static boolean isOnline(long userId){
-        ChannelContext channelContext = getServerGroupContext()
-                .users.find(getServerGroupContext(),userId+"");
+        ChannelContext channelContext = getChannelContext(userId+"");
         return channelContext!=null && !channelContext.isClosed()&&!channelContext.isRemoved();
     }
 

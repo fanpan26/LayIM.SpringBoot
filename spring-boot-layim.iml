@@ -93,12 +93,13 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.skyscreamer:jsonassert:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.3.12.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:4.3.12.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.t-io:tio-core:2.0.1.v20171015-RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.t-io:tio-utils:2.0.1.v20171015-RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.t-io:tio-core:2.0.3.v20171215-RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.t-io:tio-utils:2.0.3.v20171215-RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-collections4:4.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.6" level="project" />
-    <orderEntry type="library" name="Maven: com.xiaoleilu:hutool-all:3.1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.39" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-text:1.2" level="project" />
+    <orderEntry type="library" name="Maven: com.xiaoleilu:hutool-all:3.2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.42" level="project" />
     <orderEntry type="library" name="Maven: org.jodd:jodd-core:3.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.t-io:tio-websocket-server:0.0.3-tio-websocket" level="project" />
     <orderEntry type="library" name="Maven: org.t-io:tio-websocket-common:0.0.3-tio-websocket" level="project" />

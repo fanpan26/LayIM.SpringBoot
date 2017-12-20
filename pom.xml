@@ -50,7 +50,7 @@
         <dependency>
             <groupId>org.t-io</groupId>
             <artifactId>tio-core</artifactId>
-            <version>2.0.1.v20171015-RELEASE</version>
+            <version>2.0.3.v20171215-RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.t-io</groupId>

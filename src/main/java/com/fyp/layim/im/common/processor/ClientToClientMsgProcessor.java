@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.core.Aio;
 import org.tio.core.ChannelContext;
+import org.tio.utils.lock.SetWithLock;
 import org.tio.websocket.common.WsRequest;
 import org.tio.websocket.common.WsResponse;
 
@@ -36,8 +37,11 @@ public class ClientToClientMsgProcessor extends LayimAbsMsgProcessor<ChatRequest
      * 这个方法提出来的目的，是让 ClientToGroupMsgProcessor 进行重写（当然这么设计只是符合Layim，讲究通用性的话应该是分开设计比较好）
      * */
     public void send(ChannelContext channelContext,WsResponse toClientBody,String toId){
-        ChannelContext toChannelContext = Aio.getChannelContextByUserid(channelContext.getGroupContext(),toId);
-        Aio.send(toChannelContext,toClientBody);
+        SetWithLock<ChannelContext> toChannelContext = Aio.getChannelContextsByUserid(channelContext.getGroupContext(),toId);
+        if(toChannelContext == null) {
+            return;
+        }
+        Aio.sendToSet(channelContext.getGroupContext(),toChannelContext,toClientBody,null);
     }
 
     @Override

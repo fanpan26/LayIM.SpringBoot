@@ -6,6 +6,7 @@ import com.fyp.layim.im.packet.LayimToClientCheckOnlineMsgBody;
 import com.fyp.layim.im.packet.convert.BodyConvert;
 import org.tio.core.Aio;
 import org.tio.core.ChannelContext;
+import org.tio.utils.lock.SetWithLock;
 import org.tio.websocket.common.WsRequest;
 import org.tio.websocket.common.WsResponse;
 
@@ -20,10 +21,16 @@ public class ClientCheckOnlineMsgProcessor extends LayimAbsMsgProcessor<CheckOnl
 
     @Override
     public WsResponse process(WsRequest layimPacket, CheckOnlineRequestBody body, ChannelContext channelContext) throws Exception {
-        ChannelContext checkChannelContext =
-                Aio.getChannelContextByUserid(channelContext.getGroupContext(),body.getId());
+      SetWithLock<ChannelContext> checkChannelContexts =
+                Aio.getChannelContextsByUserid(channelContext.getGroupContext(),body.getId());
         //检查是否在线
-        boolean isOnline = checkChannelContext != null && !checkChannelContext.isClosed();
+        boolean isOnline;
+        if(checkChannelContexts == null||checkChannelContexts.getObj().size()==0){
+            isOnline = false;
+        }else {
+            ChannelContext checkChannelContext = checkChannelContexts.getObj().iterator().next();
+            isOnline = checkChannelContext != null && !checkChannelContext.isClosed();
+        }
         //组织返回数据
         LayimToClientCheckOnlineMsgBody msgBody = new LayimToClientCheckOnlineMsgBody(isOnline);
         msgBody.setId(body.getId());

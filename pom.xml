@@ -49,13 +49,8 @@
         </dependency>
         <dependency>
             <groupId>org.t-io</groupId>
-            <artifactId>tio-core</artifactId>
-            <version>2.0.3.v20171215-RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.t-io</groupId>
             <artifactId>tio-websocket-server</artifactId>
-            <version>0.0.3-tio-websocket</version>
+            <version>0.0.5-tio-websocket</version>
         </dependency>
         <!-- shiro spring. -->
         <dependency>

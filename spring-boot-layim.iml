@@ -93,6 +93,9 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.skyscreamer:jsonassert:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.3.12.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:4.3.12.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.t-io:tio-websocket-server:0.0.5-tio-websocket" level="project" />
+    <orderEntry type="library" name="Maven: org.t-io:tio-websocket-common:0.0.5-tio-websocket" level="project" />
+    <orderEntry type="library" name="Maven: org.t-io:tio-http-common:0.0.5-tio-http" level="project" />
     <orderEntry type="library" name="Maven: org.t-io:tio-core:2.0.3.v20171215-RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.t-io:tio-utils:2.0.3.v20171215-RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-collections4:4.1" level="project" />
@@ -101,11 +104,12 @@
     <orderEntry type="library" name="Maven: com.xiaoleilu:hutool-all:3.2.3" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.42" level="project" />
     <orderEntry type="library" name="Maven: org.jodd:jodd-core:3.9.1" level="project" />
-    <orderEntry type="library" name="Maven: org.t-io:tio-websocket-server:0.0.3-tio-websocket" level="project" />
-    <orderEntry type="library" name="Maven: org.t-io:tio-websocket-common:0.0.3-tio-websocket" level="project" />
-    <orderEntry type="library" name="Maven: org.t-io:tio-http-common:0.0.3-tio-http" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-access:1.1.11" level="project" />
+    <orderEntry type="library" name="Maven: org.t-io:tio-http-server:0.0.5-tio-http" level="project" />
+    <orderEntry type="library" name="Maven: io.github.lukehutch:fast-classpath-scanner:2.9.3" level="project" />
+    <orderEntry type="library" name="Maven: com.thoughtworks.paranamer:paranamer:2.8" level="project" />
+    <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.26-incubating" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-core:1.2.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.3" level="project" />

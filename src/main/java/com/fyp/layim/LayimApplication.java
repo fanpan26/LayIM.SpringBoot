@@ -13,14 +13,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LayimApplication {
     public static void main(String[] args) {
         SpringApplication springApplication = new SpringApplication(LayimApplication.class);
-
-        /**
-         * 这里监听增加listener，listener才会触发
-         * ApplyListener 是监听好友申请的事件
-         * */
-        springApplication.addListeners(new ApplyListener());
-        springApplication.addListeners(new AddFriendListener());
-
         springApplication.run(args);
     }
 }

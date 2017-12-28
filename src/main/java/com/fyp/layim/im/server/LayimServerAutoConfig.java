@@ -1,6 +1,5 @@
 package com.fyp.layim.im.server;
 
-import com.fyp.layim.im.LayimWebsocketStarter;
 import com.fyp.layim.im.server.config.LayimServerConfig;
 import com.fyp.layim.im.server.config.LayimServerProperties;
 import org.springframework.beans.factory.annotation.Autowired;

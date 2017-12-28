@@ -124,7 +124,7 @@ public class LayimServerStarter {
 
         aioServer = new AioServer(serverGroupContext);
         serverGroupContext.setTioUuid(tioUuid);
-        initSsl(serverGroupContext);
+        //initSsl(serverGroupContext);
         //初始化消息处理器
         LayimMsgProcessorManager.init();
     }

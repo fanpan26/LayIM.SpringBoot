@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fyp.service.mapper.BigGroupMapper">
+    <resultMap id="bigGroupMap" type="com.fyp.entity.BigGroup">
+        <result column="group_name" property="groupname" />
+    </resultMap>
+    <select id="getGroupsByUserId" parameterType="long" resultMap="bigGroupMap">
+        SELECT id,group_name,avatar FROM big_group where uid=#{id}
+    </select>
+</mapper>

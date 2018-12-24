@@ -9,12 +9,12 @@ public class User {
         this.avatar = avatar;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getSign() {
@@ -35,6 +35,6 @@ public class User {
 
     private Long id;
     private String avatar;
-    private String name;
+    private String username;
     private String sign;
 }

@@ -1,6 +1,6 @@
 package com.fyp.entity.result;
 
-import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class JsonResult {
 
@@ -39,11 +39,12 @@ public class JsonResult {
         return data;
     }
 
-    @JSONField(serialize = false)
+    @JsonIgnore
     public boolean isSuccess(){
         return code == SUCCESS_COCE;
     }
-    @JSONField(serialize = false)
+
+    @JsonIgnore
     public boolean isFail(){
         return !isSuccess();
     }

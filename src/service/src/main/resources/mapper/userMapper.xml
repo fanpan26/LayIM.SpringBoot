@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fyp.service.mapper.UserMapper">
+
+    <sql id="user_base_column">
+        id,avatar,user_name,sign
+    </sql>
+
+    <resultMap id="userMap" type="com.fyp.entity.User">
+        <result column="user_name" property="username"/>
+    </resultMap>
+    <select id="getUser" parameterType="long" resultMap="userMap">
+        select <include refid="user_base_column"/> from User where id=#{id}
+    </select>
+
+    <select id="getUsersByIds" resultMap="userMap">
+        select  <include refid="user_base_column"/> from User where id in
+        <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+</mapper>

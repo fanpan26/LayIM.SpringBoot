@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 引用db.properties配置文件 -->
+    <properties resource="db.properties" />
+
+    <typeAliases>
+        <typeAlias type="com.fyp.service.utils.DruidDataSourceFactory" alias="DRUID"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <!-- 配置数据库连接信息 -->
+            <dataSource type="DRUID">
+                <!-- value属性值引用db.properties配置文件中配置的值 -->
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${password}" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- mybatis的mapper文件，每个xml配置文件对应一个接口 -->
+    <mappers>
+        <mapper resource="mapper/userMapper.xml" />
+        <mapper resource="mapper/friendGroupMapper.xml"/>
+        <mapper resource="mapper/userFriendGroupMapper.xml"/>
+        <mapper resource="mapper/bigGroupMapper.xml"/>
+    </mappers>
+</configuration>

@@ -58,9 +58,8 @@ public class DefaultLayIMService implements LayIMService {
                 }
 
                 initResult.setFriend(friendGroups);
-                initResult.setGroup(bigGroupMapper.getGroupsByUserId(userId));
             }
-
+            initResult.setGroup(bigGroupMapper.getGroupsByUserId(userId));
             return JsonResult.success(initResult);
         } finally {
             session.close();

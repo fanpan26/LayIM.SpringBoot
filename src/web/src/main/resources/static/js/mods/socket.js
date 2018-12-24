@@ -62,11 +62,15 @@ layui.define(['jquery','layer'],function (exports) {
               }
           })
         },
+        decode:function(ev) {
+            return JSON.parse(new TextDecoder("utf-8").decode(new Uint8Array(ev.data)))
+        },
         connect:function () {
             if(this.wsUseful()) {
                 if (this.options.server) {
                     this.token(function (token) {
                         tool.ws = new WebSocket(tool.options.server+'/'+encodeURIComponent(token));
+                        tool.ws.binaryType = 'arraybuffer';
                         tool.regWsEvent();
                     });
 

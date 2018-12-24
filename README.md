@@ -15,4 +15,7 @@
 
 ## 参考资料
 
-* [tio源码](https://gitee.com/tywo45/t-io)
+* [T-io源码：https://gitee.com/tywo45/t-io](https://gitee.com/tywo45/t-io)
+* [LayIM官网：http://layim.layui.com/](http://layim.layui.com/)
+* [SpringBoot：https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)
+* [MyBatis：http://www.mybatis.org/](http://www.mybatis.org/)

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpringBootLayIM</title>
+    <script src="/layui/layui.js"></script>
+</head>
+<body>
+    <script>
+        layui.use(['layim','socket','req'], function(layim,socket,req){
+            var $ =layui.jquery;
+            var selfFlag = false;
+            //基础配置
+            layim.config({
+                //初始化接口
+                init: {
+                    url: '/layim/base'
+                }
+                //查看群员接口
+                ,members: {
+                    url: '/layim/members'
+                }
+                //上传图片接口
+                ,uploadImage: {url: '/upload/file'}
+                //上传文件接口
+                ,uploadFile: {url: '/upload/file'}
+                ,isAudio: true //开启聊天工具栏音频
+                ,isVideo: true //开启聊天工具栏视频
+                ,initSkin: '5.jpg' //1-5 设置初始背景
+                ,notice: true //是否开启桌面消息提醒，默认false
+                ,msgbox: '/layim/msgbox'
+                ,find: layui.cache.dir + 'css/modules/layim/html/find.html' //发现页面地址，若不开启，剔除该项即可
+                ,chatLog: layui.cache.dir + 'css/modules/layim/html/chatLog.html' //聊天记录页面地址，若不开启，剔除该项即可
+            });
+            socket.config({
+                log:true,
+                token:'/layim/token',
+                server:'ws://127.0.0.1:8888'
+            });
+            socket.on('open',function (e) {
+                console.log("监听到事件：open");
+            });
+            socket.on('close',function (e) {
+                console.log("监听到事件：close");
+            });
+            socket.on('error',function (e) {
+                console.log("监听到事件：error");
+            });
+            socket.on('msg',function (e) {
+                var msg = JSON.parse(e.data);
+                console.log(msg);
+                var handleChat = function (msg) {
+                    if (selfFlag) {
+                        selfFlag = false;
+                        return;
+                    }
+                    layim.getMessage(msg);
+                }
+                var handleStatus=function (msg) {
+                    var status ='';
+                    if(typeof msg.count !== 'undefined'){
+                        status = msg.count+'人在线';
+                    }else{
+                        status = msg.online?'在线':'离线';
+                    }
+                    layim.setChatStatus('<span style="color:#FF5722;">'+status+'</span>');
+                }
+                if (msg.mtype) {
+                    switch (msg.mtype) {
+                        case -1:
+                            return console.log(msg.msg);
+                        case socket.mtype.chatFriend:
+                        case socket.mtype.chatGroup:
+                            handleChat(msg);
+                            break;
+                        case socket.mtype.checkIsOnline:
+                        case socket.mtype.checkOnlineCount:
+                            handleStatus(msg);
+                            break;
+                        case socket.mtype.serverNotice:
+                            layim.msgbox(msg.count);
+                            break;
+                        case socket.mtype.addFriendNotice:
+                            layim.addList({
+                                type:msg.type,
+                                avatar:msg.avatar,
+                                username:msg.username,
+                                groupid:msg.groupid,
+                                sign:msg.sign,
+                                id:msg.id
+                            });
+                            msg.mtype=socket.mtype.chatFriend;
+                            msg.content="我们已经是好友啦，一起来聊天吧！";
+                            layim.getMessage(msg);
+                            break;
+                        case socket.mtype.onofflineNotice:
+                            layim.setFriendStatus(msg.id,msg.status);
+                            break;
+                    }
+                }
+            });
+            console.log(socket.mtype);
+            //监听在线状态的切换事件
+            layim.on('online', function(data){
+                //console.log(data);
+            });
+            //监听签名修改
+            layim.on('sign', function(value){
+                //console.log(value);
+            });
+            //监听自定义工具栏点击，以添加代码为例
+            layim.on('tool(code)', function(insert){
+                layer.prompt({
+                    title: '插入代码'
+                    ,formType: 2
+                    ,shade: 0
+                }, function(text, index){
+                    layer.close(index);
+                    insert('[pre class=layui-code]' + text + '[/pre]'); //将内容插入到编辑器
+                });
+            });
+            //监听layim建立就绪
+            layim.on('ready', function(){
+                req.loading = false;
+                req.get('/layim/apply-unread',{},function (res) {
+                    res.data&&layim.msgbox(res.data);
+                });
+                console.log(layim.cache().friend);
+            });
+            //监听发送消息
+            layim.on('sendMessage', function(data){
+                var To = data.to;
+                var t = data.to.type=='friend';
+                if(!t){
+                    selfFlag = true;
+                }
+                socket.send({mtype:(t?socket.mtype.chatFriend:socket.mtype.chatGroup),content:data.mine.content,toid:data.to.id});
+                return;
+            });
+            //监听查看群员
+            layim.on('members', function(data){
+                //console.log(data);
+            });
+            //监听天窗口的切换
+            layim.on('chatChange', function(res){
+                var t = res.data.type=='friend';
+                socket.send({
+                    mtype:t? socket.mtype.checkIsOnline:socket.mtype.checkOnlineCount,
+                    id:res.data.id
+                });
+            });
+        });
+</script>
+</body>
+</html>

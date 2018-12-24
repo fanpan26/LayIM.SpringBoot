@@ -5,7 +5,6 @@ spring:
     check-template: false
     suffix: .html
     encoding: utf-8
-    mode: HTML5
 debug: false
 server:
   port: 8887

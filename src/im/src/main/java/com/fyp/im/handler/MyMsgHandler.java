@@ -1,8 +1,12 @@
 package com.fyp.im.handler;
 
+import com.fyp.utils.jwt.JwtUtil;
+import com.fyp.utils.jwt.JwtVertifyResult;
 import org.tio.core.ChannelContext;
+import org.tio.core.Tio;
 import org.tio.http.common.HttpRequest;
 import org.tio.http.common.HttpResponse;
+import org.tio.http.common.HttpResponseStatus;
 import org.tio.websocket.common.WsRequest;
 import org.tio.websocket.server.handler.IWsMsgHandler;
 
@@ -16,7 +20,12 @@ public class MyMsgHandler implements IWsMsgHandler {
      * */
     public HttpResponse handshake(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext) throws Exception {
         String token = httpRequest.getParam("access_token");
-        System.out.println("正在进行握手:"+token);
+        JwtVertifyResult result = JwtUtil.verifyToken(token);
+        if (result.isVertified()) {
+            Tio.bindUser(channelContext, result.getUserId().toString());
+        } else {
+            httpResponse.setStatus(HttpResponseStatus.C401);
+        }
         return httpResponse;
     }
 

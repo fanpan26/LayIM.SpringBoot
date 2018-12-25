@@ -8,6 +8,11 @@ public class WebApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WebApplication.class, args);
+		try {
+			com.fyp.im.ServerStarter.start();
+		}catch (Exception ex){
+
+		}
 	}
 
 }

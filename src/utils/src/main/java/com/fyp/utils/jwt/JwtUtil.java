@@ -51,7 +51,7 @@ public class JwtUtil {
     /**
      * 解析Token
      * */
-    public static Long verifyToken(String token) {
+    public static JwtVertifyResult verifyToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(SECRET);
             JWTVerifier verifier = JWT.require(algorithm)
@@ -61,11 +61,11 @@ public class JwtUtil {
             Map<String, Claim> claims = jwt.getClaims();
             Claim claim = claims.get("uid");
             if (claim != null) {
-                return claim.asLong();
+                return new JwtVertifyResult(claim.asLong());
             }
-        }catch (JWTVerificationException exception){
-            exception.printStackTrace();
+        } catch (JWTVerificationException exception) {
+            return JwtVertifyResult.result(exception.getMessage());
         }
-        return Long.valueOf(0L);
+        return JwtVertifyResult.NotVertified;
     }
 }

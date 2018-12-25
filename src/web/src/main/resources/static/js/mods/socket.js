@@ -23,6 +23,8 @@ layui.define(['jquery','layer'],function (exports) {
         addFriendNotice:6,
         onofflineNotice:7
     };
+
+    var testToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIwMzMyOCwic3ViIjoiTGF5SU1fQWNjZXNzVG9rZW4iLCJhdWQiOiJXZWIiLCJpc3MiOiJMYXlJTVNlcnZlciIsImV4cCI6MTU0NTcyMjg1NywiaWF0IjoxNTQ1NzE1NjU3fQ.VYbPoczifoI_qqcRMfswGX0Y8oTWFR8MbygDwj73DKU';
     var counter = {
         count:function (id) {
 
@@ -54,7 +56,7 @@ layui.define(['jquery','layer'],function (exports) {
             this.connect();
         },
         token:function (callback) {
-            return callback("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIwMzMyOCwic3ViIjoiTGF5SU1fQWNjZXNzVG9rZW4iLCJhdWQiOiJXZWIiLCJpc3MiOiJMYXlJTVNlcnZlciIsImV4cCI6MTU0NTcxMTQ5MCwiaWF0IjoxNTQ1NzA0MjkwfQ.hITETdmsKcQ-2QPrHdNSaybnfwJjUeTCKkS2g7YKWfY");
+            return callback(testToken);
           $.get(tool.options.token,function (res) {
               if(res.code>0){
                   layer.msg("未登录");
@@ -70,10 +72,8 @@ layui.define(['jquery','layer'],function (exports) {
             if(this.wsUseful()) {
                 if (this.options.server) {
                     this.token(function (token) {
-                        console.log(tool.options.server);
-                        tool.ws = new WebSocket('ws://localhost:8888');
-                        //tool.ws = new WebSocket(tool.options.server+'?access_token='+token);
-                        //tool.ws.binaryType = 'arraybuffer';
+                        tool.ws = new WebSocket(tool.options.server+'?access_token='+token);
+                        tool.ws.binaryType = 'arraybuffer';
                         tool.regWsEvent();
                     });
 

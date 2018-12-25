@@ -7,7 +7,9 @@ import org.tio.core.Tio;
 import org.tio.http.common.HttpRequest;
 import org.tio.http.common.HttpResponse;
 import org.tio.http.common.HttpResponseStatus;
+import org.tio.websocket.common.WsPacket;
 import org.tio.websocket.common.WsRequest;
+import org.tio.websocket.common.WsResponse;
 import org.tio.websocket.server.handler.IWsMsgHandler;
 
 /**
@@ -40,6 +42,8 @@ public class MyMsgHandler implements IWsMsgHandler {
      * 字节传输
      * */
     public Object onBytes(WsRequest wsRequest, byte[] bytes, ChannelContext channelContext) throws Exception {
+        WsResponse response = WsResponse.fromBytes(bytes);
+        Tio.send(channelContext,response);
         return null;
     }
 

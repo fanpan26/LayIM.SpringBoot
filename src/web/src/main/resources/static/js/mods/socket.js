@@ -65,8 +65,13 @@ layui.define(['jquery','layer'],function (exports) {
               }
           })
         },
-        decode:function(ev) {
-            return JSON.parse(new TextDecoder("utf-8").decode(new Uint8Array(ev.data)))
+        decode:function(d) {
+            return JSON.parse(new TextDecoder("utf-8").decode(new Uint8Array(d)))
+        },
+        encode:function(d){
+            var str = JSON.stringify(d);
+            var buff = new TextEncoder().encode(str);
+            return buff;
         },
         connect:function () {
             if(this.wsUseful()) {
@@ -85,6 +90,7 @@ layui.define(['jquery','layer'],function (exports) {
         regWsEvent:function () {
             if(this.ws){
                 this.ws.onmessage = function (event) {
+                  console.log(  tool.decode(event.data));
                     call.msg&&call.msg(event);
                 };
                 this.ws.onclose = function (event) {
@@ -114,17 +120,30 @@ layui.define(['jquery','layer'],function (exports) {
                 }
             }
         },
-        check:function (data) {
-            if(!data||!data['mtype']){
-                layer.msg('消息格式不正确');
-                return false;
+        build:function(data){
+            //根据layim提供的data数据，进行解析
+            var mine = data.mine;
+            var to = data.to;
+            var id = mine.id;//当前用户id
+            var group = to.type === 'group';
+            if (group) {
+                id = to.id;
             }
-            return true;
+            //构造消息
+            var msg = {
+                username: mine.username
+                , avatar: mine.avatar
+                , id: id
+                , type: to.type
+                , content: mine.content
+                , to:to.id
+            }
+           return msg;
         },
-        send:function (data){
-            if(this.check(data)) {
-                this.ws.send(JSON.stringify(data));
-            }
+        send:function (data) {
+            var d = this.build(data);
+            var buff = this.encode(d);
+            this.ws.send(buff);
         }
     };
     //回调

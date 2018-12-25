@@ -54,6 +54,7 @@ layui.define(['jquery','layer'],function (exports) {
             this.connect();
         },
         token:function (callback) {
+            return callback("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIwMzMyOCwic3ViIjoiTGF5SU1fQWNjZXNzVG9rZW4iLCJhdWQiOiJXZWIiLCJpc3MiOiJMYXlJTVNlcnZlciIsImV4cCI6MTU0NTcxMTQ5MCwiaWF0IjoxNTQ1NzA0MjkwfQ.hITETdmsKcQ-2QPrHdNSaybnfwJjUeTCKkS2g7YKWfY");
           $.get(tool.options.token,function (res) {
               if(res.code>0){
                   layer.msg("未登录");
@@ -69,8 +70,10 @@ layui.define(['jquery','layer'],function (exports) {
             if(this.wsUseful()) {
                 if (this.options.server) {
                     this.token(function (token) {
-                        tool.ws = new WebSocket(tool.options.server+'/'+encodeURIComponent(token));
-                        tool.ws.binaryType = 'arraybuffer';
+                        console.log(tool.options.server);
+                        tool.ws = new WebSocket('ws://localhost:8888');
+                        //tool.ws = new WebSocket(tool.options.server+'?access_token='+token);
+                        //tool.ws.binaryType = 'arraybuffer';
                         tool.regWsEvent();
                     });
 

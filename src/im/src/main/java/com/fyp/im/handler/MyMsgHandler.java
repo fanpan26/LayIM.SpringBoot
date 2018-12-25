@@ -15,14 +15,16 @@ public class MyMsgHandler implements IWsMsgHandler {
      * 握手
      * */
     public HttpResponse handshake(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext) throws Exception {
-        return null;
+        String token = httpRequest.getParam("access_token");
+        System.out.println("正在进行握手:"+token);
+        return httpResponse;
     }
 
     /**
      * 握手完毕
      * */
     public void onAfterHandshaked(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext) throws Exception {
-
+        System.out.println("握手完毕");
     }
 
     /**
@@ -36,6 +38,7 @@ public class MyMsgHandler implements IWsMsgHandler {
      * 关闭
      * */
     public Object onClose(WsRequest wsRequest, byte[] bytes, ChannelContext channelContext) throws Exception {
+        System.out.println("正在关闭");
         return null;
     }
 

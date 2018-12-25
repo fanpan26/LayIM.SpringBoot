@@ -4,10 +4,16 @@ import com.fyp.im.handler.MyMsgHandler;
 import com.fyp.im.listener.MyMsgListener;
 import com.fyp.im.listener.MyGroupListener;
 import com.fyp.im.listener.MyIpStatListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tio.server.ServerGroupContext;
+import org.tio.websocket.server.WsServerConfig;
 import org.tio.websocket.server.WsServerStarter;
 
 public class ServerStarter {
+
+    private static final Logger logger = LoggerFactory.getLogger(ServerStarter.class);
+
     private WsServerStarter wsServerStarter;
     private ServerGroupContext serverGroupContext;
 
@@ -17,7 +23,9 @@ public class ServerStarter {
     }
 
     private void initServerStarter(int port) throws Exception{
-        wsServerStarter = new WsServerStarter(port, new MyMsgHandler());
+        WsServerConfig config = new WsServerConfig(8888);
+        config.setBindIp("127.0.0.1");
+        wsServerStarter = new WsServerStarter(config, new MyMsgHandler());
     }
 
     private void initGroupContext(){
@@ -44,5 +52,6 @@ public class ServerStarter {
 
     public static void main(String[] args) throws Exception{
         start();
+        logger.debug("WebSocket Server 启动啦");
     }
 }

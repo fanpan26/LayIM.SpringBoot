@@ -75,16 +75,11 @@ layui.define(['jquery','layer'],function (exports) {
         },
         connect:function () {
             if(this.wsUseful()) {
-                if (this.options.server) {
-                    this.token(function (token) {
-                        tool.ws = new WebSocket(tool.options.server+'?access_token='+token);
-                        tool.ws.binaryType = 'arraybuffer';
-                        tool.regWsEvent();
-                    });
-
-                }else{
-                    layer.msg("server配置项无效");
-                }
+                this.token(function (token) {
+                    tool.ws = new WebSocket(tool.options.server + '?access_token=' + token);
+                    tool.ws.binaryType = 'arraybuffer';
+                    tool.regWsEvent();
+                });
             }
         },
         regWsEvent:function () {

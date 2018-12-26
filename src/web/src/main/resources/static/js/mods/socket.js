@@ -14,33 +14,15 @@ layui.define(['jquery','layer'],function (exports) {
         token:'/layim/token',
         reconn:false
     };
-    var msgType={
-        chatFriend:1,
-        chatGroup:2,
-        checkIsOnline:3,
-        checkOnlineCount:4,
-        serverNotice:5,
-        addFriendNotice:6,
-        onofflineNotice:7
-    };
 
     var testToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIwMzMyOCwic3ViIjoiTGF5SU1fQWNjZXNzVG9rZW4iLCJhdWQiOiJXZWIiLCJpc3MiOiJMYXlJTVNlcnZlciIsImV4cCI6MTU0NTcyMjg1NywiaWF0IjoxNTQ1NzE1NjU3fQ.VYbPoczifoI_qqcRMfswGX0Y8oTWFR8MbygDwj73DKU';
-    var counter = {
-        count:function (id) {
 
-            if (!this[id]) {
-                this[id] = 1;
-            }
-            var oldCount = this[id];
-            this[id]++;
-
-            if (this[id] > 3) {
-                this[id] = 1;
-            }
-            return oldCount == 1;
-        }
+    var msgType={
+        chatFriend:1,
+        chatGroup:2
     };
-
+    //发送消息前替换掉
+    var placeholder = 'abcde';// byte[] [97,98,99,100,101]
     var tool={
         ws:null,
         options :{},
@@ -69,7 +51,7 @@ layui.define(['jquery','layer'],function (exports) {
             return JSON.parse(new TextDecoder("utf-8").decode(new Uint8Array(d)))
         },
         encode:function(d){
-            var str = JSON.stringify(d);
+            var str = placeholder+JSON.stringify(d);
             var buff = new TextEncoder().encode(str);
             return buff;
         },
@@ -115,12 +97,9 @@ layui.define(['jquery','layer'],function (exports) {
                 }
             }
         },
-        build:function(data){
+        build:function(data) {
             //根据layim提供的data数据，进行解析
-            var mine = data.mine;
-            var to = data.to;
-            var id = mine.id;//当前用户id
-            var group = to.type === 'group';
+            var mine = data.mine, to = data.to, id = mine.id, group = to.type === 'group';
             if (group) {
                 id = to.id;
             }
@@ -131,14 +110,28 @@ layui.define(['jquery','layer'],function (exports) {
                 , id: id
                 , type: to.type
                 , content: mine.content
-                , to:to.id
-            }
-           return msg;
+            }, targetId = to.id
+
+
+            var dataBuff = this.encode(msg);
+
+            var view1 = new DataView(dataBuff.buffer);
+            view1.setInt32(0, targetId);
+            view1.setInt8(4, group ? msgType.chatGroup : msgType.chatFriend);
+            console.log(view1);
+            // var flagBuff = new ArrayBuffer(5+dataBuff.byteLength);
+            // var view = new DataView(flagBuff);
+            // view.setInt32(0, targetId);
+            // view.setInt8(4, group ? msgType.chatGroup : msgType.chatFriend);
+            // dataBuff.forEach(function (value, index) {
+            //     view.setInt8(5+index,value);
+            // });
+            return view1.buffer;
         },
         send:function (data) {
             var d = this.build(data);
-            var buff = this.encode(d);
-            this.ws.send(buff);
+            console.log(d);
+            this.ws.send(d);
         }
     };
     //回调
@@ -162,7 +155,7 @@ layui.define(['jquery','layer'],function (exports) {
     socket.prototype.send=function(data){
         tool.send(data);
     }
-    socket.prototype.mtype=msgType;
+
     exports('socket',new socket());
 })
 

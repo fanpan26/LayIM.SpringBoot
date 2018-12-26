@@ -23,7 +23,7 @@ public class ServerStarter {
     }
 
     private void initServerStarter(int port) throws Exception{
-        WsServerConfig config = new WsServerConfig(8888);
+        WsServerConfig config = new WsServerConfig(port);
         config.setBindIp("127.0.0.1");
         wsServerStarter = new WsServerStarter(config, new MyMsgHandler());
     }
@@ -47,7 +47,7 @@ public class ServerStarter {
     }
 
     public static void start() throws Exception{
-        new ServerStarter(8888).wsServerStarter.start();
+        new ServerStarter(8889).wsServerStarter.start();
     }
 
     public static void main(String[] args) throws Exception{

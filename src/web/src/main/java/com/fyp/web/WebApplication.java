@@ -11,7 +11,7 @@ public class WebApplication {
 		try {
 			com.fyp.im.ServerStarter.start();
 		}catch (Exception ex){
-
+			ex.printStackTrace();
 		}
 	}
 

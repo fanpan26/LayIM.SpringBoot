@@ -85,24 +85,30 @@ layui.define(['jquery','layer'],function (exports) {
             }
             return out;
         }
+        function encodeByTextEncoder(str){
+            if(!textEncoder){
+                textEncoder = new TextEncoder()
+            }
+            return textEncoder.encode(str);
+        }
+        function decodeByTextDecoder(data) {
+            if(!textDecoder){
+                textDecoder = new TextDecoder()
+            }
+            return textDecoder.decode(data);
+        }
 
         util.prototype.encode = function (str) {
             if(typeof (TextEncoder)==="undefined"){
                 return encodeNotSupportTextEncoder(str);
             }
-            if(!textEncoder){
-               textEncoder = new TextEncoder()
-            }
-            return textEncoder.encode(str);
+            return encodeByTextEncoder(str);
         };
         util.prototype.decode=function (data) {
-            if(typeof (TextDecoder)==="undefined"){
+            if (typeof (TextDecoder) === "undefined") {
                 return decodeNotSupportTextDecoder(data);
             }
-            if(!textDecoder){
-                textDecoder = new TextDecoder()
-            }
-            return textDecoder.decode(data);
+            return decodeByTextDecoder(data);
         };
         return new util();
     })();

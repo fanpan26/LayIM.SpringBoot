@@ -24,6 +24,8 @@ layui.define(['jquery','layer'],function (exports) {
         var util = function () {
         };
 
+        var textEncoder,textDecoder;
+
         function encodeNotSupportTextEncoder(str){
             var bytes = new Array();
             var len, c;
@@ -48,7 +50,6 @@ layui.define(['jquery','layer'],function (exports) {
             }
             return new Uint8Array(bytes);
         }
-
         function decodeNotSupportTextDecoder(data) {
             var out, i, len, c;
             var char2, char3;
@@ -89,13 +90,19 @@ layui.define(['jquery','layer'],function (exports) {
             if(typeof (TextEncoder)==="undefined"){
                 return encodeNotSupportTextEncoder(str);
             }
-            return new TextEncoder().encode(str);
+            if(!textEncoder){
+               textEncoder = new TextEncoder()
+            }
+            return textEncoder.encode(str);
         };
         util.prototype.decode=function (data) {
             if(typeof (TextDecoder)==="undefined"){
                 return decodeNotSupportTextDecoder(data);
             }
-            return new TextDecoder().decode(data);
+            if(!textDecoder){
+                textDecoder = new TextDecoder()
+            }
+            return textDecoder.decode(data);
         };
         return new util();
     })();

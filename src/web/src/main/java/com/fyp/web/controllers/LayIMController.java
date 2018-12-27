@@ -8,15 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @RestController
 @RequestMapping("/layim")
-public class LayIMController {
+public class LayIMController extends BaseController{
     private  LayIMService layIMService;
 
     @GetMapping("init")
-    public JsonResult InitData(){
+    public JsonResult InitData(HttpServletRequest request){
         layIMService = new DefaultLayIMService();
-        return layIMService.GetInitResult(Long.valueOf(203328));
+        return layIMService.GetInitResult(getUserId(request));
     }
 }

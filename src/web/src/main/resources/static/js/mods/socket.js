@@ -15,12 +15,91 @@ layui.define(['jquery','layer'],function (exports) {
         reconn:false
     };
 
-    var testToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIwMzMyOCwic3ViIjoiTGF5SU1fQWNjZXNzVG9rZW4iLCJhdWQiOiJXZWIiLCJpc3MiOiJMYXlJTVNlcnZlciIsImV4cCI6MTU0NTcyMjg1NywiaWF0IjoxNTQ1NzE1NjU3fQ.VYbPoczifoI_qqcRMfswGX0Y8oTWFR8MbygDwj73DKU';
-
     var msgType={
         chatFriend:1,
         chatGroup:2
     };
+
+    var util=(function () {
+        var util = function () {
+        };
+
+        function encodeNotSupportTextEncoder(str){
+            var bytes = new Array();
+            var len, c;
+            len = str.length;
+            for(var i = 0; i < len; i++) {
+                c = str.charCodeAt(i);
+                if(c >= 0x010000 && c <= 0x10FFFF) {
+                    bytes.push(((c >> 18) & 0x07) | 0xF0);
+                    bytes.push(((c >> 12) & 0x3F) | 0x80);
+                    bytes.push(((c >> 6) & 0x3F) | 0x80);
+                    bytes.push((c & 0x3F) | 0x80);
+                } else if(c >= 0x000800 && c <= 0x00FFFF) {
+                    bytes.push(((c >> 12) & 0x0F) | 0xE0);
+                    bytes.push(((c >> 6) & 0x3F) | 0x80);
+                    bytes.push((c & 0x3F) | 0x80);
+                } else if(c >= 0x000080 && c <= 0x0007FF) {
+                    bytes.push(((c >> 6) & 0x1F) | 0xC0);
+                    bytes.push((c & 0x3F) | 0x80);
+                } else {
+                    bytes.push(c & 0xFF);
+                }
+            }
+            return new Uint8Array(bytes);
+        }
+
+        function decodeNotSupportTextDecoder(data) {
+            var out, i, len, c;
+            var char2, char3;
+            out = "";
+            len = data.length;
+            i = 0;
+            while (i < len) {
+                c = data[i++];
+                switch (c >> 4) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                        out += String.fromCharCode(c);
+                        break;
+                    case 12:
+                    case 13:
+                        char2 = data[i++];
+                        out += String.fromCharCode(((c & 0x1F) << 6) | (char2 & 0x3F));
+                        break;
+                    case 14:
+                        char2 = data[i++];
+                        char3 = data[i++];
+                        out += String.fromCharCode(((c & 0x0F) << 12) |
+                            ((char2 & 0x3F) << 6) |
+                            ((char3 & 0x3F) << 0));
+                        break;
+                }
+            }
+            return out;
+        }
+
+        util.prototype.encode = function (str) {
+            if(typeof (TextEncoder)==="undefined"){
+                return encodeNotSupportTextEncoder(str);
+            }
+            return new TextEncoder().encode(str);
+        };
+        util.prototype.decode=function (data) {
+            if(typeof (TextDecoder)==="undefined"){
+                return decodeNotSupportTextDecoder(data);
+            }
+            return new TextDecoder().decode(data);
+        };
+        return new util();
+    })();
+
     //发送消息前替换掉
     var placeholder = 'abcde';// byte[] [97,98,99,100,101]
     var tool={
@@ -38,22 +117,21 @@ layui.define(['jquery','layer'],function (exports) {
             this.connect();
         },
         token:function (callback) {
-            return callback(testToken);
           $.get(tool.options.token,function (res) {
               if(res.code>0){
                   layer.msg("未登录");
               }else{
-                  callback(res.data);
+                  callback(res.data.token);
               }
           })
         },
         decode:function(d) {
-            return JSON.parse(new TextDecoder("utf-8").decode(new Uint8Array(d)))
+            console.log(d);
+            return JSON.parse(util.decode(new Uint8Array(d)))
         },
-        encode:function(d){
-            var str = placeholder+JSON.stringify(d);
-            var buff = new TextEncoder().encode(str);
-            return buff;
+        encode:function(d) {
+            var str = placeholder + JSON.stringify(d);
+            return util.encode(str);
         },
         connect:function () {
             if(this.wsUseful()) {
@@ -67,8 +145,8 @@ layui.define(['jquery','layer'],function (exports) {
         regWsEvent:function () {
             if(this.ws){
                 this.ws.onmessage = function (event) {
-                  console.log(  tool.decode(event.data));
-                    call.msg&&call.msg(event);
+                    var d = tool.decode(event.data);
+                    call.msg&&call.msg(d);
                 };
                 this.ws.onclose = function (event) {
                     call.close&&call.close(event);
@@ -87,7 +165,6 @@ layui.define(['jquery','layer'],function (exports) {
             }
         },
         reconnect:function () {
-            console.log(reconnectInterval);
             if(tool.options.reconn) {
                 if (reconnectInterval == null) {
                     reconnectInterval = setInterval(function () {
@@ -99,7 +176,10 @@ layui.define(['jquery','layer'],function (exports) {
         },
         build:function(data) {
             //根据layim提供的data数据，进行解析
-            var mine = data.mine, to = data.to, id = mine.id, group = to.type === 'group';
+            var mine = data.mine,
+                to = data.to,
+                id = mine.id,
+                group = to.type === 'group';
             if (group) {
                 id = to.id;
             }
@@ -112,20 +192,10 @@ layui.define(['jquery','layer'],function (exports) {
                 , content: mine.content
             }, targetId = to.id
 
-
-            var dataBuff = this.encode(msg);
-
-            var view1 = new DataView(dataBuff.buffer);
+            var dataBuff = this.encode(msg),
+                view1 = new DataView(dataBuff.buffer);
             view1.setInt32(0, targetId);
             view1.setInt8(4, group ? msgType.chatGroup : msgType.chatFriend);
-            console.log(view1);
-            // var flagBuff = new ArrayBuffer(5+dataBuff.byteLength);
-            // var view = new DataView(flagBuff);
-            // view.setInt32(0, targetId);
-            // view.setInt8(4, group ? msgType.chatGroup : msgType.chatFriend);
-            // dataBuff.forEach(function (value, index) {
-            //     view.setInt8(5+index,value);
-            // });
             return view1.buffer;
         },
         send:function (data) {

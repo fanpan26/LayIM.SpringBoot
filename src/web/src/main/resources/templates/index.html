@@ -17,6 +17,7 @@
         alert('请部署到localhost上查看该演示');
     }
 
+    console.log(Uint8Array);
     layui.extend({
         'socket':'/static/js/mods/socket'
     });
@@ -24,8 +25,12 @@
     layui.use(['layim','socket'], function(layim,socket){
         socket.config({
             log:true,
-            server:'ws://127.0.0.1:8889'
+            server:'ws://127.0.0.1:8889',
+            token:'/account/token'
         });
+        socket.on('msg',function (d) {
+            layim.getMessage(d);
+        })
         //基础配置
         layim.config({
             init: {

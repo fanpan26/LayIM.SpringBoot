@@ -14,6 +14,8 @@ public class ServerStarter {
 
     private static final Logger logger = LoggerFactory.getLogger(ServerStarter.class);
 
+    public static ServerStarter Instance;
+
     private WsServerStarter wsServerStarter;
     private ServerGroupContext serverGroupContext;
 
@@ -46,12 +48,8 @@ public class ServerStarter {
         return wsServerStarter;
     }
 
-    public static void start() throws Exception{
-        new ServerStarter(8889).wsServerStarter.start();
-    }
-
-    public static void main(String[] args) throws Exception{
-        start();
-        logger.debug("WebSocket Server 启动啦");
+    public static void start() throws Exception {
+        Instance = new ServerStarter(8889);
+        Instance.wsServerStarter.start();
     }
 }

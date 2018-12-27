@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 public class DefaultLayIMService implements LayIMService {
 
     public JsonResult GetInitResult(Long userId) {
+        System.out.println(userId);
 
         SqlSession session = MyBatisUtil.getSession();
         try {

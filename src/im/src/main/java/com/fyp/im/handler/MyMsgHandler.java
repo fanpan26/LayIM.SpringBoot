@@ -1,5 +1,6 @@
 package com.fyp.im.handler;
 
+import com.fyp.im.utils.BeanUtil;
 import com.fyp.im.utils.LogUtil;
 import com.fyp.service.intf.LayIMService;
 import com.fyp.utils.jwt.JwtUtil;
@@ -20,7 +21,6 @@ import java.util.List;
  * */
 public class MyMsgHandler implements IWsMsgHandler {
 
-    private LayIMService layIMService;
     /**
      * 握手
      * */
@@ -37,8 +37,8 @@ public class MyMsgHandler implements IWsMsgHandler {
 
     private void bindUser(ChannelContext channelContext, Long userId) {
         Tio.bindUser(channelContext, userId.toString());
-        List<Long> groupIds = layIMService.getGroupIds(userId);
-        LogUtil.debug("获取到的群组个数为：{}",groupIds.size());
+
+        List<Long> groupIds = ((LayIMService) BeanUtil.getBean("layIMService")).getGroupIds(userId);
         for (Long id : groupIds) {
             Tio.bindGroup(channelContext, id.toString());
         }

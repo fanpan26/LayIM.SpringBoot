@@ -5,6 +5,7 @@ import com.fyp.im.processor.ClientOfflineHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.core.ChannelContext;
+import org.tio.core.ChannelContextFilter;
 import org.tio.core.Tio;
 import org.tio.server.ServerGroupContext;
 import org.tio.utils.lock.SetWithLock;
@@ -54,7 +55,8 @@ public class IMUtil {
     }
 
     public static void sendToGroup(ChannelContext channelContext,long targetId,byte[] body) {
-        Tio.sendToGroup(channelContext.getGroupContext(), String.valueOf(targetId), buildReponse(body));
+        String currentUserId = channelContext.userid;
+        Tio.sendToGroup(channelContext.getGroupContext(), String.valueOf(targetId), buildReponse(body), ctx -> !ctx.userid.equals(String.valueOf(currentUserId)));
     }
 
     public static void send(ChannelContext channelContext, long targetId, byte[] body, ClientOfflineHandler offlineHandler) {

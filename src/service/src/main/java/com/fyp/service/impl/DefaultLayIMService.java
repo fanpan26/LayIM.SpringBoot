@@ -12,10 +12,12 @@ import com.fyp.service.mapper.UserFriendGroupMapper;
 import com.fyp.service.mapper.UserMapper;
 import com.fyp.service.utils.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class DefaultLayIMService implements LayIMService {
 
     public JsonResult GetInitResult(Long userId) {

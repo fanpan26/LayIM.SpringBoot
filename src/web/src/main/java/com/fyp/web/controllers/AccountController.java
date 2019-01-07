@@ -1,17 +1,13 @@
 package com.fyp.web.controllers;
 
 import com.fyp.entity.result.JsonResult;
-import org.springframework.http.HttpCookie;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.tio.utils.json.Json;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Arrays;
 
 @RestController
 @RequestMapping("/account")

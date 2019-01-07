@@ -1,7 +1,5 @@
 package com.fyp.web.controllers;
 
-import com.fyp.entity.result.JsonResult;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 

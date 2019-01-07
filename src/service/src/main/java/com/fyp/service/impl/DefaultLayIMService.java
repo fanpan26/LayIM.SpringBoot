@@ -1,15 +1,14 @@
 package com.fyp.service.impl;
 
+import com.fyp.entity.BigGroup;
 import com.fyp.entity.FriendGroup;
 import com.fyp.entity.User;
 import com.fyp.entity.UserFriendGroup;
+import com.fyp.entity.result.GroupMemberResult;
 import com.fyp.entity.result.InitResult;
 import com.fyp.entity.result.JsonResult;
 import com.fyp.service.intf.LayIMService;
-import com.fyp.service.mapper.BigGroupMapper;
-import com.fyp.service.mapper.FriendGroupMapper;
-import com.fyp.service.mapper.UserFriendGroupMapper;
-import com.fyp.service.mapper.UserMapper;
+import com.fyp.service.mapper.*;
 import com.fyp.service.utils.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,6 @@ import java.util.stream.Collectors;
 public class DefaultLayIMService implements LayIMService {
 
     public JsonResult GetInitResult(Long userId) {
-        System.out.println(userId);
 
         SqlSession session = MyBatisUtil.getSession();
         try {
@@ -29,6 +27,7 @@ public class DefaultLayIMService implements LayIMService {
             FriendGroupMapper friendGroupMapper = session.getMapper(FriendGroupMapper.class);
             UserFriendGroupMapper userFriendGroupMapper = session.getMapper(UserFriendGroupMapper.class);
             BigGroupMapper bigGroupMapper = session.getMapper(BigGroupMapper.class);
+            UserBigGroupMapper userBigGroupMapper = session.getMapper(UserBigGroupMapper.class);
 
             InitResult initResult = new InitResult();
             initResult.setMine(userMapper.getUser(userId));
@@ -62,8 +61,45 @@ public class DefaultLayIMService implements LayIMService {
 
                 initResult.setFriend(friendGroups);
             }
-            initResult.setGroup(bigGroupMapper.getGroupsByUserId(userId));
+            List<Long> myGroupIds = userBigGroupMapper.getGroupsByUserId(userId);
+            List<BigGroup> myGroups = bigGroupMapper.getGroupsByGroupIds(myGroupIds);
+            initResult.setGroup(myGroups);
             return JsonResult.success(initResult);
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public JsonResult GetMembersByGroupId(Long groupId) {
+        GroupMemberResult result = new GroupMemberResult();
+        if (groupId <= 0) {
+            return JsonResult.success(result);
+        }
+        SqlSession session = MyBatisUtil.getSession();
+        try {
+            BigGroupMapper bigGroupMapper = session.getMapper(BigGroupMapper.class);
+            UserBigGroupMapper userBigGroupMapper = session.getMapper(UserBigGroupMapper.class);
+            UserMapper userMapper = session.getMapper(UserMapper.class);
+
+            Long userId = bigGroupMapper.getGroupOwnerId(groupId);
+            result.setOwner(userMapper.getUser(userId));
+
+            List<Long> memberIds = userBigGroupMapper.getGroupMembers(groupId);
+            List<User> users = userMapper.getUsersByIds(memberIds);
+            result.setList(users);
+            return JsonResult.success(result);
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<Long> getGroupIds(Long userId) {
+        SqlSession session = MyBatisUtil.getSession();
+        try {
+            UserBigGroupMapper userBigGroupMapper = session.getMapper(UserBigGroupMapper.class);
+            return userBigGroupMapper.getGroupsByUserId(userId);
         } finally {
             session.close();
         }

@@ -6,21 +6,25 @@ import com.fyp.im.listener.MyGroupListener;
 import com.fyp.im.listener.MyIpStatListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.tio.server.ServerGroupContext;
 import org.tio.websocket.server.WsServerConfig;
 import org.tio.websocket.server.WsServerStarter;
+import org.tio.websocket.server.handler.IWsMsgHandler;
 
-public class ServerStarter {
+@Component
+public class TioApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(ServerStarter.class);
+    private static final Logger logger = LoggerFactory.getLogger(TioApplication.class);
 
-    public static ServerStarter Instance;
+    public static TioApplication Instance;
 
     private WsServerStarter wsServerStarter;
     private ServerGroupContext serverGroupContext;
 
-    public ServerStarter(int port) throws Exception {
-        initServerStarter(port);
+    public TioApplication() throws Exception {
+        initServerStarter(8889);
         initGroupContext();
     }
 
@@ -48,8 +52,8 @@ public class ServerStarter {
         return wsServerStarter;
     }
 
-    public static void start() throws Exception {
-        Instance = new ServerStarter(8889);
+    public static void run() throws Exception {
+        Instance = new TioApplication();
         Instance.wsServerStarter.start();
     }
 }

@@ -29,5 +29,6 @@
         <mapper resource="mapper/friendGroupMapper.xml"/>
         <mapper resource="mapper/userFriendGroupMapper.xml"/>
         <mapper resource="mapper/bigGroupMapper.xml"/>
+        <mapper resource="mapper/userBigGroupMapper.xml"/>
     </mappers>
 </configuration>

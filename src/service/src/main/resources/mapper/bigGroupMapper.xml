@@ -5,7 +5,21 @@
     <resultMap id="bigGroupMap" type="com.fyp.entity.BigGroup">
         <result column="group_name" property="groupname" />
     </resultMap>
-    <select id="getGroupsByUserId" parameterType="long" resultMap="bigGroupMap">
-        SELECT id,group_name,avatar FROM big_group where uid=#{id}
+
+    <select id="getGroupOwnerId" parameterType="long" resultType="java.lang.Long">
+        SELECT uid FROM big_group  WHERE id=#{id}
     </select>
+    <select id="getGroupsByGroupIds" parameterType="long" resultMap="bigGroupMap">
+        SELECT id,avatar,group_name FROM big_group WHERE  id in
+        <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    <select id="getGroupMembers" parameterType="long" resultType="java.lang.Long">
+        SELECT uid FROM user_big_group WHERE group_id=#{id}
+    </select>
+    <select id="getGroupsByUserId" parameterType="long" resultType="java.lang.Long">
+        SELECT group_id FROM user_big_group WHERE uid=#{id}
+    </select>
+
 </mapper>

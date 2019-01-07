@@ -1,6 +1,7 @@
 package com.fyp.im.handler;
 
-import com.fyp.utils.convert.ConvertUtil;
+import com.fyp.im.utils.LogUtil;
+import com.fyp.service.intf.LayIMService;
 import com.fyp.utils.jwt.JwtUtil;
 import com.fyp.utils.jwt.JwtVertifyResult;
 import org.tio.core.ChannelContext;
@@ -8,19 +9,18 @@ import org.tio.core.Tio;
 import org.tio.http.common.HttpRequest;
 import org.tio.http.common.HttpResponse;
 import org.tio.http.common.HttpResponseStatus;
-import org.tio.utils.json.Json;
-import org.tio.websocket.common.WsPacket;
 import org.tio.websocket.common.WsRequest;
-import org.tio.websocket.common.WsResponse;
 import org.tio.websocket.server.handler.IWsMsgHandler;
 
-import java.util.Arrays;
+import java.util.List;
+
 
 /**
  * WebSocket 核心消息处理
  * */
 public class MyMsgHandler implements IWsMsgHandler {
 
+    private LayIMService layIMService;
     /**
      * 握手
      * */
@@ -28,11 +28,20 @@ public class MyMsgHandler implements IWsMsgHandler {
         String token = httpRequest.getParam("access_token");
         JwtVertifyResult result = JwtUtil.verifyToken(token);
         if (result.isVertified()) {
-            Tio.bindUser(channelContext, result.getUserId().toString());
+            bindUser(channelContext, result.getUserId());
         } else {
             httpResponse.setStatus(HttpResponseStatus.C401);
         }
         return httpResponse;
+    }
+
+    private void bindUser(ChannelContext channelContext, Long userId) {
+        Tio.bindUser(channelContext, userId.toString());
+        List<Long> groupIds = layIMService.getGroupIds(userId);
+        LogUtil.debug("获取到的群组个数为：{}",groupIds.size());
+        for (Long id : groupIds) {
+            Tio.bindGroup(channelContext, id.toString());
+        }
     }
 
     /**

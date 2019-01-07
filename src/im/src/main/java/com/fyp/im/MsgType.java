@@ -1,9 +1,10 @@
 package com.fyp.im;
 
 public enum MsgType {
-    clientToClient((byte) 1);
+    clientToClient((byte) 1),
+    clientToGroup((byte)2);
 
-    private MsgType(byte value) {
+    MsgType(byte value) {
         this.value = value;
     }
 

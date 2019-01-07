@@ -1,6 +1,6 @@
 package com.fyp.im.utils;
 
-import com.fyp.im.ServerStarter;
+import com.fyp.im.TioApplication;
 import com.fyp.im.processor.ClientOfflineHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,17 +15,18 @@ import java.util.Optional;
 public class IMUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(IMUtil.class);
+
     /**
      * 获取对方的ID
-     * */
-    private static ChannelContext getChannelContextByTargetId(ChannelContext channelContext,long targetId) {
+     */
+    private static ChannelContext getChannelContextByTargetId(ChannelContext channelContext, long targetId) {
         SetWithLock<ChannelContext> setWithLock = Tio.getChannelContextsByUserid(channelContext.getGroupContext(), targetId + "");
-        if(setWithLock == null){
+        if (setWithLock == null) {
             return null;
         }
         if (setWithLock.getObj().size() > 0) {
             Optional<ChannelContext> targetChannelContext = setWithLock.getObj().stream().findFirst();
-            if(targetChannelContext.isPresent()){
+            if (targetChannelContext.isPresent()) {
                 return targetChannelContext.get();
             }
             return null;
@@ -35,32 +36,35 @@ public class IMUtil {
 
     /**
      * 是否在线
-     * */
-    private static boolean isOnline(ChannelContext channelContext){
-        return channelContext!=null && channelContext.isClosed==false && channelContext.isRemoved==false;
+     */
+    private static boolean isOnline(ChannelContext channelContext) {
+        return channelContext != null && channelContext.isClosed == false && channelContext.isRemoved == false;
     }
 
     private ServerGroupContext getServerGroupContext() {
-        return ServerStarter.Instance.getServerGroupContext();
+        return TioApplication.Instance.getServerGroupContext();
     }
 
-    private static WsResponse buildReponse(byte[] body){
+    private static WsResponse buildReponse(byte[] body) {
         return WsResponse.fromBytes(body);
     }
 
-    public static void send(ChannelContext channelContext, long targetId, byte[] body){
-        send(channelContext,targetId,body,null);
+    public static void send(ChannelContext channelContext, long targetId, byte[] body) {
+        send(channelContext, targetId, body, null);
+    }
+
+    public static void sendToGroup(ChannelContext channelContext,long targetId,byte[] body) {
+        Tio.sendToGroup(channelContext.getGroupContext(), String.valueOf(targetId), buildReponse(body));
     }
 
     public static void send(ChannelContext channelContext, long targetId, byte[] body, ClientOfflineHandler offlineHandler) {
-        ChannelContext targetChannelContext = getChannelContextByTargetId(channelContext, targetId);
-        if (isOnline(targetChannelContext)) {
+        boolean sendResult = Tio.sendToUser(channelContext.getGroupContext(), String.valueOf(targetId), buildReponse(body));
+        if (sendResult) {
             logger.info("发送消息给{},消息长度{}", targetId, body.length);
-            Tio.send(targetChannelContext, buildReponse(body));
         } else {
-            logger.info("【{}】当前不在线",targetId);
-            if(offlineHandler!=null){
-                offlineHandler.handle(targetId,body);
+            logger.info("【{}】当前不在线", targetId);
+            if (offlineHandler != null) {
+                offlineHandler.handle(targetId, body);
             }
         }
     }

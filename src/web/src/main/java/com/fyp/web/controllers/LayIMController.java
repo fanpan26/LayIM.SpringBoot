@@ -1,10 +1,12 @@
 package com.fyp.web.controllers;
 
+import com.fyp.entity.MsgRecord;
 import com.fyp.entity.result.JsonResult;
 
 import com.fyp.service.intf.LayIMService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,5 +34,11 @@ public class LayIMController extends BaseController{
     @GetMapping("member")
     public JsonResult getGroupMembers(Long id){
         return layIMService.GetMembersByGroupId(id);
+    }
+
+    @PostMapping("msg")
+    public JsonResult addMsgRecord(MsgRecord record,HttpServletRequest request) {
+        record.setFrom(getUserId(request));
+        return layIMService.addRecord(record);
     }
 }

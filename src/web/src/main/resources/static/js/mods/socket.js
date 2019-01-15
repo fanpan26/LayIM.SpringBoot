@@ -213,7 +213,6 @@ layui.define(['jquery','layer'],function (exports) {
         },
         send:function (data) {
             var d = this.build(data);
-            console.log(d);
             this.ws.send(d);
         }
     };

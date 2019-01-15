@@ -6,10 +6,10 @@ import org.tio.core.ChannelContext;
 /**
  * 客户端对客户端发送消息
  * */
-public class ClientToClientProcessor extends AbstractMsgProcessor {
+public class ClientToClientProcessor extends MsgStoredProcessor {
 
     @Override
-    protected void processInternal(ChannelContext channelContext) {
+    protected void processMessage(ChannelContext channelContext){
         IMUtil.send(channelContext,getTargetId(),getBody());
     }
 }

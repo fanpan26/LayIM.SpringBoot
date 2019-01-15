@@ -1,15 +1,13 @@
 package com.fyp.service.impl;
 
-import com.fyp.entity.BigGroup;
-import com.fyp.entity.FriendGroup;
-import com.fyp.entity.User;
-import com.fyp.entity.UserFriendGroup;
+import com.fyp.entity.*;
 import com.fyp.entity.result.GroupMemberResult;
 import com.fyp.entity.result.InitResult;
 import com.fyp.entity.result.JsonResult;
 import com.fyp.service.intf.LayIMService;
 import com.fyp.service.mapper.*;
 import com.fyp.service.utils.MyBatisUtil;
+import com.fyp.service.utils.Utils;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
@@ -103,5 +101,25 @@ public class DefaultLayIMService implements LayIMService {
         } finally {
             session.close();
         }
+    }
+
+    @Override
+    public JsonResult addRecord(MsgRecord record) {
+        if (record.getTo() <= 0) {
+            return JsonResult.fail("无效的接收人");
+        }
+        if (record.getContents() == null || record.getContents().isEmpty()) {
+            return JsonResult.fail("空的消息内容");
+        }
+        record.setCreateAt(System.currentTimeMillis());
+        record.setRoom(Utils.generateRoomId(record.getFrom(), record.getTo(), record.getMsgType() == 2 ? "group" : "other"));
+        SqlSession session = MyBatisUtil.getSession();
+        try {
+            MsgRecordMapper msgRecordMapper = session.getMapper(MsgRecordMapper.class);
+            msgRecordMapper.addRecord(record);
+        } finally {
+            session.close();
+        }
+        return JsonResult.success();
     }
 }

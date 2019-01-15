@@ -2,12 +2,15 @@ package com.fyp.im.processor;
 
 import com.fyp.im.MsgType;
 import com.fyp.utils.convert.ConvertUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tio.core.ChannelContext;
 
 import java.util.Arrays;
 
 public abstract class AbstractMsgProcessor {
 
+    private static final Logger logger = LoggerFactory.getLogger(AbstractMsgProcessor.class);
     private byte[] body;
     private static final int PREFIX_LENGTH = 5;
 
@@ -26,6 +29,9 @@ public abstract class AbstractMsgProcessor {
      * 消息处理入口
      * */
     public void process(ChannelContext channelContext, byte[] body) {
+        if(logger.isDebugEnabled()){
+            logger.debug("handle msg:{}",new String(body));
+        }
         setBody(body);
         processInternal(channelContext);
     }

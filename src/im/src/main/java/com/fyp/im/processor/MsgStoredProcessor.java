@@ -6,9 +6,13 @@ import com.fyp.service.intf.LayIMService;
 import org.tio.core.ChannelContext;
 
 import java.io.UnsupportedEncodingException;
+import java.util.concurrent.Executors;
 
 public abstract class MsgStoredProcessor extends AbstractMsgProcessor{
 
+    private void recordMsgAsync(ChannelContext channelContext){
+        Executors.newCachedThreadPool().execute(() -> recordMsg(channelContext));
+    }
     private void recordMsg(ChannelContext channelContext) {
         byte[] body = getBody();
         String msg;
@@ -31,7 +35,7 @@ public abstract class MsgStoredProcessor extends AbstractMsgProcessor{
     protected abstract void processMessage(ChannelContext channelContext);
 
     protected void processInternal(ChannelContext channelContext) {
-        recordMsg(channelContext);
+        recordMsgAsync(channelContext);
         processMessage(channelContext);
     }
 }

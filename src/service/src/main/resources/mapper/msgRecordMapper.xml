@@ -2,14 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.fyp.service.mapper.MsgRecordMapper">
-    <resultMap id="msgRecordMap" type="com.fyp.entity.MsgRecord">
-        <result column="from_id" property="from" />
-        <result column="to_id" property="to" />
-        <result column="room_id" property="room" />
-        <result column="create_at" property="createAt" />
-        <result column="mtype" property="msgType" />
-    </resultMap>
-
+    <parameterMap id="msgRecordMap" type="com.fyp.entity.MsgRecord">
+        <parameter property="from" />
+        <parameter  property="to" />
+        <parameter  property="room" />
+        <parameter  property="createAt" />
+        <parameter  property="msgType" />
+    </parameterMap>
    <insert id="addRecord" parameterMap="msgRecordMap">
        INSERT INTO msg_record (id,from_id,to_id,room_id,contents,create_at,mtype) values (#{id},#{from},#{to},#{room},#{contents},#{createAt},#{msgType})
    </insert>

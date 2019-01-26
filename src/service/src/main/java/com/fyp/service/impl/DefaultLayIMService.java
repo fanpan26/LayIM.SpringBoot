@@ -117,6 +117,7 @@ public class DefaultLayIMService implements LayIMService {
         try {
             MsgRecordMapper msgRecordMapper = session.getMapper(MsgRecordMapper.class);
             msgRecordMapper.addRecord(record);
+            session.commit();
         } finally {
             session.close();
         }

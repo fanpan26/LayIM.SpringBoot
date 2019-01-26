@@ -30,5 +30,6 @@
         <mapper resource="mapper/userFriendGroupMapper.xml"/>
         <mapper resource="mapper/bigGroupMapper.xml"/>
         <mapper resource="mapper/userBigGroupMapper.xml"/>
+        <mapper resource="mapper/msgRecordMapper.xml"/>
     </mappers>
 </configuration>

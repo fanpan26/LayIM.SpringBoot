@@ -114,7 +114,7 @@ layui.define(['jquery','layer'],function (exports) {
     })();
 
     //发送消息前替换掉
-    var placeholder = 'abcde';// byte[] [97,98,99,100,101]
+    var placeholder = 'placehold';// 9 个长度的占位符 4 targetId + 1 msgType + 4 bodyLength + body
     var tool={
         ws:null,
         options :{},
@@ -143,7 +143,7 @@ layui.define(['jquery','layer'],function (exports) {
             return JSON.parse(util.decode(new Uint8Array(d)))
         },
         encode:function(d) {
-            var str = placeholder + JSON.stringify(d);
+            var str = placeholder + d;
             return util.encode(str);
         },
         connect:function () {
@@ -203,12 +203,17 @@ layui.define(['jquery','layer'],function (exports) {
                 , id: id
                 , type: to.type
                 , content: mine.content
-            }, targetId = to.id
+            }, targetId = to.id;
 
-            var dataBuff = this.encode(msg),
-                view1 = new DataView(dataBuff.buffer);
+            var dataBuff = this.encode(mine.content),
+                view1 = new DataView(dataBuff.buffer),
+                bodyLength =dataBuff.buffer.byteLength - placeholder.length;
+            //接收人ID
             view1.setInt32(0, targetId);
+            //消息类型
             view1.setInt8(4, group ? msgType.chatGroup : msgType.chatFriend);
+            //消息长度
+            view1.setInt32(5,bodyLength);
             return view1.buffer;
         },
         send:function (data) {

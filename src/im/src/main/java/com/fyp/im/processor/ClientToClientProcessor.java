@@ -10,6 +10,16 @@ public class ClientToClientProcessor extends MsgStoredProcessor {
 
     @Override
     protected void processMessage(ChannelContext channelContext){
-        IMUtil.send(channelContext,getTargetId(),getBody());
+        IMUtil.send(channelContext,getTargetId(),buildSendMessage(channelContext));
+    }
+
+    @Override
+    protected long getId(ChannelContext channelContext) {
+        return Long.valueOf(channelContext.userid);
+    }
+
+    @Override
+    protected String getType(ChannelContext channelContext) {
+        return "friend";
     }
 }

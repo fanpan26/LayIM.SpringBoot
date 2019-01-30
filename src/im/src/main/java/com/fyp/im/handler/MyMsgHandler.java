@@ -1,5 +1,7 @@
 package com.fyp.im.handler;
 
+import com.fyp.entity.User;
+import com.fyp.im.LayIMConstants;
 import com.fyp.im.utils.BeanUtil;
 import com.fyp.im.utils.LogUtil;
 import com.fyp.service.intf.LayIMService;
@@ -20,7 +22,6 @@ import java.util.List;
  * WebSocket 核心消息处理
  * */
 public class MyMsgHandler implements IWsMsgHandler {
-
     /**
      * 握手
      * */
@@ -35,10 +36,18 @@ public class MyMsgHandler implements IWsMsgHandler {
         return httpResponse;
     }
 
-    private void bindUser(ChannelContext channelContext, Long userId) {
-        Tio.bindUser(channelContext, userId.toString());
+    private LayIMService getLayIMService(){
+        return (LayIMService) BeanUtil.getBean(LayIMConstants.LAYIM_SERVICE);
+    }
 
-        List<Long> groupIds = ((LayIMService) BeanUtil.getBean("layIMService")).getGroupIds(userId);
+    private void bindUser(ChannelContext channelContext, Long userId) {
+        //绑定用户
+        Tio.bindUser(channelContext, userId.toString());
+        //绑定User属性信息
+        User user = getLayIMService().GetByUserId(userId);
+        channelContext.setAttribute(LayIMConstants.CURRENT_USER_ATTRIBUTE, user);
+        //绑定群组
+        List<Long> groupIds = getLayIMService().getGroupIds(userId);
         for (Long id : groupIds) {
             Tio.bindGroup(channelContext, id.toString());
         }

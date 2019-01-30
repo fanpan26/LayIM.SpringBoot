@@ -17,6 +17,16 @@ import java.util.stream.Collectors;
 @Service
 public class DefaultLayIMService implements LayIMService {
 
+    public User GetByUserId(Long userId) {
+        SqlSession session = MyBatisUtil.getSession();
+        try {
+            UserMapper userMapper = session.getMapper(UserMapper.class);
+            return userMapper.getUser(userId);
+        } finally {
+            session.close();
+        }
+    }
+
     public JsonResult GetInitResult(Long userId) {
 
         SqlSession session = MyBatisUtil.getSession();

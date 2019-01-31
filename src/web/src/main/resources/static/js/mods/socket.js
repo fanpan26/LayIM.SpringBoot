@@ -191,21 +191,10 @@ layui.define(['jquery','layer'],function (exports) {
             //根据layim提供的data数据，进行解析
             var mine = data.mine,
                 to = data.to,
-                id = mine.id,
                 group = to.type === 'group';
-            if (group) {
-                id = to.id;
-            }
             //构造消息
-            var msg = {
-                username: mine.username
-                , avatar: mine.avatar
-                , id: id
-                , type: to.type
-                , content: mine.content
-            }, targetId = to.id;
-
-            var dataBuff = this.encode(mine.content),
+            var targetId = to.id,
+                dataBuff = this.encode(mine.content),
                 view1 = new DataView(dataBuff.buffer),
                 bodyLength =dataBuff.buffer.byteLength - placeholder.length;
             //接收人ID

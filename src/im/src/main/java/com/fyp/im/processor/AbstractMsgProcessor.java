@@ -12,7 +12,8 @@ public abstract class AbstractMsgProcessor {
     private static final Logger logger = LoggerFactory.getLogger(AbstractMsgProcessor.class);
     private byte[] body;
     private static final int PREFIX_LENGTH = 5;
-    private static final  int BODY_LENGTH_LENGTH = 4;
+    private static final int BODY_LENGTH_LENGTH = 4;
+    private static final int PLACEHOLDER_LENGTH = 9;
     private byte[] realBody;
     private int targetId;
 
@@ -31,9 +32,6 @@ public abstract class AbstractMsgProcessor {
      * 消息处理入口
      * */
     public final void process(ChannelContext channelContext, byte[] body) {
-        if(logger.isDebugEnabled()){
-            logger.debug("handle msg:{}",new String(body));
-        }
         setBody(body);
         processInternal(channelContext);
     }
@@ -45,25 +43,25 @@ public abstract class AbstractMsgProcessor {
      */
     protected final int getTargetId() {
         if (targetId == 0) {
-            byte[] targetIdBytes = Arrays.copyOf(body, 4);
+            byte[] targetIdBytes = Arrays.copyOf(body, BODY_LENGTH_LENGTH);
             targetId = ConvertUtil.byteArrayToInt(targetIdBytes);
         }
         return targetId;
     }
 
     protected final int getBodyLength() {
-        byte[] bodyLengthBytes =  Arrays.copyOfRange(body, PREFIX_LENGTH, PREFIX_LENGTH + BODY_LENGTH_LENGTH);
+        byte[] bodyLengthBytes =  Arrays.copyOfRange(body, PREFIX_LENGTH, PLACEHOLDER_LENGTH);
         return ConvertUtil.byteArrayToInt(bodyLengthBytes);
     }
 
     protected final byte[] getBody() {
         if (realBody == null) {
             int length = getBodyLength();
-            int totalLength = PREFIX_LENGTH + BODY_LENGTH_LENGTH + length;
+            int totalLength = PLACEHOLDER_LENGTH + length;
             if (body.length != totalLength) {
                 throw new IllegalArgumentException("illegal body length");
             }
-            realBody = Arrays.copyOfRange(body, PREFIX_LENGTH + BODY_LENGTH_LENGTH, totalLength);
+            realBody = Arrays.copyOfRange(body, PLACEHOLDER_LENGTH, totalLength);
         }
         return realBody;
     }

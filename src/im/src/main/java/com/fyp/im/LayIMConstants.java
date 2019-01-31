@@ -4,7 +4,7 @@ public final class LayIMConstants {
     /**
      * LayIMService 标识
      * */
-    public static final String LAYIM_SERVICE = "layimService";
+    public static final String LAYIM_SERVICE = "layIMService";
     /**
      * ChannelContext setAttribute(CURRENT_USER_ATTRIBUTE,userInfo)
      * */

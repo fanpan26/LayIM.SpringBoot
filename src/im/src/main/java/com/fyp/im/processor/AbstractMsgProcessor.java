@@ -54,6 +54,10 @@ public abstract class AbstractMsgProcessor {
         return ConvertUtil.byteArrayToInt(bodyLengthBytes);
     }
 
+    protected final byte getMsgType(){
+        return body[4];
+    }
+
     protected final byte[] getBody() {
         if (realBody == null) {
             int length = getBodyLength();

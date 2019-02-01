@@ -1,12 +1,10 @@
 package com.fyp.web.controllers;
 
-import com.fyp.entity.MsgRecord;
 import com.fyp.entity.result.JsonResult;
 
 import com.fyp.service.intf.LayIMService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +23,7 @@ public class LayIMController extends BaseController{
      * */
     @GetMapping("init")
     public JsonResult getInitData(HttpServletRequest request){
-        return layIMService.GetInitResult(getUserId(request));
+        return layIMService.getInitResult(getUserId(request));
     }
 
     /**
@@ -33,12 +31,14 @@ public class LayIMController extends BaseController{
      * */
     @GetMapping("member")
     public JsonResult getGroupMembers(Long id){
-        return layIMService.GetMembersByGroupId(id);
+        return layIMService.getMembersByGroupId(id);
     }
 
-    @PostMapping("msg")
-    public JsonResult addMsgRecord(MsgRecord record,HttpServletRequest request) {
-        record.setFrom(getUserId(request));
-        return layIMService.addRecord(record);
+    /**
+     * 获取消息记录
+     * */
+    @GetMapping("chat/history")
+    public JsonResult getChatHistory(HttpServletRequest request,Long id,String type,Long lastId){
+       return layIMService.getChatRecords(getUserId(request) ,id,type,lastId);
     }
 }

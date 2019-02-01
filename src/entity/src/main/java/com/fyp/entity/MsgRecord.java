@@ -50,7 +50,7 @@ public class MsgRecord {
         return msgType;
     }
 
-    public void setMsgType(int msgType) {
+    public void setMsgType(byte msgType) {
         this.msgType = msgType;
     }
 
@@ -63,6 +63,6 @@ public class MsgRecord {
     }
 
     private String contents;
-    private int msgType;
+    private byte msgType;
     private long createAt;
 }

@@ -1,6 +1,16 @@
 package com.fyp.entity;
 
 public class User {
+    public static final User Anonymous = new User("匿名","");
+
+    public User(){
+
+    }
+    public User(String name,String avatar){
+        setUsername(name);
+        setAvatar(avatar);
+    }
+
     public String getAvatar() {
         return avatar;
     }

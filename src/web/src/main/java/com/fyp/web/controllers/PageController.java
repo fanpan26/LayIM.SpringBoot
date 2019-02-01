@@ -10,4 +10,9 @@ public class PageController {
     public String index(){
         return "index";
     }
+
+    @RequestMapping("/chatlog")
+    public String chatlog(Long id,String type) {
+        return "chatlog";
+    }
 }

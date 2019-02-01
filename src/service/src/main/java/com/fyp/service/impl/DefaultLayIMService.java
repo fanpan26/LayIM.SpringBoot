@@ -1,6 +1,7 @@
 package com.fyp.service.impl;
 
 import com.fyp.entity.*;
+import com.fyp.entity.result.ChatRecordResult;
 import com.fyp.entity.result.GroupMemberResult;
 import com.fyp.entity.result.InitResult;
 import com.fyp.entity.result.JsonResult;
@@ -9,15 +10,19 @@ import com.fyp.service.mapper.*;
 import com.fyp.service.utils.MyBatisUtil;
 import com.fyp.service.utils.Utils;
 import org.apache.ibatis.session.SqlSession;
+import org.omg.PortableServer.THREAD_POLICY_ID;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import javax.swing.text.html.Option;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import static com.fyp.entity.LayIMConstants.*;
 
 @Service
 public class DefaultLayIMService implements LayIMService {
 
-    public User GetByUserId(Long userId) {
+    public User getByUserId(Long userId) {
         SqlSession session = MyBatisUtil.getSession();
         try {
             UserMapper userMapper = session.getMapper(UserMapper.class);
@@ -27,13 +32,13 @@ public class DefaultLayIMService implements LayIMService {
         }
     }
 
-    public JsonResult GetInitResult(Long userId) {
+    public JsonResult getInitResult(Long userId) {
 
         SqlSession session = MyBatisUtil.getSession();
         try {
             UserMapper userMapper = session.getMapper(UserMapper.class);
             FriendGroupMapper friendGroupMapper = session.getMapper(FriendGroupMapper.class);
-            UserFriendGroupMapper userFriendGroupMapper = session.getMapper(UserFriendGroupMapper.class);
+
             BigGroupMapper bigGroupMapper = session.getMapper(BigGroupMapper.class);
             UserBigGroupMapper userBigGroupMapper = session.getMapper(UserBigGroupMapper.class);
 
@@ -41,6 +46,7 @@ public class DefaultLayIMService implements LayIMService {
             initResult.setMine(userMapper.getUser(userId));
             List<FriendGroup> friendGroups = friendGroupMapper.getGroupsByUserId(userId);
             if (!friendGroups.isEmpty()) {
+                UserFriendGroupMapper userFriendGroupMapper = session.getMapper(UserFriendGroupMapper.class);
                 List<Long> friendGroupIds = friendGroups
                         .stream()
                         .map(x -> x.getId())
@@ -79,7 +85,7 @@ public class DefaultLayIMService implements LayIMService {
     }
 
     @Override
-    public JsonResult GetMembersByGroupId(Long groupId) {
+    public JsonResult getMembersByGroupId(Long groupId) {
         GroupMemberResult result = new GroupMemberResult();
         if (groupId <= 0) {
             return JsonResult.success(result);
@@ -122,7 +128,7 @@ public class DefaultLayIMService implements LayIMService {
             return JsonResult.fail("空的消息内容");
         }
         record.setCreateAt(System.currentTimeMillis());
-        record.setRoom(Utils.generateRoomId(record.getFrom(), record.getTo(), record.getMsgType() == 2 ? "group" : "other"));
+        record.setRoom(Utils.generateRoomId(record.getFrom(), record.getTo(), record.getMsgType() == 2 ? CHAT_TYPE_GROUP : CHAT_TYPE_OTHER));
         SqlSession session = MyBatisUtil.getSession();
         try {
             MsgRecordMapper msgRecordMapper = session.getMapper(MsgRecordMapper.class);
@@ -132,5 +138,56 @@ public class DefaultLayIMService implements LayIMService {
             session.close();
         }
         return JsonResult.success();
+    }
+
+    @Override
+    public JsonResult getChatRecords(Long userId,Long id, String type, Long lastId) {
+        if(!type.equals(CHAT_TYPE_FRIEND)&&!type.equals(CHAT_TYPE_GROUP)) {
+            throw new IllegalArgumentException("type should be group or friend");
+        }
+        boolean isChatGroup = type.equals(CHAT_TYPE_GROUP);
+        SqlSession session = MyBatisUtil.getSession();
+        try {
+            MsgRecordMapper msgRecordMapper = session.getMapper(MsgRecordMapper.class);
+            List<ChatRecordResult> records = new ArrayList<>(20);
+            List<MsgRecord> list = msgRecordMapper.getList(Utils.generateRoomId(userId,id,type),lastId);
+
+            if(list.isEmpty()){
+                return JsonResult.success(records);
+            }
+            List<Long> userIds;
+            if(isChatGroup){
+                userIds = list
+                        .stream()
+                        .map(x -> x.getFrom())
+                        .distinct()
+                        .collect(Collectors.toList());
+            }else {
+                userIds = new ArrayList<>(2);
+                userIds.add(userId);
+                userIds.add(id);
+            }
+            UserMapper userMapper = session.getMapper(UserMapper.class);
+           List<User> users = userMapper.getUsersByIds(userIds);
+
+            for (MsgRecord record : list) {
+                ChatRecordResult res = new ChatRecordResult();
+                res.setId(record.getId());
+
+                Optional<User> user = users.stream().filter(x -> x.getId().equals(record.getFrom())).findFirst();
+                res.setAvatar(user.orElse(User.Anonymous).getAvatar());
+                res.setUsername(user.orElse(User.Anonymous).getUsername());
+
+                res.setContent(record.getContents());
+                res.setSelf(userId.equals(record.getFrom()));
+                res.setTimestamp(record.getCreateAt());
+                records.add(res);
+            }
+            Collections.sort(records);
+            return JsonResult.success(records);
+        } finally {
+            session.close();
+        }
+
     }
 }

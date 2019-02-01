@@ -3,8 +3,7 @@ package com.fyp.im.processor;
 import com.fyp.entity.MsgRecord;
 import com.fyp.entity.User;
 import com.fyp.entity.im.Message;
-import com.fyp.im.LayIMConstants;
-import com.fyp.im.MsgType;
+import com.fyp.entity.LayIMConstants;
 import com.fyp.im.utils.BeanUtil;
 import com.fyp.im.utils.SafeEncoder;
 import com.fyp.service.intf.LayIMService;
@@ -45,6 +44,7 @@ public abstract class MsgStoredProcessor extends AbstractMsgProcessor{
         record.setContents(SafeEncoder.encode(getBody()));
         record.setCreateAt(System.currentTimeMillis());
         record.setId(System.currentTimeMillis());
+        record.setMsgType(getMsgType());
         service.addRecord(record);
     }
 

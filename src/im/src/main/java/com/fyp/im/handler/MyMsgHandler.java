@@ -1,9 +1,8 @@
 package com.fyp.im.handler;
 
 import com.fyp.entity.User;
-import com.fyp.im.LayIMConstants;
+import com.fyp.entity.LayIMConstants;
 import com.fyp.im.utils.BeanUtil;
-import com.fyp.im.utils.LogUtil;
 import com.fyp.service.intf.LayIMService;
 import com.fyp.utils.jwt.JwtUtil;
 import com.fyp.utils.jwt.JwtVertifyResult;
@@ -44,7 +43,7 @@ public class MyMsgHandler implements IWsMsgHandler {
         //绑定用户
         Tio.bindUser(channelContext, userId.toString());
         //绑定User属性信息
-        User user = getLayIMService().GetByUserId(userId);
+        User user = getLayIMService().getByUserId(userId);
         channelContext.setAttribute(LayIMConstants.CURRENT_USER_ATTRIBUTE, user);
         //绑定群组
         List<Long> groupIds = getLayIMService().getGroupIds(userId);

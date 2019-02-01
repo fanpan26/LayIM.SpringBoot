@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>聊天记录</title>
+    <link rel="stylesheet" href="../static/js/layui/css/layui.css">
+    <style>
+        body .layim-chat-main{height: auto;}
+    </style>
+</head>
+<body>
+<div class="layim-chat-main">
+    <ul id="LAY_view">
+        <div id="chatLogMore" class="layim-chat-system"><span>查看更多记录</span></div>
+    </ul>
+</div>
+<textarea title="消息模版" id="LAY_tpl" style="display:none;">
+{{# layui.each(d.data, function(index, item){
+  if(item.self){ }}
+    <li data-timestamp="{{ item.id }}" class="layim-chat-mine"><div class="layim-chat-user"><img src="{{ item.avatar }}"><cite><i>{{ layui.data.date(item.timestamp) }}</i>{{ item.username }}</cite></div><div class="layim-chat-text">{{ layui.layim.content(item.content) }}</div></li>
+  {{# } else { }}
+    <li data-timestamp="{{ item.id }}"><div class="layim-chat-user"><img src="{{ item.avatar }}"><cite>{{ item.username }}<i>{{ layui.data.date(item.timestamp) }}</i></cite></div><div class="layim-chat-text">{{ layui.layim.content(item.content) }}</div></li>
+  {{# }
+}); }}
+</textarea>
+
+<script src="../static/js/layui/layui.js"></script>
+<script>
+    layui.extend({
+        'req':'/static/js/mods/req'
+    });
+    layui.use(['layim','req'], function(layim,req){
+        var layer = layui.layer
+            ,laytpl = layui.laytpl
+            ,$ = layui.jquery
+            ,param =  location.search
+            ,record = true;
+        //开始请求聊天记录
+        loadMsg();
+
+        function loadMsg() {
+            if(!record){return;}
+            var $li = $('#LAY_view').find('li').first();
+            var t = 0;
+            if ($li.length > 0) {
+                t = $li.data('timestamp');
+            }
+
+            loading('正在加载...');
+            req.get('/layim/chat/history'+param+'&lastId='+t,{},function (res) {
+                if(res.data.length) {
+                    loading('查看更多记录');
+                    var html = laytpl(LAY_tpl.value).render({
+                        data: res.data
+                    });
+                    if ($li.length) {
+                        $(html).insertBefore($li);
+                    } else {
+                        $(html).insertAfter('#chatLogMore');
+                    }
+                    if (t == 0) {
+                        $(document).scrollTop($(document).height());
+                    }
+                }else{
+                    record = false;
+                    loading('无更多记录了');
+                }
+            })
+        }
+        function loading(msg) {
+            $('#chatLogMore').find('span').text(msg);
+        }
+        $('#chatLogMore').on('click', function () {
+            loadMsg();
+        });
+    });
+</script>
+</body>
+</html>

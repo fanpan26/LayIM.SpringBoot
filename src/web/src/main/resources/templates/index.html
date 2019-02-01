@@ -17,7 +17,6 @@
         alert('请部署到localhost上查看该演示');
     }
 
-    console.log(Uint8Array);
     layui.extend({
         'socket':'/static/js/mods/socket'
     });
@@ -53,7 +52,7 @@
             ,notice: true //是否开启桌面消息提醒，默认false
             ,msgbox: layui.cache.dir + 'css/modules/layim/html/msgbox.html' //消息盒子页面地址，若不开启，剔除该项即可
             ,find: layui.cache.dir + 'css/modules/layim/html/find.html' //发现页面地址，若不开启，剔除该项即可
-            ,chatLog: layui.cache.dir + 'css/modules/layim/html/chatlog.html' //聊天记录页面地址，若不开启，剔除该项即可
+            ,chatLog: '/chatlog' //聊天记录页面地址，若不开启，剔除该项即可
 
         });
 

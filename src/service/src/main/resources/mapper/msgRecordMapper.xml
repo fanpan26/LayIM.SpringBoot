@@ -9,8 +9,21 @@
         <parameter  property="createAt" />
         <parameter  property="msgType" />
     </parameterMap>
+    <resultMap id="msgRecordResultMap" type="com.fyp.entity.MsgRecord">
+        <result column="from_id" property="from" />
+        <result column="room_id" property="room" />
+        <result column="create_at" property="createAt" />
+    </resultMap>
    <insert id="addRecord" parameterMap="msgRecordMap">
        INSERT INTO msg_record (id,from_id,to_id,room_id,contents,create_at,mtype) values (#{id},#{from},#{to},#{room},#{contents},#{createAt},#{msgType})
    </insert>
 
+    <select id="getList" resultMap="msgRecordResultMap">
+        SELECT id,from_id,contents,create_at FROM layim.msg_record
+        <where>
+            <if test="arg0 != null ">room_id=#{arg0}</if>
+            <if test="arg1 != null and arg1!=0" >and id &lt; #{arg1}</if>
+        </where>
+        order by Id desc limit 20
+    </select>
 </mapper>

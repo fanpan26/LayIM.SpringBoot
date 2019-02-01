@@ -7,13 +7,15 @@ import com.fyp.entity.result.JsonResult;
 import java.util.List;
 
 public interface LayIMService {
-    User GetByUserId(Long userId);
+    User getByUserId(Long userId);
 
-    JsonResult GetInitResult(Long userId);
+    JsonResult getInitResult(Long userId);
 
-    JsonResult GetMembersByGroupId(Long groupId);
+    JsonResult getMembersByGroupId(Long groupId);
 
     List<Long> getGroupIds(Long userId);
 
     JsonResult addRecord(MsgRecord record);
+
+    JsonResult getChatRecords(Long userId,Long id,String type,Long lastId);
 }

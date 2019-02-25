@@ -10,12 +10,12 @@ public class Processor {
      * 消息处理入口
      */
     public static Object process(ChannelContext channelContext, byte[] body) {
-        getProcessor(body).process(channelContext, body);
+        getProcessor(body[4]).process(channelContext, body);
         return null;
     }
 
-    private static AbstractMsgProcessor getProcessor(byte[] body) {
-        MsgType type = MsgType.valueOf(body[4]);
+    private static AbstractMsgProcessor getProcessor(byte msgType) {
+        MsgType type = MsgType.valueOf(msgType);
         switch (type) {
             case clientToClient:
                 return new ClientToClientProcessor();

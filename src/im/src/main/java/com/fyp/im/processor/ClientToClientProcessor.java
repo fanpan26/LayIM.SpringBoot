@@ -1,5 +1,6 @@
 package com.fyp.im.processor;
 
+import com.fyp.entity.LayIMConstants;
 import com.fyp.im.utils.IMUtil;
 import org.tio.core.ChannelContext;
 
@@ -20,6 +21,6 @@ public class ClientToClientProcessor extends MsgStoredProcessor {
 
     @Override
     protected String getType(ChannelContext channelContext) {
-        return "friend";
+        return LayIMConstants.CHAT_TYPE_FRIEND;
     }
 }

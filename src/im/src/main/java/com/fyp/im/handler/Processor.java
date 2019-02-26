@@ -3,6 +3,7 @@ package com.fyp.im.handler;
 import com.fyp.im.MsgType;
 import com.fyp.im.processor.AbstractMsgProcessor;
 import com.fyp.im.processor.ClientToClientProcessor;
+import com.fyp.im.processor.ClientToGroupProcessor;
 import org.tio.core.ChannelContext;
 
 public class Processor {
@@ -20,7 +21,7 @@ public class Processor {
             case clientToClient:
                 return new ClientToClientProcessor();
             case clientToGroup:
-                return new ClientToClientProcessor();
+                return new ClientToGroupProcessor();
         }
         return null;
     }

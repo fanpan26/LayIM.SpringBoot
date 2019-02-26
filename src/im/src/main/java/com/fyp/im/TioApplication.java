@@ -18,19 +18,17 @@ public class TioApplication {
 
     private static final Logger logger = LoggerFactory.getLogger(TioApplication.class);
 
-    public static TioApplication Instance;
-
     private WsServerStarter wsServerStarter;
     private ServerGroupContext serverGroupContext;
 
     public TioApplication() throws Exception {
-        initServerStarter(8889);
+        initServerStarter("127.0.0.1",8889);
         initGroupContext();
     }
 
-    private void initServerStarter(int port) throws Exception{
+    private void initServerStarter(String ip,int port) throws Exception{
         WsServerConfig config = new WsServerConfig(port);
-        config.setBindIp("127.0.0.1");
+        config.setBindIp(ip);
         wsServerStarter = new WsServerStarter(config, new MyMsgHandler());
     }
 
@@ -44,16 +42,8 @@ public class TioApplication {
         serverGroupContext.setHeartbeatTimeout(0);
     }
 
-    public ServerGroupContext getServerGroupContext() {
-        return serverGroupContext;
-    }
 
-    public WsServerStarter getWsServerStarter() {
-        return wsServerStarter;
-    }
-
-    public static void run() throws Exception {
-        Instance = new TioApplication();
-        Instance.wsServerStarter.start();
+    public void run() throws Exception {
+       wsServerStarter.start();
     }
 }

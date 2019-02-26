@@ -12,7 +12,7 @@ public class PageController {
     }
 
     @RequestMapping("/chatlog")
-    public String chatlog(Long id,String type) {
+    public String chatlog() {
         return "chatlog";
     }
 }

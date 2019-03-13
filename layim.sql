@@ -1,0 +1,255 @@
+-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
+--
+-- Host: localhost    Database: layim
+-- ------------------------------------------------------
+-- Server version	5.7.17-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `apply`
+--
+
+DROP TABLE IF EXISTS `apply`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `apply` (
+  `id` bigint(20) NOT NULL,
+  `create_at` bigint(20) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `isread` bit(1) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `result` int(11) NOT NULL,
+  `toid` bigint(20) NOT NULL,
+  `type` int(11) NOT NULL,
+  `uid` bigint(20) NOT NULL,
+  `group_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apply`
+--
+
+LOCK TABLES `apply` WRITE;
+/*!40000 ALTER TABLE `apply` DISABLE KEYS */;
+INSERT INTO `apply` VALUES (144896,1513567903924,'/images/demo/xiaoniao.jpg','','安小鸟','123456',1,203328,1,843968,204096),(226432,1513567672133,'/images/demo/zhenhuan.jpg','','甄嬛','123564',1,203328,1,602624,615936),(374336,1513567318034,'/images/demo/xiaopanzi.jpg','','小小小盘子','1231231',1,203328,1,421440,781569),(385984,1513585488046,NULL,'\0',NULL,'雍正王 同意了你的好友请求',1,421440,3,0,0),(702144,1513585486586,NULL,'\0',NULL,'雍正王 同意了你的好友请求',1,602624,3,0,0),(713792,1513585484723,NULL,'',NULL,'雍正王 同意了你的好友请求',1,843968,3,0,0);
+/*!40000 ALTER TABLE `apply` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `big_group`
+--
+
+DROP TABLE IF EXISTS `big_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `big_group` (
+  `id` bigint(20) NOT NULL,
+  `create_at` bigint(20) DEFAULT NULL,
+  `avatar` varchar(120) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `group_name` varchar(20) DEFAULT NULL,
+  `uid` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKol8kn1ah7lj1olypbu7r40tsw` (`uid`),
+  CONSTRAINT `FKol8kn1ah7lj1olypbu7r40tsw` FOREIGN KEY (`uid`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `big_group`
+--
+
+LOCK TABLES `big_group` WRITE;
+/*!40000 ALTER TABLE `big_group` DISABLE KEYS */;
+INSERT INTO `big_group` VALUES (1,0,'/static/images/demo/huangshang.jpg',NULL,'皇室大家族',203328);
+/*!40000 ALTER TABLE `big_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `friend_group`
+--
+
+DROP TABLE IF EXISTS `friend_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `friend_group` (
+  `id` bigint(20) NOT NULL,
+  `create_at` bigint(20) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `uid` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKawe6k1o9mujam11lxiwcwbqpu` (`uid`),
+  CONSTRAINT `FKawe6k1o9mujam11lxiwcwbqpu` FOREIGN KEY (`uid`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `friend_group`
+--
+
+LOCK TABLES `friend_group` WRITE;
+/*!40000 ALTER TABLE `friend_group` DISABLE KEYS */;
+INSERT INTO `friend_group` VALUES (204096,1512628211849,'我的好友',843968),(251841,1512628191335,'姐妹们',308800),(369153,1512628345563,'后宫佳丽',203328),(472641,1512628172160,'主子',306816),(615936,1512627979684,'我的对手',602624),(781569,1512628497492,'我的好友',421440),(887488,1512628145472,'我的敌人',514048);
+/*!40000 ALTER TABLE `friend_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `msg_record`
+--
+
+DROP TABLE IF EXISTS `msg_record`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `msg_record` (
+  `id` bigint(20) NOT NULL,
+  `from_id` int(11) DEFAULT NULL,
+  `to_id` int(11) DEFAULT NULL,
+  `room_id` bigint(20) DEFAULT NULL,
+  `contents` varchar(2000) DEFAULT NULL,
+  `create_at` bigint(20) DEFAULT NULL,
+  `mtype` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `msg_record`
+--
+
+LOCK TABLES `msg_record` WRITE;
+/*!40000 ALTER TABLE `msg_record` DISABLE KEYS */;
+INSERT INTO `msg_record` VALUES (1548899624909,203328,421440,421440203328,'hello,thank you very much',1548899624909,0),(1548899630877,421440,203328,421440203328,'你好呀',1548899630877,0),(1548899635678,421440,203328,421440203328,'我是小盘子',1548899635678,0),(1548899640021,203328,421440,421440203328,'en ,nihao',1548899640021,0),(1548899643866,203328,421440,421440203328,'face[哼] ',1548899643866,0),(1548899666500,203328,421440,421440203328,'face[微笑] ',1548899666500,0),(1548899673147,421440,203328,421440203328,'face[兔子] ',1548899673147,0),(1548899676453,421440,203328,421440203328,'11',1548899676453,0),(1548899677167,421440,203328,421440203328,'22',1548899677167,0),(1548899677855,421440,203328,421440203328,'33',1548899677855,0),(1548899678564,421440,203328,421440203328,'44',1548899678564,0),(1548899679329,421440,203328,421440203328,'55',1548899679329,0),(1548899680103,421440,203328,421440203328,'66',1548899680103,0),(1548899682716,203328,421440,421440203328,'77',1548899682716,0),(1548899683505,203328,421440,421440203328,'77',1548899683505,0),(1548899684316,203328,421440,421440203328,'88',1548899684316,0),(1548899685534,203328,421440,421440203328,'96',1548899685534,0),(1548899686333,203328,421440,421440203328,'5',1548899686333,0),(1548899687029,203328,421440,421440203328,'4',1548899687029,0),(1548899687644,203328,421440,421440203328,'1',1548899687644,0),(1548899688300,203328,421440,421440203328,'2',1548899688300,0),(1548899688974,203328,421440,421440203328,'3',1548899688974,0),(1548899689510,203328,421440,421440203328,'2',1548899689510,0),(1548899690181,203328,421440,421440203328,'1',1548899690181,0),(1548991657446,203328,1,2033281,'123456',1548991657446,0),(1548991662186,203328,1,2033281,'俄文额无',1548991662186,0),(1548991838386,203328,1,2033281,'和谷歌会更好',1548991838386,0),(1548991853625,203328,1,2033281,'丰东股份郭德纲',1548991853625,0),(1548992056375,203328,1,1,'123456',1548992056376,2),(1548992058175,203328,1,1,'4125364564123',1548992058175,2),(1548992060165,203328,1,1,'1231256465',1548992060165,2),(1548992529570,203328,1,1,'1',1548992529570,2),(1548992530695,203328,1,1,'2',1548992530695,2),(1548992535261,203328,1,1,'3',1548992535261,2),(1548992536238,203328,1,1,'4',1548992536238,2),(1548992537972,203328,1,1,'5',1548992537972,2),(1548992539300,203328,1,1,'6',1548992539300,2),(1548992540391,203328,1,1,'7',1548992540391,2),(1548992542535,203328,1,1,'8',1548992542535,2),(1548992543319,203328,1,1,'9',1548992543319,2),(1548992544408,203328,1,1,'10',1548992544408,2),(1548992545032,203328,1,1,'11',1548992545032,2),(1548992545670,203328,1,1,'12',1548992545670,2),(1548992546310,203328,1,1,'13',1548992546310,2),(1548992546903,203328,1,1,'14',1548992546903,2),(1548992547503,203328,1,1,'15',1548992547503,2),(1548992548102,203328,1,1,'16',1548992548102,2),(1548992548655,203328,1,1,'17',1548992548655,2),(1548992549254,203328,1,1,'18',1548992549254,2),(1548992549845,203328,1,1,'19',1548992549845,2),(1548992550446,203328,1,1,'20',1548992550446,2),(1548992551015,203328,1,1,'21',1548992551015,2),(1548992551649,203328,1,1,'22',1548992551649,2),(1548992552872,203328,1,1,'23',1548992552872,2),(1548992553558,203328,1,1,'24',1548992553558,2),(1548992554159,203328,1,1,'25',1548992554159,2),(1548992554767,203328,1,1,'26',1548992554767,2),(1548992555366,203328,1,1,'27',1548992555366,2),(1548992556069,203328,1,1,'28',1548992556069,2),(1551150826551,203328,421440,421440203328,'halou ',1551150826551,1),(1551150833333,421440,203328,421440203328,'en ,zai ',1551150833333,1),(1551150835856,421440,203328,421440203328,'你好吗？',1551150835856,1),(1551150838393,203328,421440,421440203328,'haoda ',1551150838393,1),(1551150877091,203328,421440,421440203328,'我们的聊天记录',1551150877091,1),(1551150881008,421440,203328,421440203328,'嗯嗯',1551150881008,1),(1551150906189,421440,1,1,'哈哈哈',1551150906189,2),(1551150917030,421440,1,1,'小盘子，你收不到吗',1551150917030,2),(1551150921772,203328,1,1,'？',1551150921772,2),(1551151011072,421440,203328,421440203328,'111',1551151011072,1),(1551151023607,203328,1,1,'群聊测试',1551151023607,2),(1551151028080,421440,1,1,'群聊和UI福',1551151028080,2);
+/*!40000 ALTER TABLE `msg_record` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL,
+  `create_at` bigint(20) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `sign` varchar(255) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (203328,1512628345557,'/static/images/demo/huangshang.jpg','爱妃多的数不过来，愁煞朕了','雍正王'),(306816,1512628172154,'/static/images/demo/gonggong.jpg','誓死效忠皇后','江福海'),(308800,1512628191325,'/static/images/demo/huanghou.jpg','在我面前你还敢怀孩子？','皇后'),(421440,1512628497485,'/static/images/demo/xiaopanzi.jpg','看戏中。。。','小小小盘子'),(514048,1512628145362,'/static/images/demo/huafei.jpg','贱人就是矫情','华妃'),(602624,1512627979581,'/static/images/demo/zhenhuan.jpg','呵呵','甄嬛'),(843968,1512628211842,'/static/images/demo/xiaoniao.jpg','皇后，杀了皇后','安小鸟');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_account`
+--
+
+DROP TABLE IF EXISTS `user_account`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_account` (
+  `id` bigint(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `create_at` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_castjbvpeeus0r8lbpehiu0e4` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_account`
+--
+
+LOCK TABLES `user_account` WRITE;
+/*!40000 ALTER TABLE `user_account` DISABLE KEYS */;
+INSERT INTO `user_account` VALUES (203328,'123123','huangshang',1512628345557),(306816,'123123','gonggong',1512628172154),(308800,'123123','huanghou',1512628191325),(421440,'123123','admin',1512628497485),(514048,'123123','huafei',1512628145362),(602624,'123123','zhenhuan',1512627979581),(843968,'123123','xiaoniao',1512628211842);
+/*!40000 ALTER TABLE `user_account` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_big_group`
+--
+
+DROP TABLE IF EXISTS `user_big_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_big_group` (
+  `uid` bigint(20) NOT NULL,
+  `group_id` bigint(20) NOT NULL,
+  KEY `FKftgx1bft0t9o6xo74evcfhlsd` (`group_id`),
+  KEY `FKpyb8edgdcgjw5pd0g3mrmf3vt` (`uid`),
+  CONSTRAINT `FKftgx1bft0t9o6xo74evcfhlsd` FOREIGN KEY (`group_id`) REFERENCES `big_group` (`id`),
+  CONSTRAINT `FKpyb8edgdcgjw5pd0g3mrmf3vt` FOREIGN KEY (`uid`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_big_group`
+--
+
+LOCK TABLES `user_big_group` WRITE;
+/*!40000 ALTER TABLE `user_big_group` DISABLE KEYS */;
+INSERT INTO `user_big_group` VALUES (843968,1),(602624,1),(514048,1),(421440,1),(308800,1),(306816,1),(203328,1);
+/*!40000 ALTER TABLE `user_big_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_friend_group`
+--
+
+DROP TABLE IF EXISTS `user_friend_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_friend_group` (
+  `uid` bigint(20) NOT NULL,
+  `group_id` bigint(20) NOT NULL,
+  KEY `FKiio3b59cbsn1orj8ps2mlxk8j` (`group_id`),
+  KEY `FK3g6jqnmqu3lobq57235cawwq` (`uid`),
+  CONSTRAINT `FK3g6jqnmqu3lobq57235cawwq` FOREIGN KEY (`uid`) REFERENCES `user` (`id`),
+  CONSTRAINT `FKiio3b59cbsn1orj8ps2mlxk8j` FOREIGN KEY (`group_id`) REFERENCES `friend_group` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_friend_group`
+--
+
+LOCK TABLES `user_friend_group` WRITE;
+/*!40000 ALTER TABLE `user_friend_group` DISABLE KEYS */;
+INSERT INTO `user_friend_group` VALUES (203328,204096),(203328,615936),(203328,781569),(843968,369153),(602624,369153),(421440,369153);
+/*!40000 ALTER TABLE `user_friend_group` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-03-13 14:23:24

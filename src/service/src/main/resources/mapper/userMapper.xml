@@ -11,11 +11,11 @@
         <result column="user_name" property="username"/>
     </resultMap>
     <select id="getUser" parameterType="long" resultMap="userMap">
-        select <include refid="user_base_column"/> from User where id=#{id}
+        select <include refid="user_base_column"/> from `user` where id=#{id}
     </select>
 
     <select id="getUsersByIds" resultMap="userMap">
-        select  <include refid="user_base_column"/> from User where id in
+        select  <include refid="user_base_column"/> from `user` where id in
         <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
             #{id}
         </foreach>

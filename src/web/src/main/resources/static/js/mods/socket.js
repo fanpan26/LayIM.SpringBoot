@@ -17,7 +17,8 @@ layui.define(['jquery','layer'],function (exports) {
 
     var msgType={
         chatFriend:1,
-        chatGroup:2
+        chatGroup:2,
+        ping:3
     };
 
     var util=(function () {
@@ -171,6 +172,9 @@ layui.define(['jquery','layer'],function (exports) {
                         clearInterval(reconnectInterval);
                         reconnectInterval = null;
                     }
+                    setInterval(function () {
+                        tool.heartbeat();
+                    },10000);
                 };
                 this.ws.onerror = function (event) {
                     call.error&&call.error(event);
@@ -204,6 +208,20 @@ layui.define(['jquery','layer'],function (exports) {
             //消息长度
             view1.setInt32(5,bodyLength);
             return view1.buffer;
+        },
+        heartbeat:function () {
+            var targetId = 0,
+                dataBuff = this.encode('ping'),
+                view1 = new DataView(dataBuff.buffer),
+                bodyLength =dataBuff.buffer.byteLength - placeholder.length;
+            //接收人ID
+            view1.setInt32(0, targetId);
+            //消息类型
+            view1.setInt8(4, msgType.ping);
+            //消息长度
+            view1.setInt32(5,bodyLength);
+            var d = view1.buffer;
+            this.ws.send(d);
         },
         send:function (data) {
             var d = this.build(data);

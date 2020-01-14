@@ -10,10 +10,8 @@ import com.fyp.service.mapper.*;
 import com.fyp.service.utils.MyBatisUtil;
 import com.fyp.service.utils.Utils;
 import org.apache.ibatis.session.SqlSession;
-import org.omg.PortableServer.THREAD_POLICY_ID;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.*;
 import java.util.stream.Collectors;
 

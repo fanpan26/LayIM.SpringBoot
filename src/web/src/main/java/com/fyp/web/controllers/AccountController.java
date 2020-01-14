@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/account")
@@ -29,11 +30,12 @@ public class AccountController extends  BaseController{
      * 模拟用户登录，写入cookie
      * */
     @GetMapping("login")
-    public JsonResult login(String userId, HttpServletResponse response) {
+    public JsonResult login(String userId, HttpServletResponse response) throws IOException {
         Cookie cookie = new Cookie("layim_uid", userId);
         cookie.setMaxAge(7200);
         cookie.setPath("/");
         response.addCookie(cookie);
+        response.sendRedirect("/");
         return JsonResult.success();
     }
 }

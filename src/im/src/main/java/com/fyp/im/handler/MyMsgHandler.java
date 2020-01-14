@@ -56,7 +56,6 @@ public class MyMsgHandler implements IWsMsgHandler {
      * 握手完毕
      * */
     public void onAfterHandshaked(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext) throws Exception {
-        System.out.println("握手完毕");
     }
 
     /**

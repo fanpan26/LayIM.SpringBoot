@@ -1,6 +1,7 @@
 package com.fyp.im;
 
 public enum MsgType {
+    ping((byte)3),
     clientToClient((byte) 1),
     clientToGroup((byte)2);
 

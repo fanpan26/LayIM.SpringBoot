@@ -4,6 +4,7 @@ import com.fyp.im.MsgType;
 import com.fyp.im.processor.AbstractMsgProcessor;
 import com.fyp.im.processor.ClientToClientProcessor;
 import com.fyp.im.processor.ClientToGroupProcessor;
+import com.fyp.im.processor.PingProcessor;
 import org.tio.core.ChannelContext;
 
 public class Processor {
@@ -22,6 +23,8 @@ public class Processor {
                 return new ClientToClientProcessor();
             case clientToGroup:
                 return new ClientToGroupProcessor();
+            case ping:
+                return new PingProcessor();
         }
         return null;
     }
